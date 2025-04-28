@@ -1,0 +1,457 @@
+[
+  {
+    "federation": "1",
+    "players": "AUS",
+    "points": "5"
+  },
+  {
+    "federation": "2",
+    "players": "VIC",
+    "points": "4"
+  },
+  {
+    "federation": "3",
+    "players": "OS",
+    "points": "3"
+  },
+  {
+    "federation": "4",
+    "players": "TTO",
+    "points": "0.5"
+  },
+  {
+    "federation": "1",
+    "players": "",
+    "points": "Hogg,Dean"
+  },
+  {
+    "federation": "2",
+    "players": "",
+    "points": "Nguyen,Anh Kiet"
+  },
+  {
+    "federation": "3",
+    "players": "",
+    "points": "Jothibabu,Anandaram"
+  },
+  {
+    "federation": "4",
+    "players": "",
+    "points": "Thandhi,Mohan"
+  },
+  {
+    "federation": "5",
+    "players": "",
+    "points": "Lingineni,Khushal"
+  },
+  {
+    "federation": "6",
+    "players": "",
+    "points": "Annapureddy,Dhruthin Reddy"
+  },
+  {
+    "federation": "7",
+    "players": "",
+    "points": "Saha,Avinandan (Arjun)"
+  },
+  {
+    "federation": "8",
+    "players": "",
+    "points": "Nawar,Mena"
+  },
+  {
+    "federation": "9",
+    "players": "",
+    "points": "Ahmad,Ihtiram"
+  },
+  {
+    "federation": "11",
+    "players": "",
+    "points": "Nguyen,Tuan Kiet"
+  },
+  {
+    "federation": "12",
+    "players": "",
+    "points": "Nema,Nivaan"
+  },
+  {
+    "federation": "14",
+    "players": "",
+    "points": "Velkur,Raghav Sripad"
+  },
+  {
+    "federation": "17",
+    "players": "",
+    "points": "Ruaya,Chris Rodson"
+  },
+  {
+    "federation": "24",
+    "players": "",
+    "points": "Paul,Cijo"
+  },
+  {
+    "federation": "1",
+    "players": "1",
+    "points": "CM"
+  },
+  {
+    "federation": "2",
+    "players": "9",
+    "points": ""
+  },
+  {
+    "federation": "4",
+    "players": "5",
+    "points": ""
+  },
+  {
+    "federation": "5",
+    "players": "3",
+    "points": ""
+  },
+  {
+    "federation": "6",
+    "players": "13",
+    "points": ""
+  },
+  {
+    "federation": "9",
+    "players": "23",
+    "points": ""
+  },
+  {
+    "federation": "10",
+    "players": "19",
+    "points": ""
+  },
+  {
+    "federation": "11",
+    "players": "32",
+    "points": ""
+  },
+  {
+    "federation": "12",
+    "players": "43",
+    "points": ""
+  },
+  {
+    "federation": "14",
+    "players": "18",
+    "points": ""
+  },
+  {
+    "federation": "15",
+    "players": "4",
+    "points": ""
+  },
+  {
+    "federation": "16",
+    "players": "6",
+    "points": ""
+  },
+  {
+    "federation": "18",
+    "players": "28",
+    "points": ""
+  },
+  {
+    "federation": "21",
+    "players": "15",
+    "points": ""
+  },
+  {
+    "federation": "22",
+    "players": "20",
+    "points": ""
+  },
+  {
+    "federation": "34",
+    "players": "12",
+    "points": ""
+  },
+  {
+    "federation": "37",
+    "players": "26",
+    "points": ""
+  },
+  {
+    "federation": "44",
+    "players": "16",
+    "points": ""
+  },
+  {
+    "federation": "1",
+    "players": "",
+    "points": "Hogg,Dean"
+  },
+  {
+    "federation": "2",
+    "players": "",
+    "points": "Nguyen,Anh Kiet"
+  },
+  {
+    "federation": "3",
+    "players": "",
+    "points": "Jothibabu,Anandaram"
+  },
+  {
+    "federation": "4",
+    "players": "",
+    "points": "Thandhi,Mohan"
+  },
+  {
+    "federation": "7",
+    "players": "",
+    "points": "Saha,Avinandan (Arjun)"
+  },
+  {
+    "federation": "10",
+    "players": "",
+    "points": "Huang,Michael"
+  },
+  {
+    "federation": "11",
+    "players": "",
+    "points": "Nguyen,Tuan Kiet"
+  },
+  {
+    "federation": "12",
+    "players": "",
+    "points": "Nema,Nivaan"
+  },
+  {
+    "federation": "13",
+    "players": "",
+    "points": "Nicdao,Joseph"
+  },
+  {
+    "federation": "14",
+    "players": "",
+    "points": "Velkur,Raghav Sripad"
+  },
+  {
+    "federation": "15",
+    "players": "",
+    "points": "Kirk,Ian"
+  },
+  {
+    "federation": "16",
+    "players": "",
+    "points": "Sivesh Balaji,Sai"
+  },
+  {
+    "federation": "18",
+    "players": "",
+    "points": "Christodoulou,Anthony"
+  },
+  {
+    "federation": "19",
+    "players": "",
+    "points": "Jyothi Nikhil,Neev"
+  },
+  {
+    "federation": "20",
+    "players": "",
+    "points": "Shaiek,Nihal"
+  },
+  {
+    "federation": "21",
+    "players": "",
+    "points": "Cox,Aiden"
+  },
+  {
+    "federation": "22",
+    "players": "",
+    "points": "Salanowski,Mark"
+  },
+  {
+    "federation": "23",
+    "players": "",
+    "points": "Goh,Nicholas"
+  },
+  {
+    "federation": "26",
+    "players": "",
+    "points": "Stefan Jiace Tham,Keanu"
+  },
+  {
+    "federation": "27",
+    "players": "",
+    "points": "Goh,Daphne"
+  },
+  {
+    "federation": "28",
+    "players": "",
+    "points": "Goh,Julian"
+  },
+  {
+    "federation": "29",
+    "players": "",
+    "points": "Ramprasad,Nachiket"
+  },
+  {
+    "federation": "3",
+    "players": "2",
+    "points": ""
+  },
+  {
+    "federation": "7",
+    "players": "17",
+    "points": ""
+  },
+  {
+    "federation": "8",
+    "players": "10",
+    "points": ""
+  },
+  {
+    "federation": "13",
+    "players": "24",
+    "points": ""
+  },
+  {
+    "federation": "17",
+    "players": "14",
+    "points": ""
+  },
+  {
+    "federation": "20",
+    "players": "30",
+    "points": ""
+  },
+  {
+    "federation": "23",
+    "players": "48",
+    "points": ""
+  },
+  {
+    "federation": "24",
+    "players": "21",
+    "points": ""
+  },
+  {
+    "federation": "25",
+    "players": "11",
+    "points": ""
+  },
+  {
+    "federation": "26",
+    "players": "38",
+    "points": ""
+  },
+  {
+    "federation": "27",
+    "players": "25",
+    "points": ""
+  },
+  {
+    "federation": "28",
+    "players": "8",
+    "points": ""
+  },
+  {
+    "federation": "29",
+    "players": "34",
+    "points": ""
+  },
+  {
+    "federation": "30",
+    "players": "45",
+    "points": ""
+  },
+  {
+    "federation": "31",
+    "players": "49",
+    "points": ""
+  },
+  {
+    "federation": "32",
+    "players": "29",
+    "points": ""
+  },
+  {
+    "federation": "33",
+    "players": "47",
+    "points": ""
+  },
+  {
+    "federation": "35",
+    "players": "27",
+    "points": ""
+  },
+  {
+    "federation": "36",
+    "players": "35",
+    "points": ""
+  },
+  {
+    "federation": "38",
+    "players": "42",
+    "points": ""
+  },
+  {
+    "federation": "39",
+    "players": "22",
+    "points": ""
+  },
+  {
+    "federation": "40",
+    "players": "33",
+    "points": ""
+  },
+  {
+    "federation": "41",
+    "players": "36",
+    "points": ""
+  },
+  {
+    "federation": "42",
+    "players": "31",
+    "points": ""
+  },
+  {
+    "federation": "45",
+    "players": "37",
+    "points": ""
+  },
+  {
+    "federation": "46",
+    "players": "44",
+    "points": ""
+  },
+  {
+    "federation": "47",
+    "players": "40",
+    "points": ""
+  },
+  {
+    "federation": "48",
+    "players": "39",
+    "points": ""
+  },
+  {
+    "federation": "49",
+    "players": "46",
+    "points": ""
+  },
+  {
+    "federation": "9",
+    "players": "",
+    "points": "Ahmad,Ihtiram"
+  },
+  {
+    "federation": "19",
+    "players": "41",
+    "points": ""
+  },
+  {
+    "federation": "25",
+    "players": "",
+    "points": "Austin, Angelo"
+  },
+  {
+    "federation": "43",
+    "players": "7",
+    "points": ""
+  }
+]

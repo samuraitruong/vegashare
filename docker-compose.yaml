@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: vegashare-mongodb
+    restart: always
+    ports:
+      - "27017:27017" # Expose MongoDB on localhost:27017
+    volumes:
+      - mongodb_data:/data/db # Persist MongoDB data
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  vegaftp:
+    build:
+      context: ./server/vegaftp
+    container_name: vegashare-vegaftp
+    restart: always
+    ports:
+      - "21:21" # Expose FTP server on localhost:21
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: mongodb://root:example@mongodb:27017/vegashare?authSource=admin
+    volumes:
+      - ./server/vegaftp:/app # Mount the FTP server code
+      - user_data:/user_data # Persist user data
+
+volumes:
+  mongodb_data:
+  user_data:

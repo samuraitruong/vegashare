@@ -1,0 +1,24 @@
+{
+  "name": "vega-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool for VegaShare",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "vega-cli": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "cli",
+    "vega",
+    "files"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.2",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

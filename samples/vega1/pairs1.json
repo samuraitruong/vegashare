@@ -1,0 +1,434 @@
+[
+  {
+    "board": "1",
+    "white": {
+      "name": "Nguyen,Tuan Kiet",
+      "id": "25",
+      "title": "-",
+      "rating": "761"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "2",
+    "white": {
+      "name": "Hogg,Dean",
+      "id": "2",
+      "title": "-",
+      "rating": "1911"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "3",
+    "white": {
+      "name": "Saha,Avinandan (Arjun)",
+      "id": "27",
+      "title": "-",
+      "rating": "722"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "4",
+    "white": {
+      "name": "Jothibabu,Anandaram",
+      "id": "4",
+      "title": "-",
+      "rating": "1749"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "5",
+    "white": {
+      "name": "Goh,Nicholas",
+      "id": "29",
+      "title": "-",
+      "rating": "380"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "6",
+    "white": {
+      "name": "Lingineni,Khushal",
+      "id": "7",
+      "title": "-",
+      "rating": "1606"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "7",
+    "white": {
+      "name": "Christodoulou,Anthony",
+      "id": "32",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "8",
+    "white": {
+      "name": "Ruaya,Chris Rodson",
+      "id": "10",
+      "title": "-",
+      "rating": "1468"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "9",
+    "white": {
+      "name": "Cox,Aiden",
+      "id": "34",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "10",
+    "white": {
+      "name": "Salanowski,Mark",
+      "id": "12",
+      "title": "-",
+      "rating": "1418"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "11",
+    "white": {
+      "name": "Goh,Daphne",
+      "id": "36",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "12",
+    "white": {
+      "name": "Annapureddy,Dhruthin Reddy",
+      "id": "15",
+      "title": "-",
+      "rating": "1364"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "13",
+    "white": {
+      "name": "Huang,Michael",
+      "id": "38",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "14",
+    "white": {
+      "name": "Nawar,Mena",
+      "id": "17",
+      "title": "-",
+      "rating": "1193"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "15",
+    "white": {
+      "name": "Jyothi Nikhil,Neev",
+      "id": "40",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "16",
+    "white": {
+      "name": "Thandhi,Mohan",
+      "id": "19",
+      "title": "-",
+      "rating": "1110"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "17",
+    "white": {
+      "name": "Ramprasad,Nachiket",
+      "id": "42",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "18",
+    "white": {
+      "name": "Annadasu,Shreyansh",
+      "id": "21",
+      "title": "-",
+      "rating": "1020"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "19",
+    "white": {
+      "name": "Shaiek,Nihal",
+      "id": "44",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "20",
+    "white": {
+      "name": "Veginati,Cherish",
+      "id": "23",
+      "title": "-",
+      "rating": "835"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "21",
+    "white": {
+      "name": "Velkur,Gagan Saicharan",
+      "id": "48",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "0 - 1"
+  },
+  {
+    "board": "22",
+    "white": {
+      "name": "Sivesh Balaji,Sai",
+      "id": "45",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1 - 0"
+  },
+  {
+    "board": "23",
+    "white": {
+      "name": "Velkur,Raghav Sripad",
+      "id": "49",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "1"
+  },
+  {
+    "board": "24",
+    "white": {
+      "name": "Paul,Cijo",
+      "id": "6",
+      "title": "-",
+      "rating": "1611"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "½"
+  },
+  {
+    "board": "25",
+    "white": {
+      "name": "Austin, Angelo",
+      "id": "9",
+      "title": "-",
+      "rating": "1497"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "½"
+  },
+  {
+    "board": "26",
+    "white": {
+      "name": "Ahmad,Ihtiram",
+      "id": "30",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "½"
+  },
+  {
+    "board": "27",
+    "white": {
+      "name": "Stefan Jiace Tham,Keanu",
+      "id": "47",
+      "title": "-",
+      "rating": "0"
+    },
+    "black": {
+      "name": "",
+      "id": null,
+      "title": null,
+      "rating": ""
+    },
+    "result": "½"
+  }
+]

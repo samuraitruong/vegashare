@@ -1,0 +1,512 @@
+{
+  "title": "2025 Hobsons Bay April Rapid",
+  "meta": [
+    {
+      "charset": "UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "chess tournament"
+    },
+    {
+      "name": "author",
+      "content": "www.vegachess.com"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "http-equiv": "X-UA-Compatible",
+      "content": "IE=edge"
+    }
+  ],
+  "links": [
+    {
+      "href": "#",
+      "text": "Info"
+    },
+    {
+      "href": "schedule.html",
+      "text": "Schedule"
+    },
+    {
+      "href": "tourstat.html",
+      "text": "Statistics"
+    },
+    {
+      "href": "#",
+      "text": "Players"
+    },
+    {
+      "href": "index.html",
+      "text": "Sorted by Rating"
+    },
+    {
+      "href": "playersname.html",
+      "text": "Sorted by Name"
+    },
+    {
+      "href": "pairs5.html",
+      "text": "Pairings"
+    },
+    {
+      "href": "standings.html",
+      "text": "Standings"
+    },
+    {
+      "href": "#",
+      "text": "Tables"
+    },
+    {
+      "href": "crosstable.html",
+      "text": "Cross table"
+    },
+    {
+      "href": "crosstablescore.html",
+      "text": "Cross table and standings"
+    },
+    {
+      "href": "rankinggroup.html",
+      "text": "Standings by Rtg groups"
+    },
+    {
+      "href": "rankingagegroup.html",
+      "text": "Standings by age groups"
+    },
+    {
+      "href": "rankcat.html",
+      "text": "Standings by title"
+    },
+    {
+      "href": "rankTeams.html",
+      "text": "Rank Teams"
+    },
+    {
+      "href": "summaryFederations.html",
+      "text": "Summary Federations"
+    },
+    {
+      "href": "summaryOrigin.html",
+      "text": "Summary Origin"
+    },
+    {
+      "href": "#",
+      "text": "Reports"
+    },
+    {
+      "href": "felovar.html",
+      "text": "FIDE Rating"
+    },
+    {
+      "href": "fideplayercard.html",
+      "text": "FIDE Player Card"
+    },
+    {
+      "href": "nelovar.html",
+      "text": "National rating"
+    },
+    {
+      "href": "playercard.html",
+      "text": "National Player Card"
+    },
+    {
+      "href": "playercard.html#1",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#2",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#3",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#4",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#5",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#6",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#7",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#8",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#9",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#10",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#11",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#12",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#13",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#14",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#15",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#16",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#17",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#18",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#19",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#20",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#21",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#22",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#23",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#24",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#25",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#26",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#27",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#28",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#29",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#30",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#31",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#32",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#33",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#34",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#35",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#36",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#37",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#38",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#39",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#40",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#41",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#42",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#43",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#44",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#45",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#46",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#47",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#48",
+      "text": ""
+    },
+    {
+      "href": "playercard.html#49",
+      "text": ""
+    },
+    {
+      "href": "http://www.vegachess.com",
+      "text": "Generated by Vega"
+    }
+  ],
+  "images": [
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/tto.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/os.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/aus.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    },
+    {
+      "src": "./flag/vic.png",
+      "alt": "flag"
+    }
+  ]
+}

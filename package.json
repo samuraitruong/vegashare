@@ -1,0 +1,16 @@
+{
+  "name": "vegashare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-cli": "node server/vega-cli/index.js --inputPath samples/vega1",
+    "dev": "pnpm -r run dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:up": "docker-compose up --build",
+    "docker:down": "docker-compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,1122 @@
+{
+  "title": "2025 Hobsons Bay April Rapid",
+  "meta": [
+    {
+      "charset": "UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "chess tournament"
+    },
+    {
+      "name": "author",
+      "content": "www.vegachess.com"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "http-equiv": "X-UA-Compatible",
+      "content": "IE=edge"
+    }
+  ],
+  "links": [
+    {
+      "href": "#",
+      "text": "Info"
+    },
+    {
+      "href": "schedule.html",
+      "text": "Schedule"
+    },
+    {
+      "href": "tourstat.html",
+      "text": "Statistics"
+    },
+    {
+      "href": "#",
+      "text": "Players"
+    },
+    {
+      "href": "index.html",
+      "text": "Sorted by Rating"
+    },
+    {
+      "href": "playersname.html",
+      "text": "Sorted by Name"
+    },
+    {
+      "href": "pairs5.html",
+      "text": "Pairings"
+    },
+    {
+      "href": "standings.html",
+      "text": "Standings"
+    },
+    {
+      "href": "#",
+      "text": "Tables"
+    },
+    {
+      "href": "crosstable.html",
+      "text": "Cross table"
+    },
+    {
+      "href": "crosstablescore.html",
+      "text": "Cross table and standings"
+    },
+    {
+      "href": "rankinggroup.html",
+      "text": "Standings by Rtg groups"
+    },
+    {
+      "href": "rankingagegroup.html",
+      "text": "Standings by age groups"
+    },
+    {
+      "href": "rankcat.html",
+      "text": "Standings by title"
+    },
+    {
+      "href": "rankTeams.html",
+      "text": "Rank Teams"
+    },
+    {
+      "href": "summaryFederations.html",
+      "text": "Summary Federations"
+    },
+    {
+      "href": "summaryOrigin.html",
+      "text": "Summary Origin"
+    },
+    {
+      "href": "#",
+      "text": "Reports"
+    },
+    {
+      "href": "felovar.html",
+      "text": "FIDE Rating"
+    },
+    {
+      "href": "fideplayercard.html",
+      "text": "FIDE Player Card"
+    },
+    {
+      "href": "nelovar.html",
+      "text": "National rating"
+    },
+    {
+      "href": "playercard.html",
+      "text": "National Player Card"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "playercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "playercard.html#8",
+      "text": "Salanowski,Mark"
+    },
+    {
+      "href": "playercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "playercard.html#2",
+      "text": "Hogg,Dean"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "playercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "playercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "playercard.html#10",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "href": "playercard.html#1",
+      "text": "Annapureddy,Rheyansh"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#35",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "href": "playercard.html#24",
+      "text": "Majety,Rohan"
+    },
+    {
+      "href": "playercard.html#43",
+      "text": "Christodoulou,Stanis"
+    },
+    {
+      "href": "playercard.html#1",
+      "text": "Annapureddy,Rheyansh"
+    },
+    {
+      "href": "playercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#2",
+      "text": "Hogg,Dean"
+    },
+    {
+      "href": "playercard.html#36",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "href": "playercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "playercard.html#13",
+      "text": "Annapureddy,Dhruthin"
+    },
+    {
+      "href": "playercard.html#45",
+      "text": "Nema,Nivaan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#30",
+      "text": "Nicdao,Joseph"
+    },
+    {
+      "href": "playercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "playercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "href": "playercard.html#17",
+      "text": "Hogan,Steven"
+    },
+    {
+      "href": "playercard.html#24",
+      "text": "Majety,Rohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#1",
+      "text": "Annapureddy,Rheyansh"
+    },
+    {
+      "href": "playercard.html#39",
+      "text": "Goh,Julian"
+    },
+    {
+      "href": "playercard.html#34",
+      "text": "Velkur,Raghav Sripad"
+    },
+    {
+      "href": "playercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "playercard.html#29",
+      "text": "Jagannathan,Shashvat"
+    },
+    {
+      "text": ""
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#44",
+      "text": "Ganesh Kumar,Mukunth"
+    },
+    {
+      "href": "playercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "playercard.html#1",
+      "text": "Annapureddy,Rheyansh"
+    },
+    {
+      "href": "playercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#40",
+      "text": "Goh,Daphne"
+    },
+    {
+      "href": "playercard.html#48",
+      "text": "Sivesh Balaji,Sai"
+    },
+    {
+      "href": "playercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "playercard.html#8",
+      "text": "Salanowski,Mark"
+    },
+    {
+      "href": "playercard.html#17",
+      "text": "Hogan,Steven"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#33",
+      "text": "Goh,Nicholas"
+    },
+    {
+      "href": "playercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "playercard.html#13",
+      "text": "Annapureddy,Dhruthin"
+    },
+    {
+      "href": "playercard.html#2",
+      "text": "Hogg,Dean"
+    },
+    {
+      "href": "playercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#48",
+      "text": "Sivesh Balaji,Sai"
+    },
+    {
+      "href": "playercard.html#40",
+      "text": "Goh,Daphne"
+    },
+    {
+      "href": "playercard.html#21",
+      "text": "Saha,Avinandan (Arju"
+    },
+    {
+      "href": "playercard.html#41",
+      "text": "Ahmad,Ihtiram"
+    },
+    {
+      "href": "playercard.html#49",
+      "text": "Srivatsav Yegnavajju"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#43",
+      "text": "Christodoulou,Stanis"
+    },
+    {
+      "href": "playercard.html#44",
+      "text": "Ganesh Kumar,Mukunth"
+    },
+    {
+      "href": "playercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "playercard.html#45",
+      "text": "Nema,Nivaan"
+    },
+    {
+      "href": "playercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#39",
+      "text": "Goh,Julian"
+    },
+    {
+      "href": "playercard.html#34",
+      "text": "Velkur,Raghav Sripad"
+    },
+    {
+      "href": "playercard.html#10",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "href": "playercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "playercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#21",
+      "text": "Saha,Avinandan (Arju"
+    },
+    {
+      "href": "playercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "playercard.html#30",
+      "text": "Nicdao,Joseph"
+    },
+    {
+      "href": "playercard.html#48",
+      "text": "Sivesh Balaji,Sai"
+    },
+    {
+      "href": "playercard.html#25",
+      "text": "Huang,Michael"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#31",
+      "text": "Cox,Aiden"
+    },
+    {
+      "href": "playercard.html#27",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "href": "playercard.html#2",
+      "text": "Hogg,Dean"
+    },
+    {
+      "href": "playercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "playercard.html#13",
+      "text": "Annapureddy,Dhruthin"
+    },
+    {
+      "text": ""
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#42",
+      "text": "Christodoulou,Anthon"
+    },
+    {
+      "href": "playercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "playercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "playercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "playercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#36",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "href": "playercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "playercard.html#25",
+      "text": "Huang,Michael"
+    },
+    {
+      "href": "playercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "playercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#25",
+      "text": "Huang,Michael"
+    },
+    {
+      "href": "playercard.html#2",
+      "text": "Hogg,Dean"
+    },
+    {
+      "href": "playercard.html#33",
+      "text": "Goh,Nicholas"
+    },
+    {
+      "href": "playercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "playercard.html#21",
+      "text": "Saha,Avinandan (Arju"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#29",
+      "text": "Jagannathan,Shashvat"
+    },
+    {
+      "href": "playercard.html#1",
+      "text": "Annapureddy,Rheyansh"
+    },
+    {
+      "href": "playercard.html#35",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "href": "playercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "playercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#14",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "href": "playercard.html#29",
+      "text": "Jagannathan,Shashvat"
+    },
+    {
+      "href": "playercard.html#11",
+      "text": "Kirk,Ian"
+    },
+    {
+      "href": "playercard.html#35",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "href": "playercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#27",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "href": "playercard.html#25",
+      "text": "Huang,Michael"
+    },
+    {
+      "href": "playercard.html#41",
+      "text": "Ahmad,Ihtiram"
+    },
+    {
+      "href": "playercard.html#31",
+      "text": "Cox,Aiden"
+    },
+    {
+      "href": "playercard.html#42",
+      "text": "Christodoulou,Anthon"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#45",
+      "text": "Nema,Nivaan"
+    },
+    {
+      "href": "playercard.html#14",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "href": "playercard.html#17",
+      "text": "Hogan,Steven"
+    },
+    {
+      "href": "playercard.html#43",
+      "text": "Christodoulou,Stanis"
+    },
+    {
+      "href": "playercard.html#10",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#46",
+      "text": "Ramprasad,Nachiket"
+    },
+    {
+      "href": "playercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "playercard.html#27",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "href": "playercard.html#30",
+      "text": "Nicdao,Joseph"
+    },
+    {
+      "href": "playercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "playercard.html#22",
+      "text": "Cox,Tyler"
+    },
+    {
+      "href": "playercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "playercard.html#47",
+      "text": "Ryan,Jasper"
+    },
+    {
+      "href": "playercard.html#14",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#38",
+      "text": "Velkur,Gagan Saichar"
+    },
+    {
+      "href": "playercard.html#8",
+      "text": "Salanowski,Mark"
+    },
+    {
+      "href": "playercard.html#48",
+      "text": "Sivesh Balaji,Sai"
+    },
+    {
+      "href": "playercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "playercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#22",
+      "text": "Cox,Tyler"
+    },
+    {
+      "href": "playercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "playercard.html#24",
+      "text": "Majety,Rohan"
+    },
+    {
+      "href": "playercard.html#29",
+      "text": "Jagannathan,Shashvat"
+    },
+    {
+      "href": "playercard.html#44",
+      "text": "Ganesh Kumar,Mukunth"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#47",
+      "text": "Ryan,Jasper"
+    },
+    {
+      "href": "playercard.html#10",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "href": "playercard.html#49",
+      "text": "Srivatsav Yegnavajju"
+    },
+    {
+      "href": "playercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "playercard.html#41",
+      "text": "Ahmad,Ihtiram"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "playercard.html#21",
+      "text": "Saha,Avinandan (Arju"
+    },
+    {
+      "href": "playercard.html#31",
+      "text": "Cox,Aiden"
+    },
+    {
+      "href": "playercard.html#27",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "href": "playercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "playercard.html#14",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "href": "playercard.html#24",
+      "text": "Majety,Rohan"
+    },
+    {
+      "href": "playercard.html#38",
+      "text": "Velkur,Gagan Saichar"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "playercard.html#49",
+      "text": "Srivatsav Yegnavajju"
+    },
+    {
+      "href": "playercard.html#29",
+      "text": "Jagannathan,Shashvat"
+    },
+    {
+      "href": "playercard.html#22",
+      "text": "Cox,Tyler"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#49",
+      "text": "Srivatsav Yegnavajju"
+    },
+    {
+      "href": "playercard.html#17",
+      "text": "Hogan,Steven"
+    },
+    {
+      "href": "playercard.html#47",
+      "text": "Ryan,Jasper"
+    },
+    {
+      "href": "playercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "playercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#10",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "href": "playercard.html#45",
+      "text": "Nema,Nivaan"
+    },
+    {
+      "href": "playercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#13",
+      "text": "Annapureddy,Dhruthin"
+    },
+    {
+      "href": "playercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "playercard.html#44",
+      "text": "Ganesh Kumar,Mukunth"
+    },
+    {
+      "href": "playercard.html#43",
+      "text": "Christodoulou,Stanis"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "playercard.html#38",
+      "text": "Velkur,Gagan Saichar"
+    },
+    {
+      "href": "playercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "playercard.html#21",
+      "text": "Saha,Avinandan (Arju"
+    },
+    {
+      "href": "playercard.html#48",
+      "text": "Sivesh Balaji,Sai"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "playercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "playercard.html#44",
+      "text": "Ganesh Kumar,Mukunth"
+    },
+    {
+      "href": "playercard.html#38",
+      "text": "Velkur,Gagan Saichar"
+    },
+    {
+      "href": "playercard.html#47",
+      "text": "Ryan,Jasper"
+    },
+    {
+      "text": ""
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "playercard.html#35",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "href": "playercard.html#36",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "href": "playercard.html#30",
+      "text": "Nicdao,Joseph"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#13",
+      "text": "Annapureddy,Dhruthin"
+    },
+    {
+      "href": "playercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "playercard.html#42",
+      "text": "Christodoulou,Anthon"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "href": "playercard.html#11",
+      "text": "Kirk,Ian"
+    },
+    {
+      "href": "playercard.html#45",
+      "text": "Nema,Nivaan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#43",
+      "text": "Christodoulou,Stanis"
+    },
+    {
+      "href": "playercard.html#22",
+      "text": "Cox,Tyler"
+    },
+    {
+      "href": "playercard.html#11",
+      "text": "Kirk,Ian"
+    },
+    {
+      "href": "playercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#17",
+      "text": "Hogan,Steven"
+    },
+    {
+      "href": "playercard.html#47",
+      "text": "Ryan,Jasper"
+    },
+    {
+      "href": "playercard.html#39",
+      "text": "Goh,Julian"
+    },
+    {
+      "href": "playercard.html#49",
+      "text": "Srivatsav Yegnavajju"
+    },
+    {
+      "href": "playercard.html#22",
+      "text": "Cox,Tyler"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "playercard.html#41",
+      "text": "Ahmad,Ihtiram"
+    },
+    {
+      "href": "playercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "playercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "playercard.html#34",
+      "text": "Velkur,Raghav Sripad"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#8",
+      "text": "Salanowski,Mark"
+    },
+    {
+      "href": "playercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "playercard.html#36",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "href": "playercard.html#34",
+      "text": "Velkur,Raghav Sripad"
+    },
+    {
+      "href": "playercard.html#27",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "playercard.html#33",
+      "text": "Goh,Nicholas"
+    },
+    {
+      "href": "playercard.html#40",
+      "text": "Goh,Daphne"
+    },
+    {
+      "href": "playercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "playercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#24",
+      "text": "Majety,Rohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "playercard.html#42",
+      "text": "Christodoulou,Anthon"
+    },
+    {
+      "href": "playercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "playercard.html#25",
+      "text": "Huang,Michael"
+    },
+    {
+      "href": "playercard.html#36",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#11",
+      "text": "Kirk,Ian"
+    },
+    {
+      "href": "playercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "href": "playercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "playercard.html#14",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "href": "playercard.html#35",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "playercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "playercard.html#31",
+      "text": "Cox,Aiden"
+    },
+    {
+      "href": "playercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "playercard.html#42",
+      "text": "Christodoulou,Anthon"
+    },
+    {
+      "href": "playercard.html#11",
+      "text": "Kirk,Ian"
+    },
+    {
+      "href": "http://www.vegachess.com",
+      "text": "Generated by Vega"
+    }
+  ],
+  "images": []
+}

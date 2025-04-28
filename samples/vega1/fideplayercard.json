@@ -1,0 +1,726 @@
+{
+  "title": "2025 Hobsons Bay April Rapid",
+  "meta": [
+    {
+      "charset": "UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "chess tournament"
+    },
+    {
+      "name": "author",
+      "content": "www.vegachess.com"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "http-equiv": "X-UA-Compatible",
+      "content": "IE=edge"
+    }
+  ],
+  "links": [
+    {
+      "href": "#",
+      "text": "Info"
+    },
+    {
+      "href": "schedule.html",
+      "text": "Schedule"
+    },
+    {
+      "href": "tourstat.html",
+      "text": "Statistics"
+    },
+    {
+      "href": "#",
+      "text": "Players"
+    },
+    {
+      "href": "index.html",
+      "text": "Sorted by Rating"
+    },
+    {
+      "href": "playersname.html",
+      "text": "Sorted by Name"
+    },
+    {
+      "href": "pairs5.html",
+      "text": "Pairings"
+    },
+    {
+      "href": "standings.html",
+      "text": "Standings"
+    },
+    {
+      "href": "#",
+      "text": "Tables"
+    },
+    {
+      "href": "crosstable.html",
+      "text": "Cross table"
+    },
+    {
+      "href": "crosstablescore.html",
+      "text": "Cross table and standings"
+    },
+    {
+      "href": "rankinggroup.html",
+      "text": "Standings by Rtg groups"
+    },
+    {
+      "href": "rankingagegroup.html",
+      "text": "Standings by age groups"
+    },
+    {
+      "href": "rankcat.html",
+      "text": "Standings by title"
+    },
+    {
+      "href": "rankTeams.html",
+      "text": "Rank Teams"
+    },
+    {
+      "href": "summaryFederations.html",
+      "text": "Summary Federations"
+    },
+    {
+      "href": "summaryOrigin.html",
+      "text": "Summary Origin"
+    },
+    {
+      "href": "#",
+      "text": "Reports"
+    },
+    {
+      "href": "felovar.html",
+      "text": "FIDE Rating"
+    },
+    {
+      "href": "fideplayercard.html",
+      "text": "FIDE Player Card"
+    },
+    {
+      "href": "nelovar.html",
+      "text": "National rating"
+    },
+    {
+      "href": "playercard.html",
+      "text": "National Player Card"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3244806",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "href": "fideplayercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "fideplayercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "fideplayercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3204332",
+      "text": "Hogg,Dean"
+    },
+    {
+      "href": "fideplayercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "fideplayercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "fideplayercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "fideplayercard.html#1",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3259056",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "fideplayercard.html#1",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "href": "fideplayercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3281345",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "fideplayercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "fideplayercard.html#13",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=311214498",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "fideplayercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "fideplayercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3270335",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "fideplayercard.html#1",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "href": "fideplayercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3220613",
+      "text": "Salanowski,Mark"
+    },
+    {
+      "href": "fideplayercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "fideplayercard.html#1",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "href": "fideplayercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3267849",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "href": "fideplayercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3257762",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "href": "fideplayercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "fideplayercard.html#13",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "href": "fideplayercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=311214578",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "fideplayercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "fideplayercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3239683",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "href": "fideplayercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "fideplayercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3254925",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "href": "fideplayercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3259021",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "fideplayercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "fideplayercard.html#13",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3201414",
+      "text": "Hogan,Steven"
+    },
+    {
+      "href": "fideplayercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "fideplayercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "fideplayercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "fideplayercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275221",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "fideplayercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "fideplayercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "fideplayercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275272",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "fideplayercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3237796",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "fideplayercard.html#1",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "href": "fideplayercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "fideplayercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3264173",
+      "text": "Saha,Avinandan (Arjun)"
+    },
+    {
+      "href": "fideplayercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3260062",
+      "text": "Majety,Rohan"
+    },
+    {
+      "href": "fideplayercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "fideplayercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286320",
+      "text": "Huang,Michael"
+    },
+    {
+      "href": "fideplayercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "fideplayercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275108",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "fideplayercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "fideplayercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286380",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "href": "fideplayercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275779",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "fideplayercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286339",
+      "text": "Jagannathan,Shashvath"
+    },
+    {
+      "href": "fideplayercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "fideplayercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3267857",
+      "text": "Nicdao,Joseph"
+    },
+    {
+      "href": "fideplayercard.html#5",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3247902",
+      "text": "Cox,Aiden"
+    },
+    {
+      "href": "fideplayercard.html#15",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275248",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "fideplayercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "fideplayercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3254917",
+      "text": "Goh,Nicholas"
+    },
+    {
+      "href": "fideplayercard.html#19",
+      "text": "Yang,Yifan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3272605",
+      "text": "Velkur,Raghav Sripad"
+    },
+    {
+      "href": "fideplayercard.html#13",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "href": "fideplayercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286266",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "href": "fideplayercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "fideplayercard.html#20",
+      "text": "Nawar,Mena"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3284670",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "href": "fideplayercard.html#18",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "fideplayercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=311110985",
+      "text": "Velkur,Gagan Saicharan"
+    },
+    {
+      "href": "fideplayercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286312",
+      "text": "Goh,Julian"
+    },
+    {
+      "href": "fideplayercard.html#13",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "href": "fideplayercard.html#6",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286304",
+      "text": "Goh,Daphne"
+    },
+    {
+      "href": "fideplayercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=532011059",
+      "text": "Ahmad,Ihtiram"
+    },
+    {
+      "href": "fideplayercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=0",
+      "text": "Christodoulou,Stanislas"
+    },
+    {
+      "href": "fideplayercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "fideplayercard.html#3",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "fideplayercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=0",
+      "text": "Ganesh Kumar,Mukunth"
+    },
+    {
+      "href": "fideplayercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=0",
+      "text": "Nema,Nivaan"
+    },
+    {
+      "href": "fideplayercard.html#23",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "fideplayercard.html#12",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "fideplayercard.html#4",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=0",
+      "text": "Ryan,Jasper"
+    },
+    {
+      "href": "fideplayercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "fideplayercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=0",
+      "text": "Sivesh Balaji,Sai"
+    },
+    {
+      "href": "fideplayercard.html#9",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "href": "fideplayercard.html#26",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "text": ""
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3288510",
+      "text": "Srivatsav Yegnavajjula, Aryan"
+    },
+    {
+      "href": "fideplayercard.html#32",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "fideplayercard.html#28",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "http://www.vegachess.com",
+      "text": "Generated by Vega"
+    }
+  ],
+  "images": []
+}

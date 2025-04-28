@@ -1,0 +1,617 @@
+[
+  {
+    "rank": "1",
+    "player": {
+      "name": "Annapureddy,Rheyansh Reddy",
+      "fideId": "3244806",
+      "federation": "aus",
+      "title": "CM"
+    },
+    "rating": "1947",
+    "games": "3",
+    "points": "3.0",
+    "aro": "1570",
+    "variation": "15",
+    "rp": "2370"
+  },
+  {
+    "rank": "2",
+    "player": {
+      "name": "Hogg,Dean",
+      "fideId": "3204332",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "4",
+    "points": "3.0",
+    "aro": "1613",
+    "variation": "+0.00",
+    "rp": "1653"
+  },
+  {
+    "rank": "3",
+    "player": {
+      "name": "Lingineni,Khushal",
+      "fideId": "3259056",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1692",
+    "games": "2",
+    "points": "1.0",
+    "aro": "1753",
+    "variation": "5",
+    "rp": "1753"
+  },
+  {
+    "rank": "4",
+    "player": {
+      "name": "Ruaya,Rohan",
+      "fideId": "3281345",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1459",
+    "games": "2",
+    "points": "1.0",
+    "aro": "1570",
+    "variation": "12",
+    "rp": "1570"
+  },
+  {
+    "rank": "5",
+    "player": {
+      "name": "Jothibabu,Anandaram",
+      "fideId": "311214498",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1816",
+    "games": "2",
+    "points": "1.5",
+    "aro": "1647",
+    "variation": "1",
+    "rp": "1840"
+  },
+  {
+    "rank": "6",
+    "player": {
+      "name": "Nguyen,Tuan Kiet",
+      "fideId": "3270335",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1432",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1753",
+    "variation": "-16",
+    "rp": "953"
+  },
+  {
+    "rank": "8",
+    "player": {
+      "name": "Salanowski,Mark",
+      "fideId": "3220613",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "3",
+    "points": "1.0",
+    "aro": "1756",
+    "variation": "+0.00",
+    "rp": "1631"
+  },
+  {
+    "rank": "9",
+    "player": {
+      "name": "Nguyen,Anh Kiet",
+      "fideId": "3267849",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1735",
+    "games": "1",
+    "points": "0.5",
+    "aro": "1816",
+    "variation": "4",
+    "rp": "1816"
+  },
+  {
+    "rank": "10",
+    "player": {
+      "name": "Lacson,Joemar",
+      "fideId": "3257762",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "3",
+    "points": "2.5",
+    "aro": "1489",
+    "variation": "+0.00",
+    "rp": "1529"
+  },
+  {
+    "rank": "12",
+    "player": {
+      "name": "Ruaya,Chris Rodson",
+      "fideId": "311214578",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1661",
+    "games": "2",
+    "points": "1.0",
+    "aro": "1523",
+    "variation": "-14",
+    "rp": "1523"
+  },
+  {
+    "rank": "13",
+    "player": {
+      "name": "Annapureddy,Dhruthin Reddy",
+      "fideId": "3239683",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1479",
+    "games": "2",
+    "points": "2.0",
+    "aro": "1506",
+    "variation": "43",
+    "rp": "2306"
+  },
+  {
+    "rank": "14",
+    "player": {
+      "name": "Krishnan,Anirudh",
+      "fideId": "3254925",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1588",
+    "variation": "+0.00",
+    "rp": "788"
+  },
+  {
+    "rank": "15",
+    "player": {
+      "name": "Bodke,Krishna",
+      "fideId": "3259021",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1553",
+    "games": "2",
+    "points": "0.5",
+    "aro": "1440",
+    "variation": "-32",
+    "rp": "1247"
+  },
+  {
+    "rank": "17",
+    "player": {
+      "name": "Hogan,Steven",
+      "fideId": "3201414",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "4",
+    "points": "2.5",
+    "aro": "1648",
+    "variation": "+0.00",
+    "rp": "1668"
+  },
+  {
+    "rank": "18",
+    "player": {
+      "name": "Ramanathan,Ashwin",
+      "fideId": "3275221",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1559",
+    "games": "3",
+    "points": "1.0",
+    "aro": "1647",
+    "variation": "-7",
+    "rp": "1522"
+  },
+  {
+    "rank": "19",
+    "player": {
+      "name": "Yang,Yifan",
+      "fideId": "3275272",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1493",
+    "games": "1",
+    "points": "0.5",
+    "aro": "1451",
+    "variation": "-2",
+    "rp": "1451"
+  },
+  {
+    "rank": "20",
+    "player": {
+      "name": "Nawar,Mena",
+      "fideId": "3237796",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1587",
+    "games": "3",
+    "points": "1.0",
+    "aro": "1662",
+    "variation": "-11",
+    "rp": "1537"
+  },
+  {
+    "rank": "21",
+    "player": {
+      "name": "Saha,Avinandan (Arjun)",
+      "fideId": "3264173",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1493",
+    "variation": "+0.00",
+    "rp": "693"
+  },
+  {
+    "rank": "24",
+    "player": {
+      "name": "Majety,Rohan",
+      "fideId": "3260062",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1754",
+    "variation": "+0.00",
+    "rp": "954"
+  },
+  {
+    "rank": "25",
+    "player": {
+      "name": "Huang,Michael",
+      "fideId": "3286320",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1526",
+    "variation": "+0.00",
+    "rp": "726"
+  },
+  {
+    "rank": "26",
+    "player": {
+      "name": "Ashok,Arjun",
+      "fideId": "3275108",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1587",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1624",
+    "variation": "-36",
+    "rp": "824"
+  },
+  {
+    "rank": "27",
+    "player": {
+      "name": "Shaiek,Nihal",
+      "fideId": "3286380",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1553",
+    "variation": "+0.00",
+    "rp": "753"
+  },
+  {
+    "rank": "28",
+    "player": {
+      "name": "Annadasu,Shreyansh",
+      "fideId": "3275779",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1401",
+    "games": "1",
+    "points": "0.5",
+    "aro": "1553",
+    "variation": "8",
+    "rp": "1553"
+  },
+  {
+    "rank": "29",
+    "player": {
+      "name": "Jagannathan,Shashvath",
+      "fideId": "3286339",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1510",
+    "variation": "+0.00",
+    "rp": "710"
+  },
+  {
+    "rank": "30",
+    "player": {
+      "name": "Nicdao,Joseph",
+      "fideId": "3267857",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1816",
+    "variation": "+0.00",
+    "rp": "1016"
+  },
+  {
+    "rank": "31",
+    "player": {
+      "name": "Cox,Aiden",
+      "fideId": "3247902",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1553",
+    "variation": "+0.00",
+    "rp": "753"
+  },
+  {
+    "rank": "32",
+    "player": {
+      "name": "Veginati,Cherish",
+      "fideId": "3275248",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "1451",
+    "games": "2",
+    "points": "1.5",
+    "aro": "1540",
+    "variation": "30",
+    "rp": "1733"
+  },
+  {
+    "rank": "33",
+    "player": {
+      "name": "Goh,Nicholas",
+      "fideId": "3254917",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1493",
+    "variation": "+0.00",
+    "rp": "693"
+  },
+  {
+    "rank": "34",
+    "player": {
+      "name": "Velkur,Raghav Sripad",
+      "fideId": "3272605",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1456",
+    "variation": "+0.00",
+    "rp": "656"
+  },
+  {
+    "rank": "35",
+    "player": {
+      "name": "Balamurugan,Soorya",
+      "fideId": "3286266",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.5",
+    "aro": "1640",
+    "variation": "+0.00",
+    "rp": "1447"
+  },
+  {
+    "rank": "36",
+    "player": {
+      "name": "Jyothi Nikhil,Neev",
+      "fideId": "3284670",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1509",
+    "variation": "+0.00",
+    "rp": "709"
+  },
+  {
+    "rank": "38",
+    "player": {
+      "name": "Velkur,Gagan Saicharan",
+      "fideId": "311110985",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1587",
+    "variation": "+0.00",
+    "rp": "787"
+  },
+  {
+    "rank": "39",
+    "player": {
+      "name": "Goh,Julian",
+      "fideId": "3286312",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1456",
+    "variation": "+0.00",
+    "rp": "656"
+  },
+  {
+    "rank": "40",
+    "player": {
+      "name": "Goh,Daphne",
+      "fideId": "3286304",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1735",
+    "variation": "+0.00",
+    "rp": "935"
+  },
+  {
+    "rank": "41",
+    "player": {
+      "name": "Ahmad,Ihtiram",
+      "fideId": "532011059",
+      "federation": "os",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.5",
+    "aro": "1401",
+    "variation": "+0.00",
+    "rp": "1401"
+  },
+  {
+    "rank": "43",
+    "player": {
+      "name": "Christodoulou,Stanislas",
+      "fideId": "0",
+      "federation": "aus",
+      "title": null
+    },
+    "rating": "0",
+    "games": "3",
+    "points": "1.0",
+    "aro": "1647",
+    "variation": "+0.00",
+    "rp": "1522"
+  },
+  {
+    "rank": "44",
+    "player": {
+      "name": "Ganesh Kumar,Mukunth",
+      "fideId": "0",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "1",
+    "points": "0.0",
+    "aro": "1661",
+    "variation": "+0.00",
+    "rp": "861"
+  },
+  {
+    "rank": "45",
+    "player": {
+      "name": "Nema,Nivaan",
+      "fideId": "0",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "3",
+    "points": "1.0",
+    "aro": "1569",
+    "variation": "+0.00",
+    "rp": "1444"
+  },
+  {
+    "rank": "47",
+    "player": {
+      "name": "Ryan,Jasper",
+      "fideId": "0",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1426",
+    "variation": "+0.00",
+    "rp": "626"
+  },
+  {
+    "rank": "48",
+    "player": {
+      "name": "Sivesh Balaji,Sai",
+      "fideId": "0",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.5",
+    "aro": "1661",
+    "variation": "+0.00",
+    "rp": "1468"
+  },
+  {
+    "rank": "49",
+    "player": {
+      "name": "Srivatsav Yegnavajjula, Aryan",
+      "fideId": "3288510",
+      "federation": "vic",
+      "title": null
+    },
+    "rating": "0",
+    "games": "2",
+    "points": "0.0",
+    "aro": "1426",
+    "variation": "+0.00",
+    "rp": "626"
+  }
+]

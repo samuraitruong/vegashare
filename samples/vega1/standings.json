@@ -1,0 +1,443 @@
+[
+  {
+    "rank": "1",
+    "name": "Annapureddy,Rheyansh Reddy",
+    "id": "1",
+    "title": "CM",
+    "rating": "2212",
+    "federation": "",
+    "points": "16.0"
+  },
+  {
+    "rank": "2",
+    "name": "Nguyen,Anh Kiet",
+    "id": "9",
+    "title": "-",
+    "rating": "1399",
+    "federation": "",
+    "points": "13.5"
+  },
+  {
+    "rank": "3",
+    "name": "Hogg,Dean",
+    "id": "2",
+    "title": "-",
+    "rating": "1920",
+    "federation": "",
+    "points": "17.5"
+  },
+  {
+    "rank": "4",
+    "name": "Jothibabu,Anandaram",
+    "id": "5",
+    "title": "-",
+    "rating": "1508",
+    "federation": "",
+    "points": "16.5"
+  },
+  {
+    "rank": "5",
+    "name": "Lingineni,Khushal",
+    "id": "3",
+    "title": "-",
+    "rating": "1799",
+    "federation": "",
+    "points": "15.5"
+  },
+  {
+    "rank": "6",
+    "name": "Annapureddy,Dhruthin Reddy",
+    "id": "13",
+    "title": "-",
+    "rating": "1262",
+    "federation": "",
+    "points": "12.0"
+  },
+  {
+    "rank": "7",
+    "name": "Hogan,Steven",
+    "id": "17",
+    "title": "-",
+    "rating": "1175",
+    "federation": "",
+    "points": "17.0"
+  },
+  {
+    "rank": "8",
+    "name": "Lacson,Joemar",
+    "id": "10",
+    "title": "-",
+    "rating": "1379",
+    "federation": "",
+    "points": "16.5"
+  },
+  {
+    "rank": "9",
+    "name": "Thandhi,Mohan",
+    "id": "23",
+    "title": "-",
+    "rating": "902",
+    "federation": "",
+    "points": "15.0"
+  },
+  {
+    "rank": "10",
+    "name": "Yang,Yifan",
+    "id": "19",
+    "title": "-",
+    "rating": "1102",
+    "federation": "",
+    "points": "14.0"
+  },
+  {
+    "rank": "11",
+    "name": "Veginati,Cherish",
+    "id": "32",
+    "title": "-",
+    "rating": "552",
+    "federation": "",
+    "points": "13.5"
+  },
+  {
+    "rank": "12",
+    "name": "Christodoulou,Stanislas",
+    "id": "43",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "14.5"
+  },
+  {
+    "rank": "13",
+    "name": "Majety,Rohan",
+    "id": "24",
+    "title": "-",
+    "rating": "826",
+    "federation": "",
+    "points": "14.5"
+  },
+  {
+    "rank": "14",
+    "name": "Ramanathan,Ashwin",
+    "id": "18",
+    "title": "-",
+    "rating": "1110",
+    "federation": "",
+    "points": "14.0"
+  },
+  {
+    "rank": "15",
+    "name": "Ruaya,Rohan",
+    "id": "4",
+    "title": "-",
+    "rating": "1756",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "16",
+    "name": "Nguyen,Tuan Kiet",
+    "id": "6",
+    "title": "-",
+    "rating": "1507",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "17",
+    "name": "Krishnan,Anirudh",
+    "id": "14",
+    "title": "-",
+    "rating": "1259",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "18",
+    "name": "Annadasu,Shreyansh",
+    "id": "28",
+    "title": "-",
+    "rating": "729",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "19",
+    "name": "Ahmad,Ihtiram",
+    "id": "41",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "20",
+    "name": "Nicdao,Joseph",
+    "id": "30",
+    "title": "-",
+    "rating": "661",
+    "federation": "",
+    "points": "15.0"
+  },
+  {
+    "rank": "21",
+    "name": "Bodke,Krishna",
+    "id": "15",
+    "title": "-",
+    "rating": "1247",
+    "federation": "",
+    "points": "14.0"
+  },
+  {
+    "rank": "22",
+    "name": "Nawar,Mena",
+    "id": "20",
+    "title": "-",
+    "rating": "1069",
+    "federation": "",
+    "points": "13.5"
+  },
+  {
+    "rank": "23",
+    "name": "Sivesh Balaji,Sai",
+    "id": "48",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "24",
+    "name": "Saha,Avinandan (Arjun)",
+    "id": "21",
+    "title": "-",
+    "rating": "952",
+    "federation": "",
+    "points": "12.5"
+  },
+  {
+    "rank": "25",
+    "name": "Kirk,Ian",
+    "id": "11",
+    "title": "-",
+    "rating": "1377",
+    "federation": "",
+    "points": "11.0"
+  },
+  {
+    "rank": "26",
+    "name": "Velkur,Gagan Saicharan",
+    "id": "38",
+    "title": "-",
+    "rating": "371",
+    "federation": "",
+    "points": "9.0"
+  },
+  {
+    "rank": "27",
+    "name": "Huang,Michael",
+    "id": "25",
+    "title": "-",
+    "rating": "805",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "28",
+    "name": "Salanowski,Mark",
+    "id": "8",
+    "title": "-",
+    "rating": "1418",
+    "federation": "",
+    "points": "13.0"
+  },
+  {
+    "rank": "29",
+    "name": "Velkur,Raghav Sripad",
+    "id": "34",
+    "title": "-",
+    "rating": "428",
+    "federation": "",
+    "points": "12.0"
+  },
+  {
+    "rank": "30",
+    "name": "Nema,Nivaan",
+    "id": "45",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "11.5"
+  },
+  {
+    "rank": "31",
+    "name": "Srivatsav Yegnavajjula, Aryan",
+    "id": "49",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "11.5"
+  },
+  {
+    "rank": "32",
+    "name": "Jagannathan,Shashvath",
+    "id": "29",
+    "title": "-",
+    "rating": "691",
+    "federation": "",
+    "points": "11.0"
+  },
+  {
+    "rank": "33",
+    "name": "Ryan,Jasper",
+    "id": "47",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "11.0"
+  },
+  {
+    "rank": "34",
+    "name": "Ruaya,Chris Rodson",
+    "id": "12",
+    "title": "-",
+    "rating": "1336",
+    "federation": "",
+    "points": "9.5"
+  },
+  {
+    "rank": "35",
+    "name": "Shaiek,Nihal",
+    "id": "27",
+    "title": "-",
+    "rating": "731",
+    "federation": "",
+    "points": "9.0"
+  },
+  {
+    "rank": "36",
+    "name": "Balamurugan,Soorya",
+    "id": "35",
+    "title": "-",
+    "rating": "401",
+    "federation": "",
+    "points": "14.0"
+  },
+  {
+    "rank": "37",
+    "name": "Ashok,Arjun",
+    "id": "26",
+    "title": "-",
+    "rating": "790",
+    "federation": "",
+    "points": "12.0"
+  },
+  {
+    "rank": "38",
+    "name": "Christodoulou,Anthony",
+    "id": "42",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "10.0"
+  },
+  {
+    "rank": "39",
+    "name": "Cox,Tyler",
+    "id": "22",
+    "title": "-",
+    "rating": "936",
+    "federation": "",
+    "points": "9.5"
+  },
+  {
+    "rank": "40",
+    "name": "Goh,Nicholas",
+    "id": "33",
+    "title": "-",
+    "rating": "527",
+    "federation": "",
+    "points": "11.0"
+  },
+  {
+    "rank": "41",
+    "name": "Jyothi Nikhil,Neev",
+    "id": "36",
+    "title": "-",
+    "rating": "389",
+    "federation": "",
+    "points": "10.5"
+  },
+  {
+    "rank": "42",
+    "name": "Cox,Aiden",
+    "id": "31",
+    "title": "-",
+    "rating": "595",
+    "federation": "",
+    "points": "9.0"
+  },
+  {
+    "rank": "43",
+    "name": "Austin, Angelo",
+    "id": "7",
+    "title": "-",
+    "rating": "1497",
+    "federation": "",
+    "points": "2.5"
+  },
+  {
+    "rank": "44",
+    "name": "Paul,Cijo",
+    "id": "16",
+    "title": "-",
+    "rating": "1227",
+    "federation": "",
+    "points": "2.5"
+  },
+  {
+    "rank": "45",
+    "name": "Stefan Jiace Tham,Keanu",
+    "id": "37",
+    "title": "-",
+    "rating": "382",
+    "federation": "",
+    "points": "2.5"
+  },
+  {
+    "rank": "46",
+    "name": "Ganesh Kumar,Mukunth",
+    "id": "44",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "9.5"
+  },
+  {
+    "rank": "47",
+    "name": "Goh,Daphne",
+    "id": "40",
+    "title": "-",
+    "rating": "107",
+    "federation": "",
+    "points": "9.0"
+  },
+  {
+    "rank": "48",
+    "name": "Goh,Julian",
+    "id": "39",
+    "title": "-",
+    "rating": "309",
+    "federation": "",
+    "points": "8.5"
+  },
+  {
+    "rank": "49",
+    "name": "Ramprasad,Nachiket",
+    "id": "46",
+    "title": "-",
+    "rating": "0",
+    "federation": "",
+    "points": "3.0"
+  }
+]

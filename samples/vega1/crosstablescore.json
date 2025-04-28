@@ -1,0 +1,835 @@
+[
+  {
+    "rank": "1",
+    "name": "Annapureddy,Rheyansh Reddy",
+    "rating": "2212",
+    "federation": "flag",
+    "score": "5.0",
+    "results": [
+      "116",
+      "122",
+      "128",
+      "15",
+      "13"
+    ],
+    "bh": "16.0",
+    "bhC1": "13.5",
+    "sb": "16.00"
+  },
+  {
+    "rank": "2",
+    "name": "Nguyen,Anh Kiet",
+    "rating": "1399",
+    "federation": "flag",
+    "score": "4.5",
+    "results": [
+      "147",
+      "123",
+      "½4",
+      "128",
+      "17"
+    ],
+    "bh": "13.5",
+    "bhC1": "12.5",
+    "sb": "11.50"
+  },
+  {
+    "rank": "3",
+    "name": "Hogg,Dean",
+    "rating": "1920",
+    "federation": "flag",
+    "score": "4.0",
+    "results": [
+      "115",
+      "110",
+      "121",
+      "18",
+      "01"
+    ],
+    "bh": "17.5",
+    "bhC1": "15.0",
+    "sb": "12.50"
+  },
+  {
+    "rank": "4",
+    "name": "Jothibabu,Anandaram",
+    "rating": "1508",
+    "federation": "flag",
+    "score": "4.0",
+    "results": [
+      "120",
+      "114",
+      "½2",
+      "½7",
+      "113"
+    ],
+    "bh": "16.5",
+    "bhC1": "14.0",
+    "sb": "12.50"
+  },
+  {
+    "rank": "5",
+    "name": "Lingineni,Khushal",
+    "rating": "1799",
+    "federation": "flag",
+    "score": "4.0",
+    "results": [
+      "136",
+      "113",
+      "112",
+      "01",
+      "114"
+    ],
+    "bh": "15.5",
+    "bhC1": "14.0",
+    "sb": "10.50"
+  },
+  {
+    "rank": "6",
+    "name": "Annapureddy,Dhruthin Reddy",
+    "rating": "1262",
+    "federation": "flag",
+    "score": "4.0",
+    "results": [
+      "148",
+      "129",
+      "08",
+      "115",
+      "121"
+    ],
+    "bh": "12.0",
+    "bhC1": "11.0",
+    "sb": "8.50"
+  },
+  {
+    "rank": "7",
+    "name": "Hogan,Steven",
+    "rating": "1175",
+    "federation": "flag",
+    "score": "3.5",
+    "results": [
+      "138",
+      "111",
+      "19",
+      "½4",
+      "02"
+    ],
+    "bh": "17.0",
+    "bhC1": "15.5",
+    "sb": "10.50"
+  },
+  {
+    "rank": "8",
+    "name": "Lacson,Joemar",
+    "rating": "1379",
+    "federation": "flag",
+    "score": "3.5",
+    "results": [
+      "140",
+      "118",
+      "16",
+      "03",
+      "½9"
+    ],
+    "bh": "16.5",
+    "bhC1": "14.5",
+    "sb": "10.75"
+  },
+  {
+    "rank": "9",
+    "name": "Thandhi,Mohan",
+    "rating": "902",
+    "federation": "flag",
+    "score": "3.5",
+    "results": [
+      "130",
+      "117",
+      "07",
+      "112",
+      "½8"
+    ],
+    "bh": "15.0",
+    "bhC1": "13.0",
+    "sb": "9.75"
+  },
+  {
+    "rank": "10",
+    "name": "Yang,Yifan",
+    "rating": "1102",
+    "federation": "flag",
+    "score": "3.5",
+    "results": [
+      "127",
+      "03",
+      "140",
+      "½11",
+      "124"
+    ],
+    "bh": "14.0",
+    "bhC1": "12.0",
+    "sb": "8.25"
+  },
+  {
+    "rank": "11",
+    "name": "Veginati,Cherish",
+    "rating": "552",
+    "federation": "flag",
+    "score": "3.5",
+    "results": [
+      "131",
+      "07",
+      "133",
+      "½10",
+      "122"
+    ],
+    "bh": "13.5",
+    "bhC1": "11.5",
+    "sb": "8.25"
+  },
+  {
+    "rank": "12",
+    "name": "Christodoulou,Stanislas",
+    "rating": "0",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "134",
+      "119",
+      "05",
+      "09",
+      "129"
+    ],
+    "bh": "14.5",
+    "bhC1": "12.5",
+    "sb": "7.00"
+  },
+  {
+    "rank": "13",
+    "name": "Majety,Rohan",
+    "rating": "826",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "149",
+      "05",
+      "135",
+      "120",
+      "04"
+    ],
+    "bh": "14.5",
+    "bhC1": "12.5",
+    "sb": "6.50"
+  },
+  {
+    "rank": "14",
+    "name": "Ramanathan,Ashwin",
+    "rating": "1110",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "141",
+      "04",
+      "127",
+      "116",
+      "05"
+    ],
+    "bh": "14.0",
+    "bhC1": "13.0",
+    "sb": "6.00"
+  },
+  {
+    "rank": "15",
+    "name": "Ruaya,Rohan",
+    "rating": "1756",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "03",
+      "141",
+      "134",
+      "06",
+      "130"
+    ],
+    "bh": "13.0",
+    "bhC1": "12.0",
+    "sb": "5.00"
+  },
+  {
+    "rank": "16",
+    "name": "Nguyen,Tuan Kiet",
+    "rating": "1507",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "01",
+      "148",
+      "129",
+      "014",
+      "132"
+    ],
+    "bh": "13.0",
+    "bhC1": "12.0",
+    "sb": "5.00"
+  },
+  {
+    "rank": "17",
+    "name": "Krishnan,Anirudh",
+    "rating": "1259",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "124",
+      "09",
+      "020",
+      "123",
+      "127"
+    ],
+    "bh": "13.0",
+    "bhC1": "11.0",
+    "sb": "7.00"
+  },
+  {
+    "rank": "18",
+    "name": "Annadasu,Shreyansh",
+    "rating": "729",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "133",
+      "08",
+      "131",
+      "½21",
+      "½19"
+    ],
+    "bh": "13.0",
+    "bhC1": "11.0",
+    "sb": "6.75"
+  },
+  {
+    "rank": "19",
+    "name": "Ahmad,Ihtiram",
+    "rating": "0",
+    "federation": "flag",
+    "score": "3.0",
+    "results": [
+      "½ BYE",
+      "012",
+      "139",
+      "125",
+      "½18"
+    ],
+    "bh": "13.0",
+    "bhC1": "10.0",
+    "sb": "7.00"
+  },
+  {
+    "rank": "20",
+    "name": "Nicdao,Joseph",
+    "rating": "661",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "04",
+      "1 BYE",
+      "117",
+      "013",
+      "½26"
+    ],
+    "bh": "15.0",
+    "bhC1": "12.5",
+    "sb": "6.75"
+  },
+  {
+    "rank": "21",
+    "name": "Bodke,Krishna",
+    "rating": "1247",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "142",
+      "135",
+      "03",
+      "½18",
+      "06"
+    ],
+    "bh": "14.0",
+    "bhC1": "13.0",
+    "sb": "4.50"
+  },
+  {
+    "rank": "22",
+    "name": "Nawar,Mena",
+    "rating": "1069",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "132",
+      "01",
+      "½36",
+      "137",
+      "011"
+    ],
+    "bh": "13.5",
+    "bhC1": "12.0",
+    "sb": "4.25"
+  },
+  {
+    "rank": "23",
+    "name": "Sivesh Balaji,Sai",
+    "rating": "0",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "125",
+      "02",
+      "½37",
+      "017",
+      "136"
+    ],
+    "bh": "13.0",
+    "bhC1": "11.5",
+    "sb": "4.75"
+  },
+  {
+    "rank": "24",
+    "name": "Saha,Avinandan (Arjun)",
+    "rating": "952",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "017",
+      "132",
+      "½25",
+      "136",
+      "010"
+    ],
+    "bh": "12.5",
+    "bhC1": "11.0",
+    "sb": "4.75"
+  },
+  {
+    "rank": "25",
+    "name": "Kirk,Ian",
+    "rating": "1377",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "023",
+      "147",
+      "½24",
+      "019",
+      "131"
+    ],
+    "bh": "11.0",
+    "bhC1": "10.0",
+    "sb": "4.25"
+  },
+  {
+    "rank": "26",
+    "name": "Velkur,Gagan Saicharan",
+    "rating": "371",
+    "federation": "flag",
+    "score": "2.5",
+    "results": [
+      "037",
+      "036",
+      "1 BYE",
+      "141",
+      "½20"
+    ],
+    "bh": "9.0",
+    "bhC1": "8.0",
+    "sb": "4.75"
+  },
+  {
+    "rank": "27",
+    "name": "Huang,Michael",
+    "rating": "805",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "010",
+      "139",
+      "014",
+      "133",
+      "017"
+    ],
+    "bh": "13.0",
+    "bhC1": "11.5",
+    "sb": "3.50"
+  },
+  {
+    "rank": "28",
+    "name": "Salanowski,Mark",
+    "rating": "1418",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "146",
+      "137",
+      "01",
+      "02",
+      ""
+    ],
+    "bh": "13.0",
+    "bhC1": "11.0",
+    "sb": "1.50"
+  },
+  {
+    "rank": "29",
+    "name": "Velkur,Raghav Sripad",
+    "rating": "428",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "1 BYE",
+      "06",
+      "016",
+      "146",
+      "012"
+    ],
+    "bh": "12.0",
+    "bhC1": "12.0",
+    "sb": "2.00"
+  },
+  {
+    "rank": "30",
+    "name": "Nema,Nivaan",
+    "rating": "0",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "09",
+      "040",
+      "147",
+      "134",
+      "015"
+    ],
+    "bh": "11.5",
+    "bhC1": "10.5",
+    "sb": "3.00"
+  },
+  {
+    "rank": "31",
+    "name": "Srivatsav Yegnavajjula, Aryan",
+    "rating": "0",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "011",
+      "142",
+      "018",
+      "138",
+      "025"
+    ],
+    "bh": "11.5",
+    "bhC1": "10.5",
+    "sb": "2.50"
+  },
+  {
+    "rank": "32",
+    "name": "Jagannathan,Shashvath",
+    "rating": "691",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "022",
+      "024",
+      "142",
+      "135",
+      "016"
+    ],
+    "bh": "11.0",
+    "bhC1": "10.0",
+    "sb": "3.00"
+  },
+  {
+    "rank": "33",
+    "name": "Ryan,Jasper",
+    "rating": "0",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "018",
+      "138",
+      "011",
+      "027",
+      "141"
+    ],
+    "bh": "11.0",
+    "bhC1": "10.0",
+    "sb": "2.50"
+  },
+  {
+    "rank": "34",
+    "name": "Ruaya,Chris Rodson",
+    "rating": "1336",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "012",
+      "146",
+      "015",
+      "030",
+      "137"
+    ],
+    "bh": "9.5",
+    "bhC1": "9.5",
+    "sb": "1.50"
+  },
+  {
+    "rank": "35",
+    "name": "Shaiek,Nihal",
+    "rating": "731",
+    "federation": "flag",
+    "score": "2.0",
+    "results": [
+      "139",
+      "021",
+      "013",
+      "032",
+      "146"
+    ],
+    "bh": "9.0",
+    "bhC1": "9.0",
+    "sb": "1.50"
+  },
+  {
+    "rank": "36",
+    "name": "Balamurugan,Soorya",
+    "rating": "401",
+    "federation": "flag",
+    "score": "1.5",
+    "results": [
+      "05",
+      "126",
+      "½22",
+      "024",
+      "023"
+    ],
+    "bh": "14.0",
+    "bhC1": "11.5",
+    "sb": "3.75"
+  },
+  {
+    "rank": "37",
+    "name": "Ashok,Arjun",
+    "rating": "790",
+    "federation": "flag",
+    "score": "1.5",
+    "results": [
+      "126",
+      "028",
+      "½23",
+      "022",
+      "034"
+    ],
+    "bh": "12.0",
+    "bhC1": "10.0",
+    "sb": "3.75"
+  },
+  {
+    "rank": "38",
+    "name": "Christodoulou,Anthony",
+    "rating": "0",
+    "federation": "flag",
+    "score": "1.5",
+    "results": [
+      "07",
+      "033",
+      "148",
+      "031",
+      "½39"
+    ],
+    "bh": "10.0",
+    "bhC1": "9.0",
+    "sb": "1.75"
+  },
+  {
+    "rank": "39",
+    "name": "Cox,Tyler",
+    "rating": "936",
+    "federation": "flag",
+    "score": "1.5",
+    "results": [
+      "035",
+      "027",
+      "019",
+      "142",
+      "½38"
+    ],
+    "bh": "9.5",
+    "bhC1": "8.5",
+    "sb": "1.75"
+  },
+  {
+    "rank": "40",
+    "name": "Goh,Nicholas",
+    "rating": "527",
+    "federation": "flag",
+    "score": "1.0",
+    "results": [
+      "08",
+      "130",
+      "010",
+      "",
+      ""
+    ],
+    "bh": "11.0",
+    "bhC1": "10.0",
+    "sb": "2.00"
+  },
+  {
+    "rank": "41",
+    "name": "Jyothi Nikhil,Neev",
+    "rating": "389",
+    "federation": "flag",
+    "score": "1.0",
+    "results": [
+      "014",
+      "015",
+      "146",
+      "026",
+      "033"
+    ],
+    "bh": "10.5",
+    "bhC1": "10.5",
+    "sb": "0.00"
+  },
+  {
+    "rank": "42",
+    "name": "Cox,Aiden",
+    "rating": "595",
+    "federation": "flag",
+    "score": "1.0",
+    "results": [
+      "021",
+      "031",
+      "032",
+      "039",
+      "1 BYE"
+    ],
+    "bh": "9.0",
+    "bhC1": "8.0",
+    "sb": "1.00"
+  },
+  {
+    "rank": "43",
+    "name": "Austin, Angelo",
+    "rating": "1497",
+    "federation": "flag",
+    "score": "0.5",
+    "results": [
+      "½ BYE",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "bh": "2.5",
+    "bhC1": "2.0",
+    "sb": "0.25"
+  },
+  {
+    "rank": "44",
+    "name": "Paul,Cijo",
+    "rating": "1227",
+    "federation": "flag",
+    "score": "0.5",
+    "results": [
+      "½ BYE",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "bh": "2.5",
+    "bhC1": "2.0",
+    "sb": "0.25"
+  },
+  {
+    "rank": "45",
+    "name": "Stefan Jiace Tham,Keanu",
+    "rating": "382",
+    "federation": "flag",
+    "score": "0.5",
+    "results": [
+      "½ BYE",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "bh": "2.5",
+    "bhC1": "2.0",
+    "sb": "0.25"
+  },
+  {
+    "rank": "46",
+    "name": "Ganesh Kumar,Mukunth",
+    "rating": "0",
+    "federation": "flag",
+    "score": "0.0",
+    "results": [
+      "028",
+      "034",
+      "041",
+      "029",
+      "035"
+    ],
+    "bh": "9.5",
+    "bhC1": "8.5",
+    "sb": "0.00"
+  },
+  {
+    "rank": "47",
+    "name": "Goh,Daphne",
+    "rating": "107",
+    "federation": "flag",
+    "score": "0.0",
+    "results": [
+      "02",
+      "025",
+      "030",
+      "",
+      ""
+    ],
+    "bh": "9.0",
+    "bhC1": "9.0",
+    "sb": "0.00"
+  },
+  {
+    "rank": "48",
+    "name": "Goh,Julian",
+    "rating": "309",
+    "federation": "flag",
+    "score": "0.0",
+    "results": [
+      "06",
+      "016",
+      "038",
+      "",
+      ""
+    ],
+    "bh": "8.5",
+    "bhC1": "8.5",
+    "sb": "0.00"
+  },
+  {
+    "rank": "49",
+    "name": "Ramprasad,Nachiket",
+    "rating": "0",
+    "federation": "flag",
+    "score": "0.0",
+    "results": [
+      "013",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "bh": "3.0",
+    "bhC1": "3.0",
+    "sb": "0.00"
+  }
+]

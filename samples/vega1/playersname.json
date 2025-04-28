@@ -1,0 +1,492 @@
+[
+  {
+    "id": "41",
+    "name": "Ahmad,Ihtiram",
+    "title": null,
+    "federation": "OS",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "28",
+    "name": "Annadasu,Shreyansh",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "729",
+    "rtgF": "1401",
+    "rtgN": "729"
+  },
+  {
+    "id": "13",
+    "name": "Annapureddy,Dhruthin Reddy",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1262",
+    "rtgF": "1479",
+    "rtgN": "1262"
+  },
+  {
+    "id": "1",
+    "name": "Annapureddy,Rheyansh Reddy",
+    "title": "CM",
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "2212",
+    "rtgF": "1947",
+    "rtgN": "2212"
+  },
+  {
+    "id": "26",
+    "name": "Ashok,Arjun",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "790",
+    "rtgF": "1587",
+    "rtgN": "790"
+  },
+  {
+    "id": "7",
+    "name": "Austin, Angelo",
+    "title": null,
+    "federation": "TTO",
+    "origin": null,
+    "rtg": "1497",
+    "rtgF": "1497",
+    "rtgN": "0"
+  },
+  {
+    "id": "35",
+    "name": "Balamurugan,Soorya",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "401",
+    "rtgF": "0",
+    "rtgN": "401"
+  },
+  {
+    "id": "15",
+    "name": "Bodke,Krishna",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1247",
+    "rtgF": "1553",
+    "rtgN": "1247"
+  },
+  {
+    "id": "42",
+    "name": "Christodoulou,Anthony",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "43",
+    "name": "Christodoulou,Stanislas",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "31",
+    "name": "Cox,Aiden",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "595",
+    "rtgF": "0",
+    "rtgN": "595"
+  },
+  {
+    "id": "22",
+    "name": "Cox,Tyler",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "936",
+    "rtgF": "0",
+    "rtgN": "936"
+  },
+  {
+    "id": "44",
+    "name": "Ganesh Kumar,Mukunth",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "40",
+    "name": "Goh,Daphne",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "107",
+    "rtgF": "0",
+    "rtgN": "107"
+  },
+  {
+    "id": "39",
+    "name": "Goh,Julian",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "309",
+    "rtgF": "0",
+    "rtgN": "309"
+  },
+  {
+    "id": "33",
+    "name": "Goh,Nicholas",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "527",
+    "rtgF": "0",
+    "rtgN": "527"
+  },
+  {
+    "id": "17",
+    "name": "Hogan,Steven",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "1175",
+    "rtgF": "0",
+    "rtgN": "1175"
+  },
+  {
+    "id": "2",
+    "name": "Hogg,Dean",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "1920",
+    "rtgF": "0",
+    "rtgN": "1920"
+  },
+  {
+    "id": "25",
+    "name": "Huang,Michael",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "805",
+    "rtgF": "0",
+    "rtgN": "805"
+  },
+  {
+    "id": "29",
+    "name": "Jagannathan,Shashvath",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "691",
+    "rtgF": "0",
+    "rtgN": "691"
+  },
+  {
+    "id": "5",
+    "name": "Jothibabu,Anandaram",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1508",
+    "rtgF": "1816",
+    "rtgN": "1508"
+  },
+  {
+    "id": "36",
+    "name": "Jyothi Nikhil,Neev",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "389",
+    "rtgF": "0",
+    "rtgN": "389"
+  },
+  {
+    "id": "11",
+    "name": "Kirk,Ian",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "1377",
+    "rtgF": "0",
+    "rtgN": "1377"
+  },
+  {
+    "id": "14",
+    "name": "Krishnan,Anirudh",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "1259",
+    "rtgF": "0",
+    "rtgN": "1259"
+  },
+  {
+    "id": "10",
+    "name": "Lacson,Joemar",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "1379",
+    "rtgF": "0",
+    "rtgN": "1379"
+  },
+  {
+    "id": "3",
+    "name": "Lingineni,Khushal",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1799",
+    "rtgF": "1692",
+    "rtgN": "1799"
+  },
+  {
+    "id": "24",
+    "name": "Majety,Rohan",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "826",
+    "rtgF": "0",
+    "rtgN": "826"
+  },
+  {
+    "id": "20",
+    "name": "Nawar,Mena",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1069",
+    "rtgF": "1587",
+    "rtgN": "1069"
+  },
+  {
+    "id": "45",
+    "name": "Nema,Nivaan",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "9",
+    "name": "Nguyen,Anh Kiet",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1399",
+    "rtgF": "1735",
+    "rtgN": "1399"
+  },
+  {
+    "id": "6",
+    "name": "Nguyen,Tuan Kiet",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1507",
+    "rtgF": "1432",
+    "rtgN": "1507"
+  },
+  {
+    "id": "30",
+    "name": "Nicdao,Joseph",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "661",
+    "rtgF": "0",
+    "rtgN": "661"
+  },
+  {
+    "id": "16",
+    "name": "Paul,Cijo",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1227",
+    "rtgF": "0",
+    "rtgN": "1227"
+  },
+  {
+    "id": "18",
+    "name": "Ramanathan,Ashwin",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1110",
+    "rtgF": "1559",
+    "rtgN": "1110"
+  },
+  {
+    "id": "46",
+    "name": "Ramprasad,Nachiket",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "12",
+    "name": "Ruaya,Chris Rodson",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1336",
+    "rtgF": "1661",
+    "rtgN": "1336"
+  },
+  {
+    "id": "4",
+    "name": "Ruaya,Rohan",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1756",
+    "rtgF": "1459",
+    "rtgN": "1756"
+  },
+  {
+    "id": "47",
+    "name": "Ryan,Jasper",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "21",
+    "name": "Saha,Avinandan (Arjun)",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "952",
+    "rtgF": "0",
+    "rtgN": "952"
+  },
+  {
+    "id": "8",
+    "name": "Salanowski,Mark",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "1418",
+    "rtgF": "0",
+    "rtgN": "1418"
+  },
+  {
+    "id": "27",
+    "name": "Shaiek,Nihal",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "731",
+    "rtgF": "0",
+    "rtgN": "731"
+  },
+  {
+    "id": "48",
+    "name": "Sivesh Balaji,Sai",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "49",
+    "name": "Srivatsav Yegnavajjula, Aryan",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "0",
+    "rtgF": "0",
+    "rtgN": "0"
+  },
+  {
+    "id": "37",
+    "name": "Stefan Jiace Tham,Keanu",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "382",
+    "rtgF": "0",
+    "rtgN": "382"
+  },
+  {
+    "id": "23",
+    "name": "Thandhi,Mohan",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "902",
+    "rtgF": "1588",
+    "rtgN": "902"
+  },
+  {
+    "id": "32",
+    "name": "Veginati,Cherish",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "552",
+    "rtgF": "1451",
+    "rtgN": "552"
+  },
+  {
+    "id": "38",
+    "name": "Velkur,Gagan Saicharan",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "371",
+    "rtgF": "0",
+    "rtgN": "371"
+  },
+  {
+    "id": "34",
+    "name": "Velkur,Raghav Sripad",
+    "title": null,
+    "federation": "VIC",
+    "origin": null,
+    "rtg": "428",
+    "rtgF": "0",
+    "rtgN": "428"
+  },
+  {
+    "id": "19",
+    "name": "Yang,Yifan",
+    "title": null,
+    "federation": "AUS",
+    "origin": null,
+    "rtg": "1102",
+    "rtgF": "1493",
+    "rtgN": "1102"
+  }
+]

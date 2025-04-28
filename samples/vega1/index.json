@@ -1,0 +1,480 @@
+{
+  "title": "2025 Hobsons Bay April Rapid",
+  "meta": [
+    {
+      "charset": "UTF-8"
+    },
+    {
+      "name": "description",
+      "content": "chess tournament"
+    },
+    {
+      "name": "author",
+      "content": "www.vegachess.com"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1.0"
+    },
+    {
+      "http-equiv": "X-UA-Compatible",
+      "content": "IE=edge"
+    }
+  ],
+  "links": [
+    {
+      "href": "#",
+      "text": "Info"
+    },
+    {
+      "href": "schedule.html",
+      "text": "Schedule"
+    },
+    {
+      "href": "tourstat.html",
+      "text": "Statistics"
+    },
+    {
+      "href": "#",
+      "text": "Players"
+    },
+    {
+      "href": "index.html",
+      "text": "Sorted by Rating"
+    },
+    {
+      "href": "playersname.html",
+      "text": "Sorted by Name"
+    },
+    {
+      "href": "pairs5.html",
+      "text": "Pairings"
+    },
+    {
+      "href": "standings.html",
+      "text": "Standings"
+    },
+    {
+      "href": "#",
+      "text": "Tables"
+    },
+    {
+      "href": "crosstable.html",
+      "text": "Cross table"
+    },
+    {
+      "href": "crosstablescore.html",
+      "text": "Cross table and standings"
+    },
+    {
+      "href": "rankinggroup.html",
+      "text": "Standings by Rtg groups"
+    },
+    {
+      "href": "rankingagegroup.html",
+      "text": "Standings by age groups"
+    },
+    {
+      "href": "rankcat.html",
+      "text": "Standings by title"
+    },
+    {
+      "href": "rankTeams.html",
+      "text": "Rank Teams"
+    },
+    {
+      "href": "summaryFederations.html",
+      "text": "Summary Federations"
+    },
+    {
+      "href": "summaryOrigin.html",
+      "text": "Summary Origin"
+    },
+    {
+      "href": "#",
+      "text": "Reports"
+    },
+    {
+      "href": "felovar.html",
+      "text": "FIDE Rating"
+    },
+    {
+      "href": "fideplayercard.html",
+      "text": "FIDE Player Card"
+    },
+    {
+      "href": "nelovar.html",
+      "text": "National rating"
+    },
+    {
+      "href": "playercard.html",
+      "text": "National Player Card"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3244806",
+      "text": "Annapureddy,Rheyansh Reddy"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3204332",
+      "text": "Hogg,Dean"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3259056",
+      "text": "Lingineni,Khushal"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3281345",
+      "text": "Ruaya,Rohan"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=311214498",
+      "text": "Jothibabu,Anandaram"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3270335",
+      "text": "Nguyen,Tuan Kiet"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=7712340",
+      "text": "Austin, Angelo"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3220613",
+      "text": "Salanowski,Mark"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3267849",
+      "text": "Nguyen,Anh Kiet"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3257762",
+      "text": "Lacson,Joemar"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3247953",
+      "text": "Kirk,Ian"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=311214578",
+      "text": "Ruaya,Chris Rodson"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3239683",
+      "text": "Annapureddy,Dhruthin Reddy"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3254925",
+      "text": "Krishnan,Anirudh"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3259021",
+      "text": "Bodke,Krishna"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=2054515",
+      "text": "Paul,Cijo"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3201414",
+      "text": "Hogan,Steven"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275221",
+      "text": "Ramanathan,Ashwin"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275272",
+      "text": "Yang,Yifan"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3237796",
+      "text": "Nawar,Mena"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3264173",
+      "text": "Saha,Avinandan (Arjun)"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3247910",
+      "text": "Cox,Tyler"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3226735",
+      "text": "Thandhi,Mohan"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3260062",
+      "text": "Majety,Rohan"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286320",
+      "text": "Huang,Michael"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275108",
+      "text": "Ashok,Arjun"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286380",
+      "text": "Shaiek,Nihal"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275779",
+      "text": "Annadasu,Shreyansh"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286339",
+      "text": "Jagannathan,Shashvath"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3267857",
+      "text": "Nicdao,Joseph"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3247902",
+      "text": "Cox,Aiden"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3275248",
+      "text": "Veginati,Cherish"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3254917",
+      "text": "Goh,Nicholas"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3272605",
+      "text": "Velkur,Raghav Sripad"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286266",
+      "text": "Balamurugan,Soorya"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3284670",
+      "text": "Jyothi Nikhil,Neev"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=311110985",
+      "text": "Velkur,Gagan Saicharan"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286312",
+      "text": "Goh,Julian"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3286304",
+      "text": "Goh,Daphne"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=532011059",
+      "text": "Ahmad,Ihtiram"
+    },
+    {
+      "href": "http://ratings.fide.com/card.phtml?event=3288510",
+      "text": "Srivatsav Yegnavajjula, Aryan"
+    },
+    {
+      "href": "http://www.vegachess.com",
+      "text": "Generated by Vega"
+    }
+  ],
+  "images": [
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/tto.png",
+      "alt": "TTO"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/os.png",
+      "alt": "OS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/aus.png",
+      "alt": "AUS"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    },
+    {
+      "src": "flag/vic.png",
+      "alt": "VIC"
+    }
+  ]
+}
