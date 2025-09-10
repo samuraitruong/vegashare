@@ -43,7 +43,7 @@ jobs:
     
     - name: Run auto sync
       env:
-        SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '1800' }}
+        SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '18000' }}
       run: |
         # Use the globally linked vega-cli command
         vega-cli check-update --extract --output ./vega --url "https://vegaftp.free.nf/?i=1&seconds=${SYNC_TIMEOUT_SECONDS}"
