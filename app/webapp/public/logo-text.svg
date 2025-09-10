@@ -1,0 +1,30 @@
+<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Chess piece icon -->
+  <g transform="translate(5, 5)">
+    <circle cx="15" cy="15" r="12" fill="url(#textGradient)" stroke="#4a5568" stroke-width="1"/>
+    <rect x="8" y="8" width="14" height="14" fill="#f8fafc" rx="1"/>
+    <rect x="8" y="8" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="11.5" y="11.5" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="15" y="8" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="18.5" y="11.5" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="8" y="15" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="11.5" y="18.5" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="15" y="15" width="3.5" height="3.5" fill="#2d3748"/>
+    <rect x="18.5" y="18.5" width="3.5" height="3.5" fill="#2d3748"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="40" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="url(#textGradient)">
+    Vega Chess
+  </text>
+  <text x="40" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="normal" fill="#6b7280">
+    tournament directory
+  </text>
+</svg>

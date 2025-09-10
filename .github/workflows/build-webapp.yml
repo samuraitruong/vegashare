@@ -10,6 +10,8 @@ on:
 env:
   NEXT_PUBLIC_BASE_PATH: /app
   NEXT_PUBLIC_EXPORT_STATIC: 'true'
+  NEXT_PUBLIC_TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+  NEXT_PUBLIC_TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
 
 jobs:
   build-and-copy:
