@@ -2,10 +2,13 @@
 
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import dotenv from "dotenv";
+dotenv.config();
 import { commandConfig as processCommand } from "./commands/process.js";
 import { commandConfig as checkUpdateCommand } from "./commands/check-update.js";
 import { commandConfig as syncHtmlCommand } from "./commands/sync-html.js";
 import { commandConfig as htmlToJsonCommand } from "./commands/html-to-json.js";
+import { commandConfig as upsertDbCommand } from "./commands/upsert-db.js";
 
 // Setup yargs with command modules
 const argv = yargs(hideBin(process.argv))
@@ -13,6 +16,7 @@ const argv = yargs(hideBin(process.argv))
   .command(checkUpdateCommand)
   .command(syncHtmlCommand)
   .command(htmlToJsonCommand)
+  .command(upsertDbCommand)
   .help()
   .demandCommand(1, "You need to specify a command")
   .argv;

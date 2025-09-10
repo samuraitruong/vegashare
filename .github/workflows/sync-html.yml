@@ -17,6 +17,9 @@ on:
 jobs:
   sync-html:
     runs-on: ubuntu-latest
+    env:
+      TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
     permissions:
       contents: write
       pull-requests: read
@@ -106,10 +109,10 @@ jobs:
         echo "folders=$FOLDERS" >> $GITHUB_OUTPUT
         echo "📂 Extracted folders: $FOLDERS"
     
-    - name: Generate JSON data from HTML
+    - name: Generate JSON data from HTML and upsert to DB
       if: steps.check-php-files.outputs.skip_sync == 'false' && steps.sync-html.outputs.folders != '[]'
       run: |
-        echo "🔄 Generating JSON data from HTML files..."
+        echo "🔄 Generating JSON data from HTML files and upserting to DB..."
         FOLDERS='${{ steps.sync-html.outputs.folders }}'
         echo "📂 Processing folders: $FOLDERS"
         
@@ -120,13 +123,21 @@ jobs:
             if [ -d "www/$folder" ]; then
               vega-cli html-to-json --input "www/$folder" --verbose
               echo "✅ Generated JSON for folder: $folder"
+              JSON_FILE="www/$folder/data_clean.json"
+              if [ -f "$JSON_FILE" ]; then
+                echo "📤 Upserting to DB from $JSON_FILE"
+                vega-cli upsert-db --file "$JSON_FILE" --verbose
+                echo "✅ Upsert completed for folder: $folder"
+              else
+                echo "⚠️  JSON file not found for upsert: $JSON_FILE"
+              fi
             else
               echo "⚠️  Folder not found: www/$folder"
             fi
           fi
         done
         
-        echo "✅ JSON generation completed"
+        echo "✅ JSON generation and DB upsert completed"
     
     - name: Stop PHP server
       if: always()

@@ -3,3 +3,9 @@ packages:
   - server/**
   - packages/**
   - cli/**
+
+ignoredBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - react-vertical-timeline-component
+  - sharp
+  - unrs-resolver

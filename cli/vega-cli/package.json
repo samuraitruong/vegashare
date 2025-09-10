@@ -18,8 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@libsql/client": "^0.15.15",
     "adm-zip": "^0.5.16",
     "cheerio": "^1.1.2",
+    "dotenv": "^16.6.1",
     "yargs": "^18.0.0"
   }
 }

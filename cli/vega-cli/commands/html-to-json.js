@@ -796,7 +796,7 @@ function enrichTablesWithPlayerData(pageData, playerLookup) {
 /**
  * Transform data to normalized structure
  */
-function transformToNormalizedData(pageData, playerLookup, metadata, menu, category) {
+function transformToNormalizedData(pageData, playerLookup, metadata, menu, category, folderName) {
   // Create normalized player array
   const players = Array.from(playerLookup.values()).map(player => ({
     id: player.id,
@@ -865,6 +865,7 @@ function transformToNormalizedData(pageData, playerLookup, metadata, menu, categ
       id: metadata['Tournament Name']?.replace(/\s+/g, '-').toLowerCase() || 'unknown',
       name: metadata['Tournament Name'] || 'Unknown Tournament',
       category: category,
+      folder: folderName,
       metadata: {
         ...metadata,
         // Normalize metadata keys to camelCase
@@ -1072,7 +1073,7 @@ async function processFolder(folderPath, verbose = false) {
   
   if (players) {
     // Generate and write clean data
-    const cleanData = transformToNormalizedData(result.page, playerLookup, metadata, menu, category);
+    const cleanData = transformToNormalizedData(result.page, playerLookup, metadata, menu, category, folderName);
     
     // Calculate MD5 hash for clean data
     const cleanHash = calculateDataHash(cleanData);
