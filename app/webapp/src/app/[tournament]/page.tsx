@@ -1,11 +1,42 @@
 
 import { Suspense } from 'react';
+import { createClient } from '@libsql/client';
 import TournamentClient from './TournamentClient';
 
 export async function generateStaticParams() {
-    // For static export, provide at least one param to satisfy Next.js requirements
-    // Dynamic routes will be handled at runtime
-    return [{ tournament: 'placeholder' }];
+    try {
+        const url = process.env.NEXT_PUBLIC_TURSO_DATABASE_URL || process.env.TURSO_DATABASE_URL || process.env.LIBSQL_URL;
+        const authToken = process.env.NEXT_PUBLIC_TURSO_AUTH_TOKEN || process.env.TURSO_AUTH_TOKEN || process.env.LIBSQL_AUTH_TOKEN;
+        
+        if (!url || !authToken) {
+            console.warn('Missing Turso credentials for generateStaticParams, using placeholder');
+            return [{ tournament: 'placeholder' }];
+        }
+
+        const db = createClient({ url, authToken });
+        const res = await db.execute({
+            sql: `SELECT folder_path FROM tournament WHERE folder_path IS NOT NULL AND folder_path != ''`,
+            args: []
+        });
+
+        const tournaments = (res.rows || []).map((row: unknown) => {
+            const r = row as { folder_path: string };
+            return { tournament: r.folder_path };
+        });
+
+        console.log(`Generated ${tournaments.length} static params for tournaments`);
+        
+        // If no tournaments found, return placeholder to satisfy Next.js requirements
+        if (tournaments.length === 0) {
+            return [{ tournament: 'placeholder' }];
+        }
+        
+        return tournaments;
+    } catch (error) {
+        console.error('Error generating static params from database:', error);
+        // Fallback to placeholder if database query fails
+        return [{ tournament: 'placeholder' }];
+    }
 }
 
 export default function TournamentPage({ params }: { params: Promise<{ tournament: string }> }) {
