@@ -1,0 +1,48 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="url(#bgGradient)" stroke="#4a5568" stroke-width="1"/>
+  
+  <!-- Chess board pattern -->
+  <rect x="8" y="8" width="16" height="16" fill="#f8fafc" rx="1"/>
+  
+  <!-- Chess board squares -->
+  <rect x="8" y="8" width="4" height="4" fill="#2d3748"/>
+  <rect x="12" y="12" width="4" height="4" fill="#2d3748"/>
+  <rect x="16" y="8" width="4" height="4" fill="#2d3748"/>
+  <rect x="20" y="12" width="4" height="4" fill="#2d3748"/>
+  <rect x="8" y="16" width="4" height="4" fill="#2d3748"/>
+  <rect x="12" y="20" width="4" height="4" fill="#2d3748"/>
+  <rect x="16" y="16" width="4" height="4" fill="#2d3748"/>
+  <rect x="20" y="20" width="4" height="4" fill="#2d3748"/>
+  
+  <!-- Chess pieces (simplified) -->
+  <!-- King (white) -->
+  <circle cx="10" cy="10" r="1.5" fill="#f7fafc" stroke="#2d3748" stroke-width="0.3"/>
+  <rect x="9.5" y="9" width="1" height="0.5" fill="#f7fafc"/>
+  
+  <!-- Queen (black) -->
+  <circle cx="14" cy="14" r="1.5" fill="#2d3748" stroke="#f7fafc" stroke-width="0.3"/>
+  <rect x="13.5" y="13" width="1" height="0.5" fill="#2d3748"/>
+  
+  <!-- Knight (white) -->
+  <circle cx="18" cy="10" r="1.5" fill="#f7fafc" stroke="#2d3748" stroke-width="0.3"/>
+  <rect x="17.5" y="9" width="1" height="0.5" fill="#f7fafc"/>
+  
+  <!-- Bishop (black) -->
+  <circle cx="22" cy="14" r="1.5" fill="#2d3748" stroke="#f7fafc" stroke-width="0.3"/>
+  <rect x="21.5" y="13" width="1" height="0.5" fill="#2d3748"/>
+  
+  <!-- Tournament crown/star overlay -->
+  <g transform="translate(16, 4)">
+    <path d="M0,-3 L0.75,-0.75 L3,0 L0.75,0.75 L0,3 L-0.75,0.75 L-3,0 L-0.75,-0.75 Z" 
+          fill="#fbbf24" stroke="#f59e0b" stroke-width="0.2"/>
+  </g>
+</svg>
