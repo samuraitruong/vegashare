@@ -159,11 +159,6 @@ vega-cli check-update --extract --output ./vega --debug
 - Verify that PHP files in `vega/` are accessible via HTTP
 - Check that the `www/` folder has write permissions
 
-### Docker Issues
-- Ensure Docker daemon is running
-- Check that port 8080 is not already in use
-- Verify that the `docker-compose.html.yml` file is present
-
 ### Git Push Issues (403 Forbidden)
 If you get a 403 error when trying to push changes, the GitHub token doesn't have write permissions. The workflows are configured with explicit permissions:
 
@@ -184,3 +179,17 @@ If you still get 403 errors, you may need to:
    - Generate token with `repo` scope
    - Add as repository secret: `GH_TOKEN`
    - Update workflows to use `${{ secrets.GH_TOKEN }}` instead of `${{ secrets.GITHUB_TOKEN }}`
+
+### Vega Directory Issues
+If you get "Vega directory not found" errors:
+
+1. **Auto-sync must run first**: The HTML sync workflow requires the `vega/` directory to exist
+2. **Directory creation**: The HTML sync workflow will create an empty `vega/` directory if it doesn't exist
+3. **Path calculation**: The CLI automatically detects whether it's running from the repository root or CLI directory
+4. **Skip logic**: HTML sync will skip if no PHP files are found in the `vega/` directory
+
+### Docker Compose Issues
+- Use `docker compose` (without hyphen) instead of `docker-compose`
+- Ensure Docker daemon is running
+- Check that port 8080 is not already in use
+- Verify that the `docker-compose.html.yml` file is present

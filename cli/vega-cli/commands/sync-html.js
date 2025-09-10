@@ -7,10 +7,19 @@ import { createWriteStream } from 'fs';
  * @returns {string} The absolute path to the vega folder.
  */
 function getVegaPath() {
-  // In GitHub Actions: process.cwd() is /home/runner/work/vegashare/cli/vega-cli
+  // In GitHub Actions: process.cwd() is /home/runner/work/vegashare (repository root)
   // In local dev: process.cwd() is /Users/truongnguyen/source/vegashare/cli/vega-cli
   // We want the vega folder at the repository root
-  const vegaPath = join(process.cwd(), '..', '..', 'vega');
+  
+  let vegaPath;
+  if (process.cwd().endsWith('/cli/vega-cli')) {
+    // Running from CLI directory
+    vegaPath = join(process.cwd(), '..', '..', 'vega');
+  } else {
+    // Running from repository root
+    vegaPath = join(process.cwd(), 'vega');
+  }
+  
   console.log(`🔍 Current working directory: ${process.cwd()}`);
   console.log(`🔍 Calculated vega path: ${vegaPath}`);
   return vegaPath;
@@ -21,8 +30,16 @@ function getVegaPath() {
  * @returns {string} The absolute path to the www folder.
  */
 function getWwwPath() {
-  // We want /Users/truongnguyen/source/vegashare/www
-  return join(process.cwd(), '..', '..', 'www');
+  // We want the www folder at the repository root
+  let wwwPath;
+  if (process.cwd().endsWith('/cli/vega-cli')) {
+    // Running from CLI directory
+    wwwPath = join(process.cwd(), '..', '..', 'www');
+  } else {
+    // Running from repository root
+    wwwPath = join(process.cwd(), 'www');
+  }
+  return wwwPath;
 }
 
 /**
