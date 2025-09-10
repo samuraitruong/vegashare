@@ -7,9 +7,13 @@ import { createWriteStream } from 'fs';
  * @returns {string} The absolute path to the vega folder.
  */
 function getVegaPath() {
-  // process.cwd() is /Users/truongnguyen/source/vegashare/cli/vega-cli
-  // We want /Users/truongnguyen/source/vegashare/vega
-  return join(process.cwd(), '..', '..', 'vega');
+  // In GitHub Actions: process.cwd() is /home/runner/work/vegashare/cli/vega-cli
+  // In local dev: process.cwd() is /Users/truongnguyen/source/vegashare/cli/vega-cli
+  // We want the vega folder at the repository root
+  const vegaPath = join(process.cwd(), '..', '..', 'vega');
+  console.log(`🔍 Current working directory: ${process.cwd()}`);
+  console.log(`🔍 Calculated vega path: ${vegaPath}`);
+  return vegaPath;
 }
 
 /**
@@ -126,8 +130,26 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
     // Check if vega directory exists
     try {
       await stat(vegaPath);
+      console.log(`✅ Vega directory found: ${vegaPath}`);
     } catch (error) {
-      throw new Error(`Vega directory not found: ${vegaPath}`);
+      console.log(`⚠️  Vega directory not found: ${vegaPath}`);
+      console.log(`🔍 Current working directory: ${process.cwd()}`);
+      console.log(`🔍 Directory contents: ${process.cwd()}/..`);
+      
+      // List contents of parent directories for debugging
+      try {
+        const parentDir = join(process.cwd(), '..');
+        const parentContents = await readdir(parentDir);
+        console.log(`📁 Parent directory contents: ${parentContents.join(', ')}`);
+        
+        const grandParentDir = join(process.cwd(), '..', '..');
+        const grandParentContents = await readdir(grandParentDir);
+        console.log(`📁 Grandparent directory contents: ${grandParentContents.join(', ')}`);
+      } catch (listError) {
+        console.log(`❌ Could not list directory contents: ${listError.message}`);
+      }
+      
+      throw new Error(`Vega directory not found: ${vegaPath}. Please ensure the auto-sync workflow has run first to create the vega directory.`);
     }
     
     // Find all PHP files

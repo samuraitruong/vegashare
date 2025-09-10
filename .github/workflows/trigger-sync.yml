@@ -41,6 +41,14 @@ jobs:
         VEGA_CHANGES=$(git log --since="5 minutes ago" --name-only --pretty=format: | grep -E "^vega/.*\.php$" | wc -l)
         echo "📁 PHP files changed in vega/: $VEGA_CHANGES"
         
+        # Also check if vega directory exists and has PHP files
+        if [ -d "vega" ]; then
+          VEGA_PHP_FILES=$(find vega -name "*.php" -type f | wc -l)
+          echo "📄 Current PHP files in vega/: $VEGA_PHP_FILES"
+        else
+          echo "⚠️  Vega directory does not exist yet"
+        fi
+        
         # Check for changes in www/ folder (HTML files)
         WWW_CHANGES=$(git log --since="5 minutes ago" --name-only --pretty=format: | grep -E "^www/.*\.html$" | wc -l)
         echo "🌐 HTML files changed in www/: $WWW_CHANGES"

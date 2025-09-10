@@ -49,6 +49,18 @@ jobs:
         git config --global user.name "VegaShare Bot"
         git config --global user.email "vegashare-bot@noreply.github.com"
     
+    - name: Check for vega directory
+      run: |
+        echo "🔍 Checking for vega directory..."
+        if [ -d "vega" ]; then
+          echo "✅ Vega directory found"
+          echo "📁 Contents: $(ls -la vega/ | head -10)"
+        else
+          echo "⚠️  Vega directory not found - creating empty directory"
+          mkdir -p vega
+          echo "📁 Created empty vega directory"
+        fi
+    
     - name: Start PHP server
       run: |
         docker compose -f docker-compose.html.yml up -d
@@ -65,7 +77,24 @@ jobs:
           sleep 2
         done
     
+    - name: Check for PHP files
+      id: check-php-files
+      run: |
+        echo "🔍 Checking for PHP files in vega directory..."
+        PHP_COUNT=$(find vega -name "*.php" -type f | wc -l)
+        echo "📄 Found $PHP_COUNT PHP files"
+        echo "php_count=$PHP_COUNT" >> $GITHUB_OUTPUT
+        
+        if [ "$PHP_COUNT" -eq 0 ]; then
+          echo "ℹ️  No PHP files found - skipping HTML sync"
+          echo "skip_sync=true" >> $GITHUB_OUTPUT
+        else
+          echo "✅ PHP files found - proceeding with HTML sync"
+          echo "skip_sync=false" >> $GITHUB_OUTPUT
+        fi
+    
     - name: Sync PHP to HTML
+      if: steps.check-php-files.outputs.skip_sync == 'false'
       run: |
         echo "🔄 Converting PHP files to HTML..."
         vega-cli sync-html --server "${{ github.event.inputs.server_url || 'http://localhost:8080' }}" --verbose
@@ -85,7 +114,7 @@ jobs:
         fi
     
     - name: Commit and push HTML changes
-      if: steps.check-changes.outputs.changes_detected == 'true'
+      if: steps.check-changes.outputs.changes_detected == 'true' && steps.check-php-files.outputs.skip_sync == 'false'
       run: |
         git add www/
         git commit -m "Auto-sync: Generate HTML from PHP files
@@ -95,3 +124,13 @@ jobs:
         - Workflow: Sync HTML from PHP
         - Run ID: ${{ github.run_id }}"
         git push
+    
+    - name: Log completion
+      run: |
+        if [ "${{ steps.check-php-files.outputs.skip_sync }}" == "true" ]; then
+          echo "ℹ️  No PHP files found - HTML sync skipped"
+        elif [ "${{ steps.check-changes.outputs.changes_detected }}" == "true" ]; then
+          echo "✅ HTML files generated and committed successfully"
+        else
+          echo "ℹ️  No HTML changes detected - skipping commit"
+        fi
