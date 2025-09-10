@@ -62,12 +62,20 @@ The workflows automatically configure git with:
 - Only PHP files from `www*` folders are synced (excluding `index.php`)
 
 ### CLI Installation
-The workflows use `npm link` to make the `vega-cli` command globally available:
+The workflows use pnpm workspace management and `npm link` to make the `vega-cli` command globally available:
 ```bash
-cd cli/vega-cli
-npm link
+# Install all workspace dependencies
+pnpm install
+
+# Link the CLI globally
+pnpm run link-all
 ```
 This allows the workflows to use `vega-cli` directly instead of `./index.js`.
+
+### Node.js and pnpm Versions
+- **Node.js**: v22 (latest LTS)
+- **pnpm**: v10 (latest)
+- **pnpm action**: v4 (latest)
 
 ## Troubleshooting
 

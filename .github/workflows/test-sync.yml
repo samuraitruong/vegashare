@@ -23,19 +23,18 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
     
     - name: Install pnpm
-      uses: pnpm/action-setup@v2
+      uses: pnpm/action-setup@v4
       with:
-        version: 8
+        version: 10
     
     - name: Install dependencies and link CLI
       run: |
-        cd cli/vega-cli
         pnpm install
-        npm link
+        pnpm run link-all
     
     - name: Configure Git
       run: |

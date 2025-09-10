@@ -8,7 +8,8 @@
     "dev": "pnpm -r run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:up": "docker-compose up --build",
-    "docker:down": "docker-compose down"
+    "docker:down": "docker-compose down",
+    "link-all": "cd cli/vega-cli && npm link"
   },
   "keywords": [],
   "author": "",
