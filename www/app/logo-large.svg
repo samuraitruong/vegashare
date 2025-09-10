@@ -1,0 +1,62 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#bgGradient)" stroke="#4a5568" stroke-width="4"/>
+  
+  <!-- Chess board pattern -->
+  <rect x="32" y="32" width="64" height="64" fill="url(#chessGradient)" rx="4"/>
+  
+  <!-- Chess board squares -->
+  <rect x="32" y="32" width="16" height="16" fill="#2d3748"/>
+  <rect x="48" y="48" width="16" height="16" fill="#2d3748"/>
+  <rect x="64" y="32" width="16" height="16" fill="#2d3748"/>
+  <rect x="80" y="48" width="16" height="16" fill="#2d3748"/>
+  <rect x="32" y="64" width="16" height="16" fill="#2d3748"/>
+  <rect x="48" y="80" width="16" height="16" fill="#2d3748"/>
+  <rect x="64" y="64" width="16" height="16" fill="#2d3748"/>
+  <rect x="80" y="80" width="16" height="16" fill="#2d3748"/>
+  
+  <!-- Chess pieces (simplified) -->
+  <!-- King (white) -->
+  <circle cx="40" cy="40" r="5" fill="#f7fafc" stroke="#2d3748" stroke-width="1"/>
+  <rect x="38" y="36" width="4" height="2" fill="#f7fafc"/>
+  <rect x="37" y="38" width="6" height="1" fill="#f7fafc"/>
+  
+  <!-- Queen (black) -->
+  <circle cx="56" cy="56" r="5" fill="#2d3748" stroke="#f7fafc" stroke-width="1"/>
+  <rect x="54" y="52" width="4" height="2" fill="#2d3748"/>
+  <rect x="53" y="54" width="6" height="1" fill="#2d3748"/>
+  
+  <!-- Knight (white) -->
+  <circle cx="72" cy="40" r="5" fill="#f7fafc" stroke="#2d3748" stroke-width="1"/>
+  <rect x="70" y="36" width="4" height="2" fill="#f7fafc"/>
+  <rect x="69" y="38" width="6" height="1" fill="#f7fafc"/>
+  
+  <!-- Bishop (black) -->
+  <circle cx="88" cy="56" r="5" fill="#2d3748" stroke="#f7fafc" stroke-width="1"/>
+  <rect x="86" y="52" width="4" height="2" fill="#2d3748"/>
+  <rect x="85" y="54" width="6" height="1" fill="#2d3748"/>
+  
+  <!-- Tournament crown/star overlay -->
+  <g transform="translate(64, 16)">
+    <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z" 
+          fill="#fbbf24" stroke="#f59e0b" stroke-width="1"/>
+  </g>
+  
+  <!-- Small decorative elements -->
+  <circle cx="24" cy="24" r="2" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="104" cy="24" r="2" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="24" cy="104" r="2" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="104" cy="104" r="2" fill="#fbbf24" opacity="0.7"/>
+</svg>
