@@ -244,6 +244,14 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
           throw new Error(`Final response is not valid JSON. Status: ${finalResponse.status}`);
         }
       } else {
+        if (isDownload) {
+          // For download requests, check content type first
+          const contentType = thirdResponse.headers.get('content-type');
+          if (contentType && contentType.includes('application/zip')) {
+            return await thirdResponse.arrayBuffer();
+          }
+        }
+        
         try {
           return JSON.parse(thirdData);
         } catch (jsonError) {
@@ -260,6 +268,14 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
         }
       }
     } else {
+      if (isDownload) {
+        // For download requests, check content type first
+        const contentType = followUpResponse.headers.get('content-type');
+        if (contentType && contentType.includes('application/zip')) {
+          return await followUpResponse.arrayBuffer();
+        }
+      }
+      
       try {
         return JSON.parse(followUpData);
       } catch (jsonError) {
