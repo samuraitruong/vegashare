@@ -144,3 +144,24 @@ vega-cli check-update --extract --output ./vega --debug
 - Ensure Docker daemon is running
 - Check that port 8080 is not already in use
 - Verify that the `docker-compose.html.yml` file is present
+
+### Git Push Issues (403 Forbidden)
+If you get a 403 error when trying to push changes, the GitHub token doesn't have write permissions. The workflows are configured with explicit permissions:
+
+```yaml
+permissions:
+  contents: write
+  pull-requests: read
+```
+
+If you still get 403 errors, you may need to:
+
+1. **Check Repository Settings**: Go to Settings → Actions → General → Workflow permissions
+   - Ensure "Read and write permissions" is selected
+   - Check "Allow GitHub Actions to create and approve pull requests"
+
+2. **Use Personal Access Token**: Create a PAT with `repo` scope and add it as `GH_TOKEN` secret
+   - Go to GitHub → Settings → Developer settings → Personal access tokens
+   - Generate token with `repo` scope
+   - Add as repository secret: `GH_TOKEN`
+   - Update workflows to use `${{ secrets.GH_TOKEN }}` instead of `${{ secrets.GITHUB_TOKEN }}`
