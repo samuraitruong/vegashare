@@ -43,15 +43,12 @@ export default function RootLayout({
         <div className="bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen font-sans">
           <header className="relative bg-white shadow flex items-center justify-between px-2 md:px-6 py-4">
             <div className="flex items-center gap-4">
-              <Link href="/" className="flex items-center gap-4">
-                <Image src="/logo.svg" alt="Vega Chess tournament directory Logo" width={40} height={40} className="rounded-full border border-blue-300" />
+              <Link href="./" className="flex items-center gap-4">
+                <Image src="logo.svg" alt="Vega Chess tournament directory Logo" width={40} height={40} className="rounded-full border border-blue-300" />
                 <span className="text-xl md:text-2xl font-bold text-blue-700 tracking-wide">Vega Chess tournament directory</span>
               </Link>
             </div>
             <nav className="hidden md:flex items-center gap-6">
-              <Link href="/" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
-                Tournaments
-              </Link>
               
             </nav>
             <MobileNav />
