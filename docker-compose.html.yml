@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  php-server:
+    image: php:8.2-apache
+    container_name: vegashare-php-server
+    ports:
+      - "8080:80"
+    volumes:
+      - ./vega:/var/www/html
+      - ./server/php:/var/www/html/server
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    command: >
+      bash -c "
+        a2enmod rewrite &&
+        echo 'ServerName localhost' >> /etc/apache2/apache2.conf &&
+        apache2-foreground
+      "
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/server/index.php"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

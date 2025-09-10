@@ -1,0 +1,94 @@
+name: Sync HTML from PHP
+
+on:
+  push:
+    paths:
+      - 'vega/**/*.php'
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      server_url:
+        description: 'PHP server URL'
+        required: false
+        default: 'http://localhost:8080'
+        type: string
+
+jobs:
+  sync-html:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: 'pnpm'
+    
+    - name: Install dependencies and link CLI
+      run: |
+        pnpm install
+        pnpm run link-all
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name "VegaShare Bot"
+        git config --global user.email "vegashare-bot@noreply.github.com"
+    
+    - name: Start PHP server
+      run: |
+        docker-compose -f docker-compose.html.yml up -d
+        echo "Waiting for PHP server to be ready..."
+        sleep 10
+        
+        # Wait for server to be healthy
+        for i in {1..30}; do
+          if curl -f http://localhost:8080/server/index.php > /dev/null 2>&1; then
+            echo "PHP server is ready!"
+            break
+          fi
+          echo "Waiting for PHP server... ($i/30)"
+          sleep 2
+        done
+    
+    - name: Sync PHP to HTML
+      run: |
+        echo "🔄 Converting PHP files to HTML..."
+        vega-cli sync-html --server "${{ github.event.inputs.server_url || 'http://localhost:8080' }}" --verbose
+    
+    - name: Stop PHP server
+      if: always()
+      run: |
+        docker-compose -f docker-compose.html.yml down
+    
+    - name: Check for HTML changes
+      id: check-changes
+      run: |
+        if [ -n "$(git status --porcelain www/)" ]; then
+          echo "changes_detected=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes_detected=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push HTML changes
+      if: steps.check-changes.outputs.changes_detected == 'true'
+      run: |
+        git add www/
+        git commit -m "Auto-sync: Generate HTML from PHP files
+
+        - Converted PHP files to HTML using local PHP server
+        - Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+        - Workflow: Sync HTML from PHP
+        - Run ID: ${{ github.run_id }}"
+        git push

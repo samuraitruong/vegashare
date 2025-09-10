@@ -42,7 +42,7 @@ jobs:
     - name: Test sync with custom time window
       run: |
         echo "Testing sync with ${{ github.event.inputs.seconds }} seconds time window..."
-        vega-cli check-update --extract --url "https://vegaftp.free.nf/?i=1&seconds=${{ github.event.inputs.seconds }}"
+        vega-cli check-update --extract --output ./vega --debug --url "https://vegaftp.free.nf/?i=1&seconds=${{ github.event.inputs.seconds }}"
     
     - name: Check for changes
       id: check-changes

@@ -41,7 +41,7 @@ jobs:
     - name: Run auto sync
       run: |
         # Use the globally linked vega-cli command
-        vega-cli check-update --extract --url "https://vegaftp.free.nf/?i=1&seconds=300"
+        vega-cli check-update --extract --output ./vega --url "https://vegaftp.free.nf/?i=1&seconds=300"
     
     - name: Check for changes
       id: check-changes

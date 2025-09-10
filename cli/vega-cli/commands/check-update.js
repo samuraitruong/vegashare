@@ -81,13 +81,25 @@ function parseCookieScript(htmlContent) {
  * @param {Object} additionalHeaders - Additional headers to include
  * @returns {Promise<Response>} The fetch response
  */
-async function makeRequest(url, additionalHeaders = {}) {
-  return await fetch(url, {
+async function makeRequest(url, additionalHeaders = {}, debug = false) {
+  if (debug) {
+    console.log("🌐 Making request to:", url);
+    console.log("📋 Headers:", { ...BROWSER_HEADERS, ...additionalHeaders });
+  }
+  
+  const response = await fetch(url, {
     headers: {
       ...BROWSER_HEADERS,
       ...additionalHeaders
     }
   });
+  
+  if (debug) {
+    console.log("📥 Response status:", response.status, response.statusText);
+    console.log("📋 Response headers:", Object.fromEntries(response.headers.entries()));
+  }
+  
+  return response;
 }
 
 /**
@@ -97,13 +109,13 @@ async function makeRequest(url, additionalHeaders = {}) {
  * @param {boolean} isDownload - Whether this is a download request
  * @returns {Promise<Object|Buffer>} The JSON response data or binary data for downloads
  */
-async function handleCookieChallenge(url, cookieData = null, isDownload = false) {
+async function handleCookieChallenge(url, cookieData = null, isDownload = false, debug = false) {
   // Try with cached cookie first if available
   if (cookieData) {
     try {
       const response = await makeRequest(url, {
         'Cookie': `${cookieData.name}=${cookieData.value}`
-      });
+      }, debug);
       
       if (response.ok) {
         if (isDownload) {
@@ -129,7 +141,7 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
   }
   
   // No cached cookie or it didn't work, go through the challenge
-  const response = await makeRequest(url);
+  const response = await makeRequest(url, {}, debug);
   
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
@@ -153,7 +165,7 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
     // Make the follow-up request with the decrypted cookie value
     const followUpResponse = await makeRequest(followUpUrl, {
       'Cookie': `${cookieInfo.name}=${cookieInfo.value}`
-    });
+    }, debug);
     
     if (!followUpResponse.ok) {
       if (followUpResponse.status === 404) {
@@ -220,20 +232,47 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
         try {
           return JSON.parse(finalData);
         } catch (jsonError) {
-          throw new Error("Final response is not valid JSON");
+          console.error("❌ Final response is not valid JSON");
+          console.error("Response content (first 500 chars):", finalData.substring(0, 500));
+          console.error("Status:", finalResponse.status, finalResponse.statusText);
+          
+          if (finalResponse.status === 404) {
+            console.log("ℹ️  No files changed in the specified time window (404)");
+            return null;
+          }
+          
+          throw new Error(`Final response is not valid JSON. Status: ${finalResponse.status}`);
         }
       } else {
         try {
           return JSON.parse(thirdData);
         } catch (jsonError) {
-          throw new Error("Third response is not valid JSON");
+          console.error("❌ Third response is not valid JSON");
+          console.error("Response content (first 500 chars):", thirdData.substring(0, 500));
+          console.error("Status:", thirdResponse.status, thirdResponse.statusText);
+          
+          if (thirdResponse.status === 404) {
+            console.log("ℹ️  No files changed in the specified time window (404)");
+            return null;
+          }
+          
+          throw new Error(`Third response is not valid JSON. Status: ${thirdResponse.status}`);
         }
       }
     } else {
       try {
         return JSON.parse(followUpData);
       } catch (jsonError) {
-        throw new Error("Follow-up response is not valid JSON");
+        console.error("❌ Follow-up response is not valid JSON");
+        console.error("Response content (first 500 chars):", followUpData.substring(0, 500));
+        console.error("Status:", followUpResponse.status, followUpResponse.statusText);
+        
+        if (followUpResponse.status === 404) {
+          console.log("ℹ️  No files changed in the specified time window (404)");
+          return null;
+        }
+        
+        throw new Error(`Follow-up response is not valid JSON. Status: ${followUpResponse.status}`);
       }
     }
   } else {
@@ -250,7 +289,19 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
     try {
       return JSON.parse(data);
     } catch (jsonError) {
-      throw new Error("Response is not valid JSON");
+      // Log the response for debugging
+      console.error("❌ Response is not valid JSON");
+      console.error("Response content (first 500 chars):", data.substring(0, 500));
+      console.error("Content-Type:", response.headers.get('content-type'));
+      console.error("Status:", response.status, response.statusText);
+      
+      // If it's a 404, handle it gracefully
+      if (response.status === 404) {
+        console.log("ℹ️  No files changed in the specified time window (404)");
+        return null;
+      }
+      
+      throw new Error(`Response is not valid JSON. Status: ${response.status}, Content-Type: ${response.headers.get('content-type')}`);
     }
   }
 }
@@ -260,8 +311,10 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
  * @param {string} url - The URL to fetch data from
  * @param {boolean} download - Whether to download ZIP file instead of showing JSON
  * @param {boolean} extract - Whether to download and extract ZIP file to vega folder
+ * @param {boolean} debug - Whether to show debug information
+ * @param {string} outputPath - Custom output path for extraction (default: vega folder)
  */
-export async function checkUpdate(url, download = false, extract = false) {
+export async function checkUpdate(url, download = false, extract = false, debug = false, outputPath = null) {
   try {
     // Determine if we need to download (either download or extract mode)
     const needsDownload = download || extract;
@@ -276,6 +329,12 @@ export async function checkUpdate(url, download = false, extract = false) {
       console.log("No cached cookies found, going through challenge...");
     }
     
+    if (debug) {
+      console.log("🔍 Debug mode enabled");
+      console.log("Final URL:", finalUrl);
+      console.log("Needs download:", needsDownload);
+    }
+    
     const result = await handleCookieChallenge(finalUrl, cachedCookies, needsDownload);
     
     // If result is null, it means no changes were found (404)
@@ -286,15 +345,17 @@ export async function checkUpdate(url, download = false, extract = false) {
     
     if (needsDownload) {
       if (extract) {
-        // Extract mode: download and extract to vega folder
-        console.log("Downloading and extracting ZIP file to vega folder...");
+        // Extract mode: download and extract to specified folder
+        const targetPath = outputPath || getVegaPath();
+        console.log(`Downloading and extracting ZIP file to ${targetPath}...`);
         
-        // Get the vega folder path
-        const vegaPath = getVegaPath();
+        if (debug) {
+          console.log("🔍 Target extraction path:", targetPath);
+        }
         
         try {
-          const extractedCount = await extractZip(Buffer.from(result), vegaPath);
-          console.log(`✅ Successfully extracted ${extractedCount} files to vega folder`);
+          const extractedCount = await extractZip(Buffer.from(result), targetPath);
+          console.log(`✅ Successfully extracted ${extractedCount} files to ${targetPath}`);
         } catch (extractError) {
           console.error("❌ Failed to extract ZIP file:", extractError.message);
           process.exit(1);
@@ -340,9 +401,20 @@ export const commandConfig = {
         type: "boolean",
         description: "Download and extract ZIP file to vega folder",
         default: false,
+      })
+      .option("debug", {
+        type: "boolean",
+        description: "Show debug information",
+        default: false,
+      })
+      .option("output", {
+        alias: "o",
+        type: "string",
+        description: "Output directory for extracted files (default: vega folder)",
+        default: null,
       });
   },
   handler: (argv) => {
-    checkUpdate(argv.url, argv.download, argv.extract);
+    checkUpdate(argv.url, argv.download, argv.extract, argv.debug, argv.output);
   }
 };

@@ -9,7 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:up": "docker-compose up --build",
     "docker:down": "docker-compose down",
-    "link-all": "cd cli/vega-cli && npm link"
+    "link-all": "cd cli/vega-cli && npm link",
+    "php:up": "docker-compose -f docker-compose.html.yml up -d",
+    "php:down": "docker-compose -f docker-compose.html.yml down",
+    "sync-html": "vega-cli sync-html --verbose"
   },
   "keywords": [],
   "author": "",
