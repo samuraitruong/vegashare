@@ -139,3 +139,5 @@ ftp-users
 .DS_Store
 sftp.json
 test-output
+out-ai/
+out/

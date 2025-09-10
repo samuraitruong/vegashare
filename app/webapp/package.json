@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:export": "NEXT_PUBLIC_EXPORT_STATIC=true next build"
+    "build:export": "NEXT_PUBLIC_EXPORT_STATIC=true next build",
+    "build:ai": "NEXT_PUBLIC_EXPORT_STATIC=true NEXT_PUBLIC_AI_BUILD=true next build",
+    "build:safe": "npm run kill:dev && npm run build:ai && npm run dev:restart",
+    "kill:dev": "pkill -f 'next dev' || true",
+    "dev:restart": "npm run dev"
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",

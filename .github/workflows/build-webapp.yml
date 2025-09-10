@@ -42,12 +42,13 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
-    - name: Build webapp (static export)
+    - name: Build webapp (isolated static export)
       working-directory: app/webapp
       env:
         NEXT_PUBLIC_EXPORT_STATIC: 'true'
+        NEXT_PUBLIC_AI_BUILD: 'true'
       run: |
-        pnpm run build:export
+        pnpm run build:ai
 
     - name: Remove old app artifacts
       run: |
@@ -58,7 +59,7 @@ jobs:
     - name: Copy build output to www/app
       run: |
         echo "📦 Copying static export to www/app..."
-        rsync -a --delete app/webapp/out/ www/app/
+        rsync -a --delete app/webapp/out-ai/ www/app/
         echo "✅ Copy completed"
 
     - name: Configure Git

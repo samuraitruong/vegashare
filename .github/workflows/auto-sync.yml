@@ -42,9 +42,11 @@ jobs:
         git config --global user.email "vegashare-bot@noreply.github.com"
     
     - name: Run auto sync
+      env:
+        SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '1800' }}
       run: |
         # Use the globally linked vega-cli command
-        vega-cli check-update --extract --output ./vega --url "https://vegaftp.free.nf/?i=1&seconds=300"
+        vega-cli check-update --extract --output ./vega --url "https://vegaftp.free.nf/?i=1&seconds=${SYNC_TIMEOUT_SECONDS}"
     
     - name: Check for changes
       id: check-changes

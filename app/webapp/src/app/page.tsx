@@ -24,68 +24,89 @@ export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [pageSize] = useState<number>(18);
   const [total, setTotal] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   // const [menuOpen, setMenuOpen] = useState(false); // Unused for now
 
   useEffect(() => {
     const controller = new AbortController();
     const load = async () => {
-      const url = process.env.NEXT_PUBLIC_TURSO_DATABASE_URL as string | undefined;
-      const authToken = process.env.NEXT_PUBLIC_TURSO_AUTH_TOKEN as string | undefined;
-      if (!url || !authToken) {
-        console.warn("Missing NEXT_PUBLIC_TURSO_DATABASE_URL/NEXT_PUBLIC_TURSO_AUTH_TOKEN envs");
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const url = process.env.NEXT_PUBLIC_TURSO_DATABASE_URL as string | undefined;
+        const authToken = process.env.NEXT_PUBLIC_TURSO_AUTH_TOKEN as string | undefined;
+        if (!url || !authToken) {
+          console.warn("Missing NEXT_PUBLIC_TURSO_DATABASE_URL/NEXT_PUBLIC_TURSO_AUTH_TOKEN envs");
+          setTournaments([]);
+          setTotal(0);
+          setError("Database configuration missing");
+          return;
+        }
+        
+        const db = createClient({ url, authToken });
+        const offset = (page - 1) * pageSize;
+        
+        const totalRes = await db.execute(`SELECT COUNT(*) as c FROM tournament`);
+        const totalCount = Number((totalRes.rows?.[0] as unknown as { c: number })?.c ?? 0);
+        setTotal(totalCount);
+        
+        const res = await db.execute({
+          sql: `SELECT id, name, start_date, end_date, rounds, arbiter, location, folder_path, federation, created_at
+                FROM tournament
+                ORDER BY datetime(created_at) DESC
+                LIMIT ? OFFSET ?`,
+          args: [pageSize, offset]
+        });
+        
+        const list = (res.rows || []).map((r: unknown) => {
+          const row = r as { id: string; name: string; start_date?: string; end_date?: string; rounds?: number; arbiter?: string; location?: string; folder_path?: string; federation?: string; created_at: string };
+          const data: TournamentMeta = {
+            'Tournament Name': String(row.name ?? ''),
+            'Date Begin': String(row.start_date ?? ''),
+            'Date End': String(row.end_date ?? ''),
+            'Arbiter(s)': String(row.arbiter ?? ''),
+            'Place': String(row.location ?? ''),
+            'Rounds': String(row.rounds ?? ''),
+            'Federation': String(row.federation ?? '')
+          };
+          return {
+            id: row.id,
+            name: row.name,
+            category: '',
+            createdAt: row.created_at,
+            data,
+            path: `www/${row.folder_path || ''}/data.json`
+          };
+        });
+        
+        const now = new Date();
+        const withStatus = list.map((t) => {
+          const startDateStr = t.data["Date Begin"] || t.data["Date"] || "";
+          const endDateStr = t.data["Date End"] || t.data["End Date"] || "";
+          const beginDateObj = parseAusDate(startDateStr);
+          const endDateObj = parseAusDate(endDateStr);
+          let status = "Completed";
+          if (endDateObj.getTime() < now.getTime()) {
+            status = "Completed";
+          } else if (beginDateObj.getTime() > now.getTime()) {
+            status = "Planned";
+          } else {
+            status = "In Progress";
+          }
+          return { ...t, status } as Tournament;
+        });
+        
+        setTournaments(withStatus);
+      } catch (err) {
+        console.error('Error loading tournaments:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load tournaments');
         setTournaments([]);
         setTotal(0);
-        return;
+      } finally {
+        setLoading(false);
       }
-      const db = createClient({ url, authToken });
-      const offset = (page - 1) * pageSize;
-      const totalRes = await db.execute(`SELECT COUNT(*) as c FROM tournament`);
-      const totalCount = Number((totalRes.rows?.[0] as unknown as { c: number })?.c ?? 0);
-      setTotal(totalCount);
-      const res = await db.execute({
-        sql: `SELECT id, name, start_date, end_date, rounds, arbiter, location, folder_path, federation, created_at
-              FROM tournament
-              ORDER BY datetime(created_at) DESC
-              LIMIT ? OFFSET ?`,
-        args: [pageSize, offset]
-      });
-      const list = (res.rows || []).map((r: unknown) => {
-        const row = r as { id: string; name: string; start_date?: string; end_date?: string; rounds?: number; arbiter?: string; location?: string; folder_path?: string; federation?: string; created_at: string };
-        const data: TournamentMeta = {
-          'Tournament Name': String(row.name ?? ''),
-          'Date Begin': String(row.start_date ?? ''),
-          'Date End': String(row.end_date ?? ''),
-          'Arbiter(s)': String(row.arbiter ?? ''),
-          'Place': String(row.location ?? ''),
-          'Rounds': String(row.rounds ?? ''),
-          'Federation': String(row.federation ?? '')
-        };
-        return {
-          id: row.id,
-          name: row.name,
-          category: '',
-          createdAt: row.created_at,
-          data,
-          path: `www/${row.folder_path || ''}/data.json`
-        };
-      });
-      const now = new Date();
-      const withStatus = list.map((t) => {
-        const startDateStr = t.data["Date Begin"] || t.data["Date"] || "";
-        const endDateStr = t.data["Date End"] || t.data["End Date"] || "";
-        const beginDateObj = parseAusDate(startDateStr);
-        const endDateObj = parseAusDate(endDateStr);
-        let status = "Completed";
-        if (endDateObj.getTime() < now.getTime()) {
-          status = "Completed";
-        } else if (beginDateObj.getTime() > now.getTime()) {
-          status = "Planned";
-        } else {
-          status = "In Progress";
-        }
-        return { ...t, status } as Tournament;
-      });
-      setTournaments(withStatus);
     };
     load();
     return () => controller.abort();
@@ -137,16 +158,46 @@ export default function Home() {
 
         {/* Tournament Cards */}
         <div className="px-2 py-8 md:px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {filtered.length === 0 && (
-              <div className="col-span-full text-center text-gray-500">No tournaments found for selected filters.</div>
-            )}
+          {/* Loading State */}
+          {loading && (
+            <div className="flex items-center justify-center py-12">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading tournaments...</p>
+              </div>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !loading && (
+            <div className="flex items-center justify-center py-12">
+              <div className="text-center">
+                <div className="text-red-500 text-6xl mb-4">⚠️</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Failed to load tournaments</h3>
+                <p className="text-gray-600 mb-4">{error}</p>
+                <button 
+                  onClick={() => window.location.reload()} 
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Try Again
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Tournament Grid */}
+          {!loading && !error && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {filtered.length === 0 && (
+                <div className="col-span-full text-center text-gray-500">No tournaments found for selected filters.</div>
+              )}
             {filtered.map((t, idx) => {
               const title = t.data["Tournament Name"] || t.data["Place"] || "Untitled";
               const date = t.data["Date Begin"] || t.data["Date"] || "";
               const endDate = t.data["Date End"] || t.data["End Date"] || "";
               const site = t.data["Site"] || t.data["Place"] || "";
-              const slug = t.path.replace(/^www/, "").replace(/\/data\.json$/, "");
+              // Extract tournament name from folder_path, removing www prefix
+              const slug = t.path.replace(/^www\//, "").replace(/\/data\.json$/, "").replace(/^www/, "");
               // Use the same parseAusDate helper
               const beginDateObj = parseAusDate(date);
               const endDateObj = parseAusDate(endDate);
@@ -166,7 +217,7 @@ export default function Home() {
                 status = "In Progress";
                 statusClass = "bg-green-200 text-green-800";
               }
-              // If completed, go to standings page
+              // If completed, go to standings page; otherwise go to main tournament page
               const linkUrl = status === "Completed" ? `/${slug}?page=standings.html` : `/${slug}`;
               return (
                 <Link
@@ -181,12 +232,14 @@ export default function Home() {
                 </Link>
               );
             })}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Pagination */}
-        <div className="px-4 pb-8">
-          <div className="flex items-center justify-center gap-3 pt-8 border-t border-gray-100">
+        {!loading && !error && (
+          <div className="px-4 pb-8">
+            <div className="flex items-center justify-center gap-3 pt-8 border-t border-gray-100">
             <button
               className="px-3 py-2 rounded border bg-gray-50 text-blue-700 font-semibold shadow-sm disabled:opacity-50 hover:bg-gray-100 transition-colors"
               disabled={page <= 1}
@@ -203,7 +256,8 @@ export default function Home() {
               Next &rarr;
             </button>
           </div>
-        </div>
+          </div>
+        )}
       </div>
      
 

@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_BUILD_TIME: new Date().toISOString(),
   },
   
+  // Custom output directory for AI builds
+  distDir: process.env.NEXT_PUBLIC_AI_BUILD === 'true' ? 'out-ai' : '.next',
+  
   /* config options here */
 };
 

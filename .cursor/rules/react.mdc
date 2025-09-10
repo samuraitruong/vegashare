@@ -1,0 +1,40 @@
+---
+globs: *.tsx
+alwaysApply: false
+---
+
+# Vega Chess Tournament Directory - React Development Rules
+
+## Build Commands
+- **NEVER use `pnpm run build`** - this breaks the live development server
+- **ALWAYS use `pnpm run build:ai`** - this builds to isolated `out-ai` directory
+- **For safe builds**: Use `pnpm run build:safe` - kills dev server, builds, then restarts
+
+## Project Structure
+- **Webapp**: `/app/webapp/` - Next.js React application
+- **Database**: Uses Turso (LibSQL) for tournament data
+- **Static Export**: Builds to `out-ai/` directory (isolated from dev server)
+- **Deployment**: GitHub Actions copies `out-ai/` to `www/app/` for static hosting
+
+## Key Features
+- **Tournament Management**: Loads tournaments from Turso database
+- **Status Filtering**: Completed, In Progress, Planned tournaments
+- **Dynamic Routing**: `/[tournament]` pages with database-driven static generation
+- **Loading States**: All database queries have loading indicators
+- **Clean URLs**: Tournament URLs without "www" prefix (e.g., `/2025BestintheWest`)
+
+## Database Integration
+- **Environment Variables**: `NEXT_PUBLIC_TURSO_DATABASE_URL` and `NEXT_PUBLIC_TURSO_AUTH_TOKEN`
+- **Client-side Queries**: No API routes, direct database access from components
+- **Error Handling**: Graceful fallbacks with user-friendly error messages
+
+## Development Workflow
+1. Use `pnpm run dev` for development
+2. Use `pnpm run build:ai` to test builds without breaking dev server
+3. Use `pnpm run build:safe` for complete build + restart cycle
+4. Loading states are required for all database operations
+
+## Important Notes
+- **No API Routes**: All data fetching is client-side from Turso
+- **Static Export**: Configured for GitHub Pages deployment
+- **Logo**: Custom SVG chess-themed logo in `/public/logo.svg`

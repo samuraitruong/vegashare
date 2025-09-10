@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
         const tournaments = (res.rows || []).map((row: unknown) => {
             const r = row as { folder_path: string };
-            return { tournament: r.folder_path };
+            return { tournament: r.folder_path.replace(/^www\//, "") };
         });
 
         console.log(`Generated ${tournaments.length} static params for tournaments`);
