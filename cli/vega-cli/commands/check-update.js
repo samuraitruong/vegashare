@@ -351,12 +351,15 @@ export async function checkUpdate(url, download = false, extract = false, debug 
       console.log(`📥 Changes detected (${jsonResult.count} files), downloading ZIP file...`);
       
       // Step 2: Make download call to get ZIP file
+      // Use fresh cookies from the successful JSON call
+      const freshCookies = await loadCookies();
       const downloadUrl = `${url}${url.includes('?') ? '&' : '?'}download=true`;
       if (debug) {
         console.log("🔍 Download URL:", downloadUrl);
+        console.log("🔍 Using fresh cookies for download:", freshCookies ? "Yes" : "No");
       }
       
-      const zipResult = await handleCookieChallenge(downloadUrl, cachedCookies, true, debug);
+      const zipResult = await handleCookieChallenge(downloadUrl, freshCookies, true, debug);
       
       if (extract) {
         // Extract mode: download and extract to specified folder
