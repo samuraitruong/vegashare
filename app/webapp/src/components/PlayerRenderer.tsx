@@ -220,11 +220,6 @@ const PlayerRenderer: React.FC<PlayerRendererProps> = ({ data, className = "", o
 
         // If we have a player name and it's not empty, render detailed player info
         if (playerName && playerName.trim() !== '') {
-            const handlePlayerClick = () => {
-                if (onPlayerClick && playerId && String(playerId).trim() !== '') {
-                    onPlayerClick(playerId);
-                }
-            };
 
             // Get gender-based styling
             const genderStyles = getGenderStyles(gender || '');

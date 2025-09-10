@@ -40,7 +40,7 @@ export default function Home() {
       const db = createClient({ url, authToken });
       const offset = (page - 1) * pageSize;
       const totalRes = await db.execute(`SELECT COUNT(*) as c FROM tournament`);
-      const totalCount = Number((totalRes.rows?.[0] as any)?.c ?? 0);
+      const totalCount = Number((totalRes.rows?.[0] as unknown as { c: number })?.c ?? 0);
       setTotal(totalCount);
       const res = await db.execute({
         sql: `SELECT id, name, start_date, end_date, rounds, arbiter, location, folder_path, federation, created_at
@@ -49,23 +49,24 @@ export default function Home() {
               LIMIT ? OFFSET ?`,
         args: [pageSize, offset]
       });
-      const list = (res.rows || []).map((r: any) => {
+      const list = (res.rows || []).map((r: unknown) => {
+        const row = r as { id: string; name: string; start_date?: string; end_date?: string; rounds?: number; arbiter?: string; location?: string; folder_path?: string; federation?: string; created_at: string };
         const data: TournamentMeta = {
-          'Tournament Name': String(r.name ?? ''),
-          'Date Begin': String(r.start_date ?? ''),
-          'Date End': String(r.end_date ?? ''),
-          'Arbiter(s)': String(r.arbiter ?? ''),
-          'Place': String(r.location ?? ''),
-          'Rounds': String(r.rounds ?? ''),
-          'Federation': String(r.federation ?? '')
+          'Tournament Name': String(row.name ?? ''),
+          'Date Begin': String(row.start_date ?? ''),
+          'Date End': String(row.end_date ?? ''),
+          'Arbiter(s)': String(row.arbiter ?? ''),
+          'Place': String(row.location ?? ''),
+          'Rounds': String(row.rounds ?? ''),
+          'Federation': String(row.federation ?? '')
         };
         return {
-          id: r.id,
-          name: r.name,
+          id: row.id,
+          name: row.name,
           category: '',
-          createdAt: r.created_at,
+          createdAt: row.created_at,
           data,
-          path: `www/${r.folder_path || ''}/data.json`
+          path: `www/${row.folder_path || ''}/data.json`
         };
       });
       const now = new Date();

@@ -6,7 +6,6 @@ export default function MobileNav() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onRoute = () => setOpen(false);
     // Close on escape
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);

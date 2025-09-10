@@ -1,43 +1,11 @@
 
-import fs from 'fs';
-import path from 'path';
 import { Suspense } from 'react';
 import TournamentClient from './TournamentClient';
 
-export function generateStaticParams() {
-    try {
-        // Path to the tournament.json file (relative to the timeline directory)
-        const tournamentJsonPath = path.join(process.cwd(), '..', 'www', 'tournament.json');
-        
-        if (!fs.existsSync(tournamentJsonPath)) {
-            console.warn('tournament.json not found, returning empty params');
-            return [];
-        }
-        
-        const tournamentData = JSON.parse(fs.readFileSync(tournamentJsonPath, 'utf-8'));
-        
-        // Extract tournament names from paths
-        const params = tournamentData.map((tournament: { path: string }) => {
-            // Extract the tournament name from the path
-            // Example: "www2025HobsonsBayAprilBlitz/data.json" -> "2025HobsonsBayAprilBlitz"
-            const pathParts = tournament.path.split('/');
-            const folderName = pathParts[0]; // "www2025HobsonsBayAprilBlitz"
-            
-            // Remove "www" prefix
-            const tournamentName = folderName.replace(/^www/, '');
-            
-            return {
-                tournament: tournamentName
-            };
-        });
-        
-        console.log(`Generated ${params.length} static params for tournaments`);
-        return params;
-        
-    } catch (error) {
-        console.error('Error generating static params:', error);
-        return [];
-    }
+export async function generateStaticParams() {
+    // For static export, provide at least one param to satisfy Next.js requirements
+    // Dynamic routes will be handled at runtime
+    return [{ tournament: 'placeholder' }];
 }
 
 export default function TournamentPage({ params }: { params: Promise<{ tournament: string }> }) {
