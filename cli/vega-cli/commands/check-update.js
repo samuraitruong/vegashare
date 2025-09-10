@@ -220,11 +220,8 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
         }
         
         if (isDownload) {
-          // For download requests, check content type first
-          const contentType = finalResponse.headers.get('content-type');
-          if (contentType && contentType.includes('application/zip')) {
-            return await finalResponse.arrayBuffer();
-          }
+          // For download requests, return binary content directly
+          return await finalResponse.arrayBuffer();
         }
         
         const finalData = await finalResponse.text();
@@ -244,14 +241,6 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
           throw new Error(`Final response is not valid JSON. Status: ${finalResponse.status}`);
         }
       } else {
-        if (isDownload) {
-          // For download requests, check content type first
-          const contentType = thirdResponse.headers.get('content-type');
-          if (contentType && contentType.includes('application/zip')) {
-            return await thirdResponse.arrayBuffer();
-          }
-        }
-        
         try {
           return JSON.parse(thirdData);
         } catch (jsonError) {
@@ -268,14 +257,6 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
         }
       }
     } else {
-      if (isDownload) {
-        // For download requests, check content type first
-        const contentType = followUpResponse.headers.get('content-type');
-        if (contentType && contentType.includes('application/zip')) {
-          return await followUpResponse.arrayBuffer();
-        }
-      }
-      
       try {
         return JSON.parse(followUpData);
       } catch (jsonError) {
@@ -294,11 +275,8 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
   } else {
     // Not a cookie protection response
     if (isDownload) {
-      // For download requests, check content type first
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('application/zip')) {
-        return await response.arrayBuffer();
-      }
+      // For download requests, return binary content directly
+      return await response.arrayBuffer();
     }
     
     // Try to parse as JSON
@@ -332,9 +310,7 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false,
  */
 export async function checkUpdate(url, download = false, extract = false, debug = false, outputPath = null) {
   try {
-    // Determine if we need to download (either download or extract mode)
     const needsDownload = download || extract;
-    const finalUrl = needsDownload ? `${url}${url.includes('?') ? '&' : '?'}download=true` : url;
     
     // Try to load cached cookies first
     const cachedCookies = await loadCookies();
@@ -347,30 +323,52 @@ export async function checkUpdate(url, download = false, extract = false, debug 
     
     if (debug) {
       console.log("🔍 Debug mode enabled");
-      console.log("Final URL:", finalUrl);
       console.log("Needs download:", needsDownload);
     }
     
-    const result = await handleCookieChallenge(finalUrl, cachedCookies, needsDownload);
+    // Step 1: Get JSON response to check for changes
+    console.log("📋 Checking for changes...");
+    const jsonResult = await handleCookieChallenge(url, cachedCookies, false, debug);
     
     // If result is null, it means no changes were found (404)
-    if (result === null) {
+    if (jsonResult === null) {
       console.log("✅ No changes detected - process completed successfully");
       return;
     }
     
+    if (debug) {
+      console.log("📊 JSON response:", JSON.stringify(jsonResult, null, 2));
+    }
+    
+    // If we need to download and there are changes, make a second call
     if (needsDownload) {
+      // Check if there are actually files to download
+      if (jsonResult.count === 0 || !jsonResult.files || jsonResult.files.length === 0) {
+        console.log("✅ No files to download - process completed successfully");
+        return;
+      }
+      
+      console.log(`📥 Changes detected (${jsonResult.count} files), downloading ZIP file...`);
+      
+      // Step 2: Make download call to get ZIP file
+      const downloadUrl = `${url}${url.includes('?') ? '&' : '?'}download=true`;
+      if (debug) {
+        console.log("🔍 Download URL:", downloadUrl);
+      }
+      
+      const zipResult = await handleCookieChallenge(downloadUrl, cachedCookies, true, debug);
+      
       if (extract) {
         // Extract mode: download and extract to specified folder
         const targetPath = outputPath || getVegaPath();
-        console.log(`Downloading and extracting ZIP file to ${targetPath}...`);
+        console.log(`📦 Extracting ZIP file to ${targetPath}...`);
         
         if (debug) {
           console.log("🔍 Target extraction path:", targetPath);
         }
         
         try {
-          const extractedCount = await extractZip(Buffer.from(result), targetPath);
+          const extractedCount = await extractZip(Buffer.from(zipResult), targetPath);
           console.log(`✅ Successfully extracted ${extractedCount} files to ${targetPath}`);
         } catch (extractError) {
           console.error("❌ Failed to extract ZIP file:", extractError.message);
@@ -378,12 +376,12 @@ export async function checkUpdate(url, download = false, extract = false, debug 
         }
       } else {
         // Download mode: output ZIP file to stdout
-        console.log("Downloading ZIP file...");
-        process.stdout.write(Buffer.from(result));
+        console.log("📤 Outputting ZIP file...");
+        process.stdout.write(Buffer.from(zipResult));
       }
     } else {
       // Display the JSON result
-      console.log(JSON.stringify(result, null, 2));
+      console.log(JSON.stringify(jsonResult, null, 2));
     }
     
   } catch (error) {
