@@ -95,9 +95,38 @@ jobs:
     
     - name: Sync PHP to HTML
       if: steps.check-php-files.outputs.skip_sync == 'false'
+      id: sync-html
       run: |
         echo "🔄 Converting PHP files to HTML..."
-        vega-cli sync-html --server "${{ github.event.inputs.server_url || 'http://localhost:8080' }}" --verbose
+        OUTPUT=$(vega-cli sync-html --server "${{ github.event.inputs.server_url || 'http://localhost:8080' }}" --verbose 2>&1)
+        echo "$OUTPUT"
+        
+        # Extract folder list from output
+        FOLDERS=$(echo "$OUTPUT" | grep "📋 FOLDERS_PROCESSED:" | sed 's/.*📋 FOLDERS_PROCESSED: //' || echo "[]")
+        echo "folders=$FOLDERS" >> $GITHUB_OUTPUT
+        echo "📂 Extracted folders: $FOLDERS"
+    
+    - name: Generate JSON data from HTML
+      if: steps.check-php-files.outputs.skip_sync == 'false' && steps.sync-html.outputs.folders != '[]'
+      run: |
+        echo "🔄 Generating JSON data from HTML files..."
+        FOLDERS='${{ steps.sync-html.outputs.folders }}'
+        echo "📂 Processing folders: $FOLDERS"
+        
+        # Parse JSON array and process each folder
+        echo "$FOLDERS" | jq -r '.[]' | while read folder; do
+          if [ -n "$folder" ] && [ "$folder" != "null" ]; then
+            echo "🔄 Processing folder: $folder"
+            if [ -d "www/$folder" ]; then
+              vega-cli html-to-json --input "www/$folder" --verbose
+              echo "✅ Generated JSON for folder: $folder"
+            else
+              echo "⚠️  Folder not found: www/$folder"
+            fi
+          fi
+        done
+        
+        echo "✅ JSON generation completed"
     
     - name: Stop PHP server
       if: always()
@@ -113,13 +142,15 @@ jobs:
           echo "changes_detected=false" >> $GITHUB_OUTPUT
         fi
     
-    - name: Commit and push HTML changes
+    - name: Commit and push HTML and JSON changes
       if: steps.check-changes.outputs.changes_detected == 'true' && steps.check-php-files.outputs.skip_sync == 'false'
       run: |
         git add www/
-        git commit -m "Auto-sync: Generate HTML from PHP files
+        git commit -m "Auto-sync: Generate HTML and JSON from PHP files
 
         - Converted PHP files to HTML using local PHP server
+        - Generated JSON data from HTML files using html-to-json CLI
+        - Processed folders: ${{ steps.sync-html.outputs.folders }}
         - Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
         - Workflow: Sync HTML from PHP
         - Run ID: ${{ github.run_id }}"
@@ -130,7 +161,8 @@ jobs:
         if [ "${{ steps.check-php-files.outputs.skip_sync }}" == "true" ]; then
           echo "ℹ️  No PHP files found - HTML sync skipped"
         elif [ "${{ steps.check-changes.outputs.changes_detected }}" == "true" ]; then
-          echo "✅ HTML files generated and committed successfully"
+          echo "✅ HTML and JSON files generated and committed successfully"
+          echo "📂 Processed folders: ${{ steps.sync-html.outputs.folders }}"
         else
-          echo "ℹ️  No HTML changes detected - skipping commit"
+          echo "ℹ️  No HTML/JSON changes detected - skipping commit"
         fi

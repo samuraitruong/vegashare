@@ -130,6 +130,7 @@ async function ensureDirectoryExists(dirPath) {
  * Syncs PHP files to HTML by requesting them from the local PHP server
  * @param {string} serverUrl - Base URL of the PHP server (default: http://localhost:8080)
  * @param {boolean} verbose - Whether to show verbose output
+ * @returns {Promise<Array<string>>} Array of folder names that were processed
  */
 export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = false) {
   try {
@@ -175,7 +176,7 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
     
     if (phpFiles.length === 0) {
       console.log('ℹ️  No PHP files found in vega directory');
-      return;
+      return [];
     }
     
     console.log(`📄 Found ${phpFiles.length} PHP files to process`);
@@ -183,6 +184,7 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
     let successCount = 0;
     let errorCount = 0;
     const errors = [];
+    const processedFolders = new Set(); // Track which folders were processed
     
     // Process each PHP file
     for (const file of phpFiles) {
@@ -207,6 +209,16 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
         
         // Write HTML file
         await writeFile(outputPath, html, 'utf8');
+        
+        // Track the folder that was processed
+        const folderName = dirname(file.relativePath);
+        if (folderName && folderName !== '.') {
+          processedFolders.add(folderName);
+        } else {
+          // If file is in root, use the filename without extension as folder name
+          const rootFolderName = basename(file.fileName, '.php');
+          processedFolders.add(rootFolderName);
+        }
         
         if (verbose) {
           console.log(`✅ Generated: ${outputPath}`);
@@ -239,9 +251,17 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
     
     console.log(`📁 HTML files written to: ${wwwPath}`);
     
+    // Convert Set to Array and log processed folders
+    const folderList = Array.from(processedFolders);
+    if (folderList.length > 0) {
+      console.log(`📂 Processed folders: ${folderList.join(', ')}`);
+    }
+    
     if (errorCount > 0) {
       process.exit(1);
     }
+    
+    return folderList;
     
   } catch (error) {
     console.error('❌ HTML sync failed:', error.message);
@@ -270,7 +290,11 @@ export const commandConfig = {
         default: false,
       });
   },
-  handler: (argv) => {
-    syncHtml(argv.server, argv.verbose);
+  handler: async (argv) => {
+    const folders = await syncHtml(argv.server, argv.verbose);
+    // Output folders as JSON for workflow consumption
+    if (folders && folders.length > 0) {
+      console.log(`\n📋 FOLDERS_PROCESSED: ${JSON.stringify(folders)}`);
+    }
   }
 };
