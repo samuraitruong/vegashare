@@ -67,6 +67,20 @@ jobs:
         - Run ID: ${{ github.run_id }}"
         git push origin main
     
+    - name: Trigger HTML Sync
+      if: steps.check-changes.outputs.changes == 'true'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          console.log('🚀 Triggering HTML sync workflow after auto-sync...');
+          await github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: 'sync-html.yml',
+            ref: context.ref
+          });
+          console.log('✅ HTML sync workflow triggered successfully');
+    
     - name: Log completion
       run: |
         if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then

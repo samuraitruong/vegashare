@@ -51,7 +51,7 @@ jobs:
     
     - name: Start PHP server
       run: |
-        docker-compose -f docker-compose.html.yml up -d
+        docker compose -f docker-compose.html.yml up -d
         echo "Waiting for PHP server to be ready..."
         sleep 10
         
@@ -73,7 +73,7 @@ jobs:
     - name: Stop PHP server
       if: always()
       run: |
-        docker-compose -f docker-compose.html.yml down
+        docker compose -f docker-compose.html.yml down
     
     - name: Check for HTML changes
       id: check-changes

@@ -14,11 +14,30 @@ This directory contains GitHub Actions workflows for automated file synchronizat
 - Checks for files changed in the last 5 minutes (300 seconds)
 - Downloads and extracts changed files to the `vega/` folder (using `--output ./vega`)
 - Automatically commits and pushes changes to the repository
+- **Automatically triggers HTML sync** if changes are detected
 - Only commits if there are actual changes
 
 **Manual Trigger**: Can be triggered manually from the GitHub Actions tab
 
-### 2. Test Sync (`test-sync.yml`)
+### 2. Trigger Sync (`trigger-sync.yml`)
+
+**Purpose**: Manually trigger sync workflows and check for changes.
+
+**Trigger**: Manual only (`workflow_dispatch`)
+
+**Parameters**:
+- `trigger_type`: Type of sync to trigger (auto, html, both)
+- `force_trigger`: Force trigger even if no changes detected (true/false)
+
+**Functionality**:
+- Checks for changes in the last 5 minutes
+- Intelligently triggers appropriate workflows based on changes
+- Can force trigger all workflows if needed
+- Useful for manual testing and debugging
+
+**Usage**: Go to Actions → Trigger Sync Workflows → Run workflow
+
+### 3. Test Sync (`test-sync.yml`)
 
 **Purpose**: Test the sync functionality with custom parameters.
 
@@ -34,7 +53,7 @@ This directory contains GitHub Actions workflows for automated file synchronizat
 - Useful for testing with different time ranges
 - Can be used to sync files from longer time periods
 
-### 3. Sync HTML (`sync-html.yml`)
+### 4. Sync HTML (`sync-html.yml`)
 
 **Purpose**: Convert PHP files to HTML using a local PHP server.
 
