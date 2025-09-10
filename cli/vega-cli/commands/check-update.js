@@ -156,6 +156,10 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
     });
     
     if (!followUpResponse.ok) {
+      if (followUpResponse.status === 404) {
+        console.log("ℹ️  No files changed in the specified time window (404)");
+        return null; // Return null to indicate no changes
+      }
       throw new Error(`Follow-up HTTP error! status: ${followUpResponse.status}`);
     }
     
@@ -176,6 +180,10 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
       });
       
       if (!thirdResponse.ok) {
+        if (thirdResponse.status === 404) {
+          console.log("ℹ️  No files changed in the specified time window (404)");
+          return null; // Return null to indicate no changes
+        }
         throw new Error(`Third HTTP error! status: ${thirdResponse.status}`);
       }
       
@@ -192,6 +200,10 @@ async function handleCookieChallenge(url, cookieData = null, isDownload = false)
         });
         
         if (!finalResponse.ok) {
+          if (finalResponse.status === 404) {
+            console.log("ℹ️  No files changed in the specified time window (404)");
+            return null; // Return null to indicate no changes
+          }
           throw new Error(`Final HTTP error! status: ${finalResponse.status}`);
         }
         
@@ -265,6 +277,12 @@ export async function checkUpdate(url, download = false, extract = false) {
     }
     
     const result = await handleCookieChallenge(finalUrl, cachedCookies, needsDownload);
+    
+    // If result is null, it means no changes were found (404)
+    if (result === null) {
+      console.log("✅ No changes detected - process completed successfully");
+      return;
+    }
     
     if (needsDownload) {
       if (extract) {
