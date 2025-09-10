@@ -1,0 +1,99 @@
+name: Build and Publish Webapp to www/app
+
+on:
+  push:
+    paths:
+      - 'app/webapp/**'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-copy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+      pull-requests: read
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build webapp (static export)
+      working-directory: app/webapp
+      env:
+        NEXT_PUBLIC_EXPORT_STATIC: 'true'
+      run: |
+        pnpm run build:export
+
+    - name: Remove old app artifacts
+      run: |
+        echo "🧹 Cleaning www/app folder..."
+        rm -rf www/app
+        mkdir -p www/app
+
+    - name: Copy build output to www/app
+      run: |
+        echo "📦 Copying static export to www/app..."
+        rsync -a --delete app/webapp/out/ www/app/
+        echo "✅ Copy completed"
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "VegaShare Bot"
+        git config --global user.email "vegashare-bot@noreply.github.com"
+
+    - name: Check for changes in www/app
+      id: check-changes
+      run: |
+        if [ -n "$(git status --porcelain www/app)" ]; then
+          echo "changes_detected=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes_detected=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push www/app changes
+      if: steps.check-changes.outputs.changes_detected == 'true'
+      run: |
+        git add www/app
+        git commit -m "Build webapp and publish static files to www/app
+
+        - Source: app/webapp (Next.js static export)
+        - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        - Workflow: ${{ github.workflow }}
+        - Run ID: ${{ github.run_id }}"
+        git push
+
+    - name: Trigger static deploy workflow
+      if: always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          console.log('🚀 Triggering static deploy workflow for www folder...');
+          await github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: 'static-deploy.yml',
+            ref: context.ref
+          });
+          console.log('✅ Static deploy workflow triggered');
+
+
