@@ -1,0 +1,74 @@
+name: Auto Sync Files
+
+on:
+  schedule:
+    # Run every minute
+    - cron: '* * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync-files:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0 # Fetch full history for proper git operations
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    
+    - name: Install dependencies and link CLI
+      run: |
+        cd cli/vega-cli
+        pnpm install
+        npm link
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name "VegaShare Bot"
+        git config --global user.email "vegashare-bot@noreply.github.com"
+    
+    - name: Run auto sync
+      run: |
+        # Use the globally linked vega-cli command
+        vega-cli check-update --extract --url "https://vegaftp.free.nf/?i=1&seconds=300"
+    
+    - name: Check for changes
+      id: check-changes
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push changes
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        git add .
+        git commit -m "Auto-sync: Update files from remote server
+        
+        - Synced files changed in the last 5 minutes
+        - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        - Workflow: ${{ github.workflow }}
+        - Run ID: ${{ github.run_id }}"
+        git push origin main
+    
+    - name: Log completion
+      run: |
+        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+          echo "✅ Files synced and committed successfully"
+        else
+          echo "ℹ️ No changes detected, skipping commit"
+        fi

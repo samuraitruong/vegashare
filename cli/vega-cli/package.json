@@ -18,7 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "yargs": "^17.7.2",
-    "cheerio": "^1.0.0-rc.12"
+    "adm-zip": "^0.5.16",
+    "cheerio": "^1.0.0-rc.12",
+    "yargs": "^18.0.0"
   }
 }

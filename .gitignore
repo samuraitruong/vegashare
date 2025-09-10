@@ -136,3 +136,5 @@ dist
 
 # Ignore ftp-users files and directories
 ftp-users
+.DS_Store
+sftp.json

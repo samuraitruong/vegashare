@@ -1,23 +1,21 @@
+/**
+ * Process Command
+ * Processes PHP files and generates HTML/JSON files
+ */
+
 import fs from "fs/promises";
 import path from "path";
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
 import * as cheerio from "cheerio";
-import { parseStandings } from "./libs/standings.js";
-import { parsePairs } from "./libs/pairs.js";
-import { parseFelovar } from "./libs/felovar.js";
-import { parsePlayersName } from "./libs/playersname.js";
+import { parseStandings } from "../libs/standings.js";
+import { parsePairs } from "../libs/pairs.js";
+import { parseFelovar } from "../libs/felovar.js";
+import { parsePlayersName } from "../libs/playersname.js";
 
-// Setup yargs to accept --inputPath parameter
-const argv = yargs(hideBin(process.argv))
-  .option("inputPath", {
-    alias: "i",
-    type: "string",
-    description: "Path to the folder to process PHP files",
-    demandOption: true,
-  })
-  .help().argv;
-
+/**
+ * Parses crosstablescore HTML content
+ * @param {string} htmlContent - The HTML content to parse
+ * @returns {Array} Parsed data array
+ */
 async function parseCrosstablescore(htmlContent) {
   const $ = cheerio.load(htmlContent);
   const rows = $("table.table-striped tbody tr");
@@ -48,6 +46,11 @@ async function parseCrosstablescore(htmlContent) {
   return data;
 }
 
+/**
+ * Parses summary HTML content
+ * @param {string} htmlContent - The HTML content to parse
+ * @returns {Array} Parsed data array
+ */
 async function parseSummary(htmlContent) {
   const $ = cheerio.load(htmlContent);
   const rows = $("table.table-striped tbody tr");
@@ -66,7 +69,11 @@ async function parseSummary(htmlContent) {
   return data;
 }
 
-async function processPhpFiles(inputPath) {
+/**
+ * Processes PHP files in the specified directory
+ * @param {string} inputPath - Path to the directory containing PHP files
+ */
+export async function processPhpFiles(inputPath) {
   try {
     const files = await fs.readdir(inputPath);
     const phpFiles = files.filter((file) => file.endsWith(".php"));
@@ -121,5 +128,21 @@ async function processPhpFiles(inputPath) {
   }
 }
 
-// Execute the CLI functionality
-processPhpFiles(path.resolve(argv.inputPath));
+/**
+ * Command configuration for yargs
+ */
+export const commandConfig = {
+  command: "process",
+  describe: "Process PHP files and generate HTML/JSON",
+  builder: (yargs) => {
+    return yargs.option("inputPath", {
+      alias: "i",
+      type: "string",
+      description: "Path to the folder to process PHP files",
+      demandOption: true,
+    });
+  },
+  handler: (argv) => {
+    processPhpFiles(path.resolve(argv.inputPath));
+  }
+};
