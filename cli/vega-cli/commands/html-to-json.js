@@ -935,24 +935,7 @@ function determineTableType(table, fileName) {
   return 'other';
 }
 
-/**
- * Placeholder function for syncing tournament metadata to database
- * This will be implemented later when database is added
- */
-async function syncTournamentToDatabase(tournamentData) {
-  console.log('🔄 [PLACEHOLDER] Syncing tournament to database...');
-  console.log(`   Tournament: ${tournamentData.tournament.name}`);
-  console.log(`   Category: ${tournamentData.tournament.category}`);
-  console.log(`   Players: ${tournamentData.players.length}`);
-  console.log('   ⚠️  Database sync not implemented yet - this is a placeholder');
-  
-  // TODO: Implement database sync when database is added
-  // This could include:
-  // - Insert/update tournament metadata
-  // - Insert/update player data
-  // - Insert/update game results
-  // - Handle relationships between tournaments and players
-}
+// Database upsert is handled by the CI workflow via `vega-cli upsert-db`.
 
 /**
  * Process a single folder
@@ -1091,8 +1074,7 @@ async function processFolder(folderPath, verbose = false) {
       await writeFile(OUTPUT_FILE, JSON.stringify(cleanData, null, 2), 'utf-8');
       console.log(`✅ [${folderName}] Clean data written to ${OUTPUT_FILE} (hash: ${cleanHash})`);
       
-      // Sync to database (placeholder)
-      await syncTournamentToDatabase(cleanData);
+      // Database upsert is performed in the workflow after JSON generation
     } else {
       console.log(`ℹ️  [${folderName}] Clean data unchanged, skipping write to ${OUTPUT_FILE}`);
     }

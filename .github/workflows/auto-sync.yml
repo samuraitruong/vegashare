@@ -11,7 +11,10 @@ on:
         required: false
         default: '300'
         type: string
-
+env:
+  SYNC_TIMEOUT_SECONDS: ${{ github.event.inputs.custom_timeout || vars.SYNC_TIMEOUT_SECONDS || '300' }}
+  TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+  TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
 jobs:
   main-sync:
     runs-on: ubuntu-latest
@@ -37,7 +40,6 @@ jobs:
         cache: 'pnpm'
     
     
-    
     - name: Install dependencies and link CLI
       run: |
         pnpm install
@@ -49,10 +51,7 @@ jobs:
         git config --global user.email "vegashare-bot@noreply.github.com"
     
     - name: Run auto sync
-      env:
-        SYNC_TIMEOUT_SECONDS: ${{ github.event.inputs.custom_timeout || vars.SYNC_TIMEOUT_SECONDS || '300' }}
-        TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
-        TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+      
       run: |
         # Use the globally linked vega-cli command
         echo "🔄 Starting auto sync with timeout: ${SYNC_TIMEOUT_SECONDS} seconds"
