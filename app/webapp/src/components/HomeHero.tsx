@@ -29,13 +29,13 @@ const HomeHero: React.FC = () => {
                 {/* Navigation */}
                 <div className="text-center mt-8">
                     <Link
-                        href="/timeline"
+                        href="/content/help"
                         className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-all duration-200 font-medium"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        View Timeline
+                       Publish New Tournament
                     </Link>
                 </div>
             </div>

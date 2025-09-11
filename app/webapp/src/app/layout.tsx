@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vega Chess tournament directory",
+  title: "Vega Chess Results",
   description: "View tournaments in chronological order.",
 };
 
@@ -43,9 +43,9 @@ export default function RootLayout({
         <div className="bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen font-sans">
           <header className="relative bg-white shadow flex items-center justify-between px-2 md:px-6 py-4">
             <div className="flex items-center gap-4">
-              <Link href="./" className="flex items-center gap-4">
-                <Image src="logo.svg" alt="Vega Chess tournament directory Logo" width={40} height={40} className="rounded-full border border-blue-300" />
-                <span className="text-xl md:text-2xl font-bold text-blue-700 tracking-wide">Vega Chess tournament directory</span>
+              <Link href="/" className="flex items-center gap-4">
+                <Image src="/logo.svg" alt="Vega Chess Results Logo" width={40} height={40} className="rounded-full border border-blue-300" />
+                <span className="text-xl md:text-2xl font-bold text-blue-700 tracking-wide">Vega Chess Results</span>
               </Link>
             </div>
             <nav className="hidden md:flex items-center gap-6">
@@ -58,7 +58,7 @@ export default function RootLayout({
             <div className="max-w-6xl mx-auto px-4">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="text-center sm:text-left">
-                  &copy; {new Date().getFullYear()} Vega Chess tournament directory. All rights reserved.
+                  &copy; {new Date().getFullYear()} Vega Chess Results. All rights reserved.
                 </div>
                 <div className="flex items-center gap-4 text-center sm:text-right"></div>
               </div>

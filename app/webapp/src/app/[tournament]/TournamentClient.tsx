@@ -73,11 +73,14 @@ export default function TournamentClient({ params }: { params: Promise<{ tournam
     const [data, setData] = useState<TournamentData | null>(null);
     const searchParams = useSearchParams();
     const router = useRouter();
-    const page = searchParams?.get("page") || "index.html";
+    const page = searchParams?.get("page") || "index";
     const playerId = searchParams?.get("id"); // Get player ID for auto-scroll
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_APP_URL + `/www${resolvedParams.tournament}/data_clean.json?ts=${new Date().getTime()}`)
+        const folderParam = String(resolvedParams.tournament || '').replace(/^\//, '');
+        const fileKey = `www${folderParam}`;
+        const url = `${process.env.NEXT_PUBLIC_APP_URL}/data/${fileKey}.json?ts=${Date.now()}`;
+        fetch(url)
             .then((res) => res.json())
             .then((json) => setData(json));
     }, [resolvedParams.tournament]);

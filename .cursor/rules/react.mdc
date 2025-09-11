@@ -3,7 +3,7 @@ globs: *.tsx
 alwaysApply: false
 ---
 
-# Vega Chess Tournament Directory - React Development Rules
+# Vega Chess Results - React Development Rules
 
 ## Build Commands
 - **NEVER use `pnpm run build`** - this breaks the live development server
