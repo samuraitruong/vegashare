@@ -46,14 +46,44 @@ jobs:
         SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '18000' }}
       run: |
         # Use the globally linked vega-cli command
+        echo "🔄 Starting auto sync with timeout: ${SYNC_TIMEOUT_SECONDS} seconds"
         vega-cli check-update --extract --output ./vega --url "https://vegaftp.free.nf/?i=1&seconds=${SYNC_TIMEOUT_SECONDS}"
+        
+        # Debug: List extracted files
+        echo "📁 Contents of ./vega directory:"
+        ls -la ./vega/ || echo "❌ ./vega directory not found"
+        
+        # Debug: Check if files exist in expected locations
+        echo "🔍 Checking for specific files:"
+        find ./vega -name "*.veg" -o -name "*.ini" -o -name "*.pgn" | head -10 || echo "❌ No .veg/.ini/.pgn files found"
+        
+        # Debug: Show git status before any operations
+        echo "📊 Git status before processing:"
+        git status --porcelain || echo "❌ Git status failed"
     
     - name: Check for changes
       id: check-changes
       run: |
+        echo "🔍 Checking for git changes..."
+        
+        # Show detailed git status
+        echo "📊 Full git status:"
+        git status --porcelain || echo "❌ Git status failed"
+        
+        # Show untracked files
+        echo "📁 Untracked files:"
+        git ls-files --others --exclude-standard || echo "❌ No untracked files"
+        
+        # Show modified files
+        echo "📝 Modified files:"
+        git diff --name-only || echo "❌ No modified files"
+        
+        # Check if there are any changes
         if [ -n "$(git status --porcelain)" ]; then
+          echo "✅ Changes detected"
           echo "changes=true" >> $GITHUB_OUTPUT
         else
+          echo "ℹ️ No changes detected"
           echo "changes=false" >> $GITHUB_OUTPUT
         fi
     
