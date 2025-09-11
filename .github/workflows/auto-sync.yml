@@ -1,13 +1,19 @@
-name: Auto Sync Files
+name: Main Sync Workflow
 
 on:
   schedule:
     # Run every minute
     - cron: '* * * * *'
   workflow_dispatch: # Allow manual trigger
+    inputs:
+      custom_timeout:
+        description: 'Custom timeout in seconds (default: 300)'
+        required: false
+        default: '300'
+        type: string
 
 jobs:
-  sync-files:
+  main-sync:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -43,7 +49,9 @@ jobs:
     
     - name: Run auto sync
       env:
-        SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '300' }}
+        SYNC_TIMEOUT_SECONDS: ${{ github.event.inputs.custom_timeout || vars.SYNC_TIMEOUT_SECONDS || '300' }}
+        TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+        TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
       run: |
         # Use the globally linked vega-cli command
         echo "🔄 Starting auto sync with timeout: ${SYNC_TIMEOUT_SECONDS} seconds"
@@ -89,6 +97,109 @@ jobs:
         echo "📊 Git status before processing:"
         git status --porcelain || echo "❌ Git status failed"
     
+    - name: Start PHP server
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        echo "🐳 Starting PHP server for HTML generation..."
+        docker compose -f docker-compose.html.yml up -d
+        echo "⏳ Waiting for PHP server to be ready..."
+        sleep 10
+        
+        # Wait for server to be healthy
+        for i in {1..30}; do
+          if curl -f http://localhost:8080/server/index.php > /dev/null 2>&1; then
+            echo "✅ PHP server is ready!"
+            break
+          fi
+          echo "⏳ Waiting for PHP server... ($i/30)"
+          sleep 2
+        done
+    
+    - name: Process vega folders
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        echo "🔄 Processing vega folders for HTML generation and DB upsert..."
+        
+        # Create processing directory
+        mkdir -p html
+        
+        # Find all folders starting with 'www' in vega directory
+        VEGA_FOLDERS=$(find vega -maxdepth 1 -type d -name "www*" | sort)
+        
+        if [ -z "$VEGA_FOLDERS" ]; then
+          echo "ℹ️ No vega folders found to process"
+          exit 0
+        fi
+        
+        echo "📂 Found vega folders to process:"
+        echo "$VEGA_FOLDERS"
+        
+        # Process each vega folder
+        echo "$VEGA_FOLDERS" | while read -r folder; do
+          if [ -n "$folder" ]; then
+            echo "🔄 Processing folder: $folder"
+            
+            # Extract folder name without path
+            FOLDER_NAME=$(basename "$folder")
+            echo "📁 Processing: $FOLDER_NAME"
+            
+            # Generate HTML from PHP files to html/
+            echo "🌐 Generating HTML for $FOLDER_NAME to html/..."
+            vega-cli sync-html --server "http://localhost:8080" --folder "$FOLDER_NAME" --output "html" --verbose
+            
+            # Generate JSON from HTML files in html/
+            if [ -d "html/$FOLDER_NAME" ]; then
+              echo "📄 Generating JSON for $FOLDER_NAME..."
+              vega-cli html-to-json --input "html/$FOLDER_NAME" --verbose
+              
+              # Upsert to database
+              JSON_FILE="html/$FOLDER_NAME/data_clean.json"
+              if [ -f "$JSON_FILE" ]; then
+                echo "💾 Upserting to database: $JSON_FILE"
+                vega-cli upsert-db --file "$JSON_FILE" --verbose
+                echo "✅ Completed processing: $FOLDER_NAME"
+              else
+                echo "⚠️ JSON file not found: $JSON_FILE"
+              fi
+            else
+              echo "⚠️ HTML folder not found: html/$FOLDER_NAME"
+            fi
+          fi
+        done
+        
+        echo "✅ All vega folders processed"
+    
+    - name: Move processed files to www
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        echo "📦 Moving processed files from html/ to www/..."
+        
+        if [ -d "html" ] && [ "$(ls -A html 2>/dev/null)" ]; then
+          # Move all processed folders from html/ to www/
+          for folder in html/*; do
+            if [ -d "$folder" ]; then
+              FOLDER_NAME=$(basename "$folder")
+              echo "📁 Moving $FOLDER_NAME to www/"
+              
+              # Remove existing folder in www/ if it exists
+              if [ -d "www/$FOLDER_NAME" ]; then
+                echo "🗑️ Removing existing www/$FOLDER_NAME"
+                rm -rf "www/$FOLDER_NAME"
+              fi
+              
+              # Move the processed folder
+              mv "$folder" "www/"
+              echo "✅ Moved $FOLDER_NAME to www/"
+            fi
+          done
+          
+          # Clean up empty html directory
+          rmdir html 2>/dev/null || true
+          echo "✅ All processed files moved to www/"
+        else
+          echo "ℹ️ No processed files to move"
+        fi
+    
     - name: Check for changes
       id: check-changes
       run: |
@@ -118,41 +229,55 @@ jobs:
     - name: Commit and push changes
       if: steps.check-changes.outputs.changes == 'true'
       run: |
-        git add .
-        git commit -m "Auto-sync: Update files from remote server
+        git add vega/ www/
+        git commit -m "Main Sync: Process and deploy tournament data
         
-        - Synced files changed in the last 5 minutes
+        - Synced files from remote server to vega/
+        - Generated HTML from PHP files in html/
+        - Generated JSON from HTML files
+        - Upserted data to database
+        - Moved processed files from html/ to www/
         - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
         - Workflow: ${{ github.workflow }}
         - Run ID: ${{ github.run_id }}"
         git push origin main
     
-    - name: Trigger HTML Sync
+    - name: Stop PHP server
+      if: always()
+      run: |
+        echo "🛑 Stopping PHP server..."
+        docker compose -f docker-compose.html.yml down
+    
+    - name: Trigger Static Deploy
       if: steps.check-changes.outputs.changes == 'true'
       uses: actions/github-script@v7
       with:
         script: |
-          console.log('🚀 Triggering HTML sync workflow after auto-sync...');
+          console.log('🚀 Triggering static deploy workflow...');
           try {
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: 'sync-html.yml',
-              ref: context.ref,
-              inputs: {
-                server_url: 'http://localhost:8080'
-              }
+              workflow_id: 'static-deploy.yml',
+              ref: context.ref
             });
-            console.log('✅ HTML sync workflow triggered successfully');
+            console.log('✅ Static deploy workflow triggered successfully');
           } catch (error) {
-            console.error('❌ Failed to trigger HTML sync workflow:', error);
+            console.error('❌ Failed to trigger static deploy workflow:', error);
             // Don't fail the entire workflow if trigger fails
           }
     
     - name: Log completion
       run: |
         if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
-          echo "✅ Files synced and committed successfully"
+          echo "✅ Main sync completed successfully:"
+          echo "  - Files synced from remote server to vega/"
+          echo "  - HTML generated from PHP files in html/"
+          echo "  - JSON generated from HTML files"
+          echo "  - Data upserted to database"
+          echo "  - Processed files moved from html/ to www/"
+          echo "  - Changes committed and pushed"
+          echo "  - Static deploy triggered"
         else
-          echo "ℹ️ No changes detected, skipping commit"
+          echo "ℹ️ No changes detected, skipping processing"
         fi

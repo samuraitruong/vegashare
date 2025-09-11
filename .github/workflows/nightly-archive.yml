@@ -1,0 +1,101 @@
+name: Nightly Archive
+
+on:
+  schedule:
+    # Run every day at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  archive-vega:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name "VegaShare Bot"
+        git config --global user.email "vegashare-bot@noreply.github.com"
+    
+    - name: Archive vega folders
+      run: |
+        echo "🌙 Starting nightly archive process..."
+        
+        # Create archive directory by year
+        ARCHIVE_YEAR=$(date -u +"%Y")
+        ARCHIVE_DIR="vega-archived/$ARCHIVE_YEAR"
+        mkdir -p "$ARCHIVE_DIR"
+        
+        echo "📁 Archive directory: $ARCHIVE_DIR"
+        
+        # Check if vega directory exists and has content
+        if [ -d "vega" ] && [ "$(ls -A vega 2>/dev/null)" ]; then
+          echo "📦 Archiving vega folders..."
+          
+          # Move all folders from vega/ to archive
+          for folder in vega/*; do
+            if [ -d "$folder" ]; then
+              FOLDER_NAME=$(basename "$folder")
+              echo "📁 Archiving: $FOLDER_NAME"
+              mv "$folder" "$ARCHIVE_DIR/"
+            fi
+          done
+          
+          # Keep .gitkeep file in vega directory
+          touch vega/.gitkeep
+          
+          echo "✅ Archived all vega folders to $ARCHIVE_DIR"
+        else
+          echo "ℹ️ No vega folders to archive"
+        fi
+        
+        # Clean up old archives (keep last 5 years)
+        echo "🧹 Cleaning up old archives..."
+        if [ -d "vega-archived" ]; then
+          CURRENT_YEAR=$(date -u +"%Y")
+          for year in $(seq $((CURRENT_YEAR - 5)) $((CURRENT_YEAR - 1))); do
+            if [ -d "vega-archived/$year" ]; then
+              echo "🗑️ Removing archive for year: $year"
+              rm -rf "vega-archived/$year"
+            fi
+          done
+          echo "✅ Cleaned up archives older than 5 years"
+        fi
+    
+    - name: Check for changes
+      id: check-changes
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push archive changes
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        git add vega/ vega-archived/
+        git commit -m "Nightly Archive: Archive vega folders
+        
+        - Archived all vega folders to vega-archived/$ARCHIVE_YEAR
+        - Cleaned up archives older than 5 years
+        - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        - Workflow: ${{ github.workflow }}
+        - Run ID: ${{ github.run_id }}"
+        git push origin main
+    
+    - name: Log completion
+      run: |
+        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+          echo "✅ Nightly archive completed successfully"
+          echo "📁 Archived to: vega-archived/$ARCHIVE_YEAR"
+        else
+          echo "ℹ️ No changes to archive"
+        fi
