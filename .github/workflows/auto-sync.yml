@@ -18,7 +18,6 @@ jobs:
     permissions:
       contents: write
       actions: write
-      workflows: write
       pull-requests: read
     
     steps:
