@@ -25,22 +25,7 @@ function getVegaPath() {
   return vegaPath;
 }
 
-/**
- * Gets the absolute path to the 'www' output folder at the project root.
- * @returns {string} The absolute path to the www folder.
- */
-function getWwwPath() {
-  // We want the www folder at the repository root
-  let wwwPath;
-  if (process.cwd().endsWith('/cli/vega-cli')) {
-    // Running from CLI directory
-    wwwPath = join(process.cwd(), '..', '..', 'www');
-  } else {
-    // Running from repository root
-    wwwPath = join(process.cwd(), 'www');
-  }
-  return wwwPath;
-}
+// HTML output is generated in-place under the source (vega) folders
 
 /**
  * Recursively finds all PHP files in a directory
@@ -172,11 +157,10 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
     console.log('🔄 Starting HTML sync process...');
     
     const vegaPath = getVegaPath();
-    const wwwPath = getWwwPath();
     
     if (verbose) {
       console.log(`📁 Reading PHP files from: ${vegaPath}`);
-      console.log(`📁 Output HTML files to: ${wwwPath}`);
+      console.log(`📁 Output HTML files to: (in-place under vega)`);
       console.log(`🌐 PHP server URL: ${serverUrl}`);
     }
     
@@ -250,69 +234,11 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
       console.log('ℹ️  No PHP files found in vega directory');
     }
     
-    // Step 2: Find all HTML files (including newly generated ones) and copy to destination
-    console.log('🔍 Step 2: Scanning for HTML files...');
-    const htmlFiles = await findHtmlFiles(vegaPath);
-    
-    if (htmlFiles.length === 0) {
-      console.log('ℹ️  No HTML files found in vega directory');
-      return [];
-    }
-    
-    console.log(`📄 Found ${htmlFiles.length} HTML files to copy`);
-    
-    let htmlSuccessCount = 0;
-    let htmlErrorCount = 0;
-    const htmlErrors = [];
-    const processedFolders = new Set(); // Track which folders were processed
-    
-    // Copy each HTML file to the destination
-    for (const file of htmlFiles) {
-      try {
-        if (verbose) {
-          console.log(`🔄 Copying HTML: ${file.relativePath}`);
-        }
-        
-        // Read the HTML file from source
-        const html = await readFile(file.fullPath, 'utf8');
-        
-        // Determine output path
-        const outputDir = join(wwwPath, dirname(file.relativePath));
-        const outputPath = join(outputDir, file.fileName);
-        
-        // Ensure output directory exists
-        await ensureDirectoryExists(outputDir);
-        
-        // Write HTML file to destination
-        await writeFile(outputPath, html, 'utf8');
-        
-        // Track the folder that was processed
-        const folderName = dirname(file.relativePath);
-        if (folderName && folderName !== '.') {
-          processedFolders.add(folderName);
-        } else {
-          // If file is in root, use the filename without extension as folder name
-          const rootFolderName = basename(file.fileName, '.html');
-          processedFolders.add(rootFolderName);
-        }
-        
-        if (verbose) {
-          console.log(`✅ Copied: ${outputPath}`);
-        }
-        
-        htmlSuccessCount++;
-      } catch (error) {
-        htmlErrorCount++;
-        const errorMsg = `Failed to copy HTML ${file.relativePath}: ${error.message}`;
-        htmlErrors.push(errorMsg);
-        console.error(`❌ ${errorMsg}`);
-      }
-    }
-    
-    // Combine counts and errors
-    const successCount = phpSuccessCount + htmlSuccessCount;
-    const errorCount = phpErrorCount + htmlErrorCount;
-    const errors = [...phpErrors, ...htmlErrors];
+    // Step 2 is no longer needed (we don't copy HTML to www). Build summary based on Step 1 only
+    const processedFolders = new Set();
+    const successCount = phpSuccessCount;
+    const errorCount = phpErrorCount;
+    const errors = [...phpErrors];
     
     // Summary
     console.log(`\n📊 HTML Sync Summary:`);
@@ -320,10 +246,7 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
     if (phpErrorCount > 0) {
       console.log(`❌ Step 1 - PHP conversion errors: ${phpErrorCount} files failed`);
     }
-    console.log(`📋 Step 2 - HTML file copying: ${htmlSuccessCount} files copied`);
-    if (htmlErrorCount > 0) {
-      console.log(`❌ Step 2 - HTML copying errors: ${htmlErrorCount} files failed`);
-    }
+    // No Step 2 summary (no HTML copying)
     
     if (errorCount > 0) {
       console.log(`\n❌ Total errors: ${errorCount} files`);
@@ -333,7 +256,7 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
       }
     }
     
-    console.log(`📁 HTML files written to: ${wwwPath}`);
+    console.log(`📁 HTML files written in-place under: ${vegaPath}`);
     
     // Convert Set to Array and log processed folders
     const folderList = Array.from(processedFolders);

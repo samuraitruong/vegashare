@@ -180,7 +180,7 @@ jobs:
         - Generated HTML from PHP files in html/
         - Generated JSON from HTML files
         - Upserted data to database
-        - Moved processed files from html/ to www/
+        - Wrote JSON artifacts to www/data/
         - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
         - Workflow: ${{ github.workflow }}
         - Run ID: ${{ github.run_id }}"
@@ -220,7 +220,7 @@ jobs:
           echo "  - HTML generated from PHP files in html/"
           echo "  - JSON generated from HTML files"
           echo "  - Data upserted to database"
-          echo "  - Processed files moved from html/ to www/"
+          echo "  - JSON artifacts written to www/data/"
           echo "  - Changes committed and pushed"
           echo "  - Static deploy triggered"
         else
