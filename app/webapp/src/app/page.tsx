@@ -218,7 +218,7 @@ export default function Home() {
                 statusClass = "bg-green-200 text-green-800";
               }
               // If completed, go to standings page; otherwise go to main tournament page
-              const linkUrl = status === "Completed" ? `/${slug}?page=standings.html` : `/${slug}`;
+              const linkUrl = status === "Completed" ? `/${slug}?page=standings` : `/${slug}`;
               return (
                 <Link
                   key={idx}

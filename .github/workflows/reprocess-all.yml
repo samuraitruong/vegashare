@@ -68,51 +68,32 @@ jobs:
       run: |
         echo "🔄 Starting reprocess of all tournament data..."
         
-        # Find all tournament folders in www directory
-        TOURNAMENT_FOLDERS=$(find www -maxdepth 1 -type d -name "www*" | sort)
+        # Use the new process-folder command to process all www* folders
+        vega-cli process-folder --input www --verbose
         
-        if [ -z "$TOURNAMENT_FOLDERS" ]; then
-          echo "ℹ️ No tournament folders found in www directory"
+        echo "🔄 Upserting all processed data to database..."
+        
+        # Find all generated JSON files and upsert them
+        JSON_FILES=$(find www -name "data_clean.json" | sort)
+        
+        if [ -z "$JSON_FILES" ]; then
+          echo "ℹ️ No JSON files found to upsert"
           exit 0
         fi
         
-        echo "📂 Found tournament folders to reprocess:"
-        echo "$TOURNAMENT_FOLDERS"
+        echo "📂 Found JSON files to upsert:"
+        echo "$JSON_FILES"
         
-        # Count total folders
-        TOTAL_FOLDERS=$(echo "$TOURNAMENT_FOLDERS" | wc -l)
-        echo "📊 Total tournaments to reprocess: $TOTAL_FOLDERS"
-        
-        # Process each tournament folder
-        CURRENT=0
-        echo "$TOURNAMENT_FOLDERS" | while read -r folder; do
-          if [ -n "$folder" ]; then
-            CURRENT=$((CURRENT + 1))
-            echo "🔄 Processing tournament $CURRENT/$TOTAL_FOLDERS: $folder"
-            
-            # Extract folder name without path
-            FOLDER_NAME=$(basename "$folder")
-            echo "📁 Processing: $FOLDER_NAME"
-            
-            # Generate JSON from HTML files
-            echo "📄 Generating JSON for $FOLDER_NAME..."
-            vega-cli html-to-json --input "$folder" --verbose
-            
-            # Upsert to database
-            JSON_FILE="$folder/data_clean.json"
-            if [ -f "$JSON_FILE" ]; then
-              echo "💾 Upserting to database: $JSON_FILE"
-              vega-cli upsert-db --file "$JSON_FILE" --verbose
-              echo "✅ Completed reprocessing: $FOLDER_NAME"
-            else
-              echo "⚠️ JSON file not found: $JSON_FILE"
-            fi
-            
-            echo "---"
+        # Upsert each JSON file
+        echo "$JSON_FILES" | while read -r jsonFile; do
+          if [ -n "$jsonFile" ]; then
+            echo "💾 Upserting to database: $jsonFile"
+            vega-cli upsert-db --file "$jsonFile" --verbose
+            echo "✅ Upserted: $jsonFile"
           fi
         done
         
-        echo "✅ All tournaments reprocessed successfully"
+        echo "✅ All tournaments reprocessed and upserted successfully"
     
     - name: Check for changes
       id: check-changes

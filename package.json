@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test-cli": "node server/vega-cli/index.js --inputPath samples/vega1",
-    "www:serve": "serve -s www -l 6666",
+    "www:serve": "http-server www -p 5555 --cors",
     "dev": "concurrently -k -n webapp,www \"pnpm -C app/webapp dev\" \"pnpm run www:serve\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:up": "docker-compose up --build",
@@ -13,11 +13,12 @@
     "link-all": "cd cli/vega-cli && npm link",
     "php:up": "docker-compose -f docker-compose.html.yml up -d",
     "php:down": "docker-compose -f docker-compose.html.yml down",
-    "sync-html": "vega-cli sync-html --verbose"
+    "sync-html": "vega-cli sync-html --verbose",
+    "process-all": "vega-cli process-folder --input www --verbose"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
-    "serve": "^14.2.4"
+    "http-server": "^14.1.1"
   },
   "keywords": [],
   "author": "",

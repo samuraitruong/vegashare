@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-10T12:24:37.520Z",
+  "generatedAt": "2025-09-11T04:47:07.802Z",
   "tournament": {
     "id": "2025-hobsons-bay-chess-club-best-in-the-west",
     "name": "2025 Hobsons Bay Chess Club Best in The West",
@@ -1331,7 +1331,7 @@
     }
   ],
   "pages": {
-    "crosstable.html": {
+    "crosstable": {
       "pageHeading": "Cross Table at round 5",
       "tables": [
         {
@@ -4743,7 +4743,7 @@
         }
       ]
     },
-    "crosstablescore.html": {
+    "crosstablescore": {
       "pageHeading": "Cross Table at round 5",
       "tables": [
         {
@@ -9011,7 +9011,7 @@
         }
       ]
     },
-    "felovar.html": {
+    "felovar": {
       "pageHeading": "FIDE rating variation at round 5",
       "tables": [
         {
@@ -10953,7 +10953,7 @@
         }
       ]
     },
-    "fideplayercard.html": {
+    "fideplayercard": {
       "pageHeading": "FIDE History Cards",
       "tables": [
         {
@@ -19783,15 +19783,15 @@
         }
       ]
     },
-    "game.html": {
+    "game": {
       "pageHeading": "",
       "tables": []
     },
-    "games.html": {
+    "games": {
       "pageHeading": "",
       "tables": []
     },
-    "nelovar.html": {
+    "nelovar": {
       "pageHeading": "National rating at round 5",
       "tables": [
         {
@@ -19826,11 +19826,11 @@
         }
       ]
     },
-    "pairing.html": {
+    "pairing": {
       "pageHeading": "",
       "tables": []
     },
-    "pairs1.html": {
+    "pairs1": {
       "pageHeading": "",
       "tables": [
         {
@@ -20543,7 +20543,7 @@
       ],
       "pairingScheduleText": "Pairing of round 1"
     },
-    "pairs2.html": {
+    "pairs2": {
       "pageHeading": "",
       "tables": [
         {
@@ -21244,7 +21244,7 @@
       ],
       "pairingScheduleText": "Pairing of round 2"
     },
-    "pairs3.html": {
+    "pairs3": {
       "pageHeading": "",
       "tables": [
         {
@@ -22041,7 +22041,7 @@
       ],
       "pairingScheduleText": "Pairing of round 3"
     },
-    "pairs4.html": {
+    "pairs4": {
       "pageHeading": "",
       "tables": [
         {
@@ -22742,7 +22742,7 @@
       ],
       "pairingScheduleText": "Pairing of round 4"
     },
-    "pairs5.html": {
+    "pairs5": {
       "pageHeading": "",
       "tables": [
         {
@@ -23455,7 +23455,7 @@
       ],
       "pairingScheduleText": "Pairing of round 5"
     },
-    "playercard.html": {
+    "playercard": {
       "pageHeading": "National History Cards",
       "tables": [
         {
@@ -34060,11 +34060,11 @@
         }
       ]
     },
-    "playersname.html": {
+    "playersname": {
       "pageHeading": "",
       "tables": []
     },
-    "rankTeams.html": {
+    "rankTeams": {
       "pageHeading": "Team ranking based on 4 best players of each team",
       "tables": [
         {
@@ -34771,7 +34771,7 @@
         }
       ]
     },
-    "rankcat.html": {
+    "rankcat": {
       "pageHeading": "Standings at round 5 sorted by category",
       "tables": [
         {
@@ -36972,11 +36972,11 @@
         }
       ]
     },
-    "rankingagegroup.html": {
+    "rankingagegroup": {
       "pageHeading": "Player Groups by date at round 5",
       "tables": []
     },
-    "rankinggroup.html": {
+    "rankinggroup": {
       "pageHeading": "Rated Player Groups at round 5",
       "tables": [
         {
@@ -38861,7 +38861,7 @@
         }
       ]
     },
-    "schedule.html": {
+    "schedule": {
       "pageHeading": "Schedule",
       "tables": [
         {
@@ -38884,7 +38884,7 @@
         }
       ]
     },
-    "standings.html": {
+    "standings": {
       "pageHeading": "Standings at round 5 (last round)",
       "tables": [
         {
@@ -39882,7 +39882,7 @@
         }
       ]
     },
-    "standings2.html": {
+    "standings2": {
       "pageHeading": "",
       "tables": [
         {
@@ -41846,7 +41846,7 @@
         }
       ]
     },
-    "summaryFederations.html": {
+    "summaryFederations": {
       "pageHeading": "Summary by Federations",
       "tables": [
         {
@@ -46129,7 +46129,7 @@
         }
       ]
     },
-    "summaryOrigin.html": {
+    "summaryOrigin": {
       "pageHeading": "Summary by Origin",
       "tables": [
         {
@@ -49489,7 +49489,7 @@
         }
       ]
     },
-    "tourstat.html": {
+    "tourstat": {
       "pageHeading": "Tournament summary",
       "tables": [
         {
@@ -49637,29 +49637,29 @@
       "children": [
         {
           "text": "Schedule",
-          "href": "schedule.php"
+          "href": "schedule"
         },
         {
           "text": "Statistics",
-          "href": "tourstat.php"
+          "href": "tourstat"
         }
       ]
     },
     {
       "text": "Players",
-      "href": "index.php",
+      "href": "index",
       "isDropdown": true,
       "children": []
     },
     {
       "text": "Pairings",
-      "href": "pairs5.php",
+      "href": "pairs5",
       "isDropdown": false,
       "children": []
     },
     {
       "text": "Standings",
-      "href": "standings.php",
+      "href": "standings",
       "isDropdown": false,
       "children": []
     },
@@ -49670,41 +49670,41 @@
       "children": [
         {
           "text": "Cross table",
-          "href": "crosstable.php"
+          "href": "crosstable"
         },
         {
           "text": "Cross table and standings",
-          "href": "crosstablescore.php"
+          "href": "crosstablescore"
         },
         {
           "text": "Standings by Rtg groups",
-          "href": "rankinggroup.php"
+          "href": "rankinggroup"
         },
         {
           "text": "Standings by age groups",
-          "href": "rankingagegroup.php"
+          "href": "rankingagegroup"
         },
         {
           "text": "Standings by title",
-          "href": "rankcat.php"
+          "href": "rankcat"
         },
         {
           "text": "Rank Teams",
-          "href": "rankTeams.php"
+          "href": "rankTeams"
         },
         {
           "text": "Summary Federations",
-          "href": "summaryFederations.php"
+          "href": "summaryFederations"
         },
         {
           "text": "Summary Origin",
-          "href": "summaryOrigin.php"
+          "href": "summaryOrigin"
         }
       ]
     },
     {
       "text": "Games",
-      "href": "games.php",
+      "href": "games",
       "isDropdown": false,
       "children": []
     },
@@ -49715,22 +49715,22 @@
       "children": [
         {
           "text": "FIDE Rating",
-          "href": "felovar.php"
+          "href": "felovar"
         },
         {
           "text": "FIDE Player Card",
-          "href": "fideplayercard.php"
+          "href": "fideplayercard"
         },
         {
           "text": "National rating",
-          "href": "nelovar.php"
+          "href": "nelovar"
         },
         {
           "text": "National Player Card",
-          "href": "playercard.php"
+          "href": "playercard"
         }
       ]
     }
   ],
-  "md5Hash": "6da32135983dbccad05217ea22670beb"
+  "md5Hash": "f5d3baea7f391f7af111a16a67676be6"
 }

@@ -534,13 +534,17 @@ async function extractMenuStructure(indexHtmlPath) {
     let children = [];
     if (isDropdown) {
       $li.find('ul.dropdown-menu > li > a').each((j, a) => {
+        const childHref = $(a).attr('href') || null;
+        const cleanChildHref = childHref ? childHref.replace(/\.(html|php)$/, '') : childHref;
         children.push({
           text: $(a).text().trim(),
-          href: $(a).attr('href') || null
+          href: cleanChildHref
         });
       });
     }
-    menu.push({ text, href, isDropdown, children });
+    // Remove file extension from href (e.g., 'standings.html' -> 'standings')
+    const cleanHref = href ? href.replace(/\.(html|php)$/, '') : href;
+    menu.push({ text, href: cleanHref, isDropdown, children });
   });
   return menu;
 }
@@ -597,8 +601,8 @@ async function extractMinimalMetadataFromIndex(indexHtmlPath) {
 function buildPlayerLookup(pageData, folderName) {
   const playerMap = new Map(); // Key: player number (#), Value: enriched player data
   
-  // Step 1: Collect basic player data from index.html or standings.html
-  const indexData = pageData['index.html'] || pageData['standings.html'];
+  // Step 1: Collect basic player data from index or standings
+  const indexData = pageData['index'] || pageData['standings'];
   if (indexData?.tables && indexData.tables.length > 0) {
     const playerTable = indexData.tables[0];
     if (playerTable.rows) {
@@ -622,7 +626,7 @@ function buildPlayerLookup(pageData, folderName) {
           playerName = playerObj.playerName || '';
           playerId = playerObj.id || String(playerNumber);
           gender = playerObj.gender || '';
-          href = playerObj.href || `playercard.html#${playerNumber}`;
+          href = playerObj.href || `playercard#${playerNumber}`;
         }
         
         if (playerNumber && playerName) {
@@ -643,8 +647,8 @@ function buildPlayerLookup(pageData, folderName) {
     }
   }
   
-  // Step 2: Enrich with FIDE data from felovar.html
-  const felovarData = pageData['felovar.html'];
+  // Step 2: Enrich with FIDE data from felovar
+  const felovarData = pageData['felovar'];
   if (felovarData?.tables && felovarData.tables.length > 0) {
     const felovarTable = felovarData.tables[0];
     if (felovarTable.rows) {
@@ -680,7 +684,7 @@ function buildPlayerLookup(pageData, folderName) {
               rating: fideRating || '',
               gender: playerData.gender || '',
               fideId: String(fideId),
-              href: `playercard.html#${playerNumber}`,
+              href: `playercard#${playerNumber}`,
               moreInfo: {
                 fideId: String(fideId),
                 fideRating: fideRating ? String(fideRating) : '',
@@ -696,7 +700,7 @@ function buildPlayerLookup(pageData, folderName) {
   
   // Step 3: Collect additional player data from pairing tables
   Object.keys(pageData).forEach(fileName => {
-    if (fileName !== 'index.html' && fileName !== 'felovar.html') {
+    if (fileName !== 'index' && fileName !== 'felovar') {
       const pageTables = pageData[fileName]?.tables;
       if (pageTables) {
         pageTables.forEach(table => {
@@ -732,7 +736,7 @@ function buildPlayerLookup(pageData, folderName) {
                       rating: '',
                       gender: value.gender || '',
                       fideId: '',
-                      href: value.href || `playercard.html#${playerId}`,
+                      href: value.href || `playercard#${playerId}`,
                       moreInfo: value.moreInfo || {}
                     };
                     playerMap.set(playerId, newPlayer);
@@ -807,7 +811,7 @@ function transformToNormalizedData(pageData, playerLookup, metadata, menu, categ
     fideRating: player.moreInfo?.fideRating ? parseInt(player.moreInfo.fideRating) : null,
     fideFederation: player.moreInfo?.fideFederation || '',
     gender: player.gender || 'notitle',
-    href: player.href || `playercard.html#${player.id}`,
+    href: player.href || `playercard#${player.id}`,
     origin: player.moreInfo?.origin || ''
   }));
 
@@ -989,9 +993,11 @@ async function processFolder(folderPath, verbose = false) {
     const filePath = join(folderPath, file);
     try {
       const pageData = await processHtmlFile(filePath);
-      result.page[file] = pageData;
+      // Remove file extension from key (e.g., 'index.html' -> 'index')
+      const key = file.replace(/\.(html|php)$/, '');
+      result.page[key] = pageData;
       if (verbose) {
-        console.log(`   ✅ Processed: ${file}`);
+        console.log(`   ✅ Processed: ${file} -> ${key}`);
       }
     } catch (err) {
       console.error(`   ❌ Error processing ${file}:`, err.message);
@@ -1055,7 +1061,7 @@ async function processFolder(folderPath, verbose = false) {
   
   // Categorize tournament as Senior or Junior
   let category = 'Junior';
-  const players = result.page['index.html']?.tables?.[0]?.rows || result.page['standings.html']?.tables?.[0]?.rows;
+  const players = result.page['index']?.tables?.[0]?.rows || result.page['standings']?.tables?.[0]?.rows;
   if (players) {
     for (const player of players) {
       if (IsSeniorPlayer(player.Player) || IsSeniorPlayer(player.Player?.playerName)) {

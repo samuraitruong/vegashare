@@ -48,8 +48,11 @@ try {
             continue;
         }
         
-        // Only process .php files
-        if (strtolower(pathinfo($fileName, PATHINFO_EXTENSION)) !== 'php') {
+        // Process all file types (removed PHP-only restriction)
+        // Skip certain file types that shouldn't be synced
+        $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        $skipExtensions = ['tmp', 'log', 'bak', 'swp', '~'];
+        if (in_array($extension, $skipExtensions)) {
             continue;
         }
         
@@ -93,7 +96,8 @@ try {
         'files' => $results,
         'filters' => [
             'exclude_index_php' => true,
-            'only_php_files' => true,
+            'all_file_types' => true,
+            'exclude_temp_files' => true,
             'only_www_folders' => true
         ]
     ];
