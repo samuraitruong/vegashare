@@ -79,7 +79,7 @@ export default function TournamentClient({ params }: { params: Promise<{ tournam
     useEffect(() => {
         const folderParam = String(resolvedParams.tournament || '').replace(/^\//, '');
         const fileKey = `www${folderParam}`;
-        const url = `${process.env.NEXT_PUBLIC_APP_URL}/data/${fileKey}.json?ts=${Date.now()}`;
+        const url = `${process.env.NEXT_PUBLIC_APP_URL||""}/data/${fileKey}.json?ts=${Date.now()}`;
         fetch(url)
             .then((res) => res.json())
             .then((json) => setData(json));
