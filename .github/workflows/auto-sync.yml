@@ -43,7 +43,7 @@ jobs:
     
     - name: Run auto sync
       env:
-        SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '18000' }}
+        SYNC_TIMEOUT_SECONDS: ${{ vars.SYNC_TIMEOUT_SECONDS || '300' }}
       run: |
         # Use the globally linked vega-cli command
         echo "🔄 Starting auto sync with timeout: ${SYNC_TIMEOUT_SECONDS} seconds"
@@ -133,13 +133,21 @@ jobs:
       with:
         script: |
           console.log('🚀 Triggering HTML sync workflow after auto-sync...');
-          await github.rest.actions.createWorkflowDispatch({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            workflow_id: 'sync-html.yml',
-            ref: context.ref
-          });
-          console.log('✅ HTML sync workflow triggered successfully');
+          try {
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'sync-html.yml',
+              ref: context.ref,
+              inputs: {
+                server_url: 'http://localhost:8080'
+              }
+            });
+            console.log('✅ HTML sync workflow triggered successfully');
+          } catch (error) {
+            console.error('❌ Failed to trigger HTML sync workflow:', error);
+            // Don't fail the entire workflow if trigger fails
+          }
     
     - name: Log completion
       run: |
