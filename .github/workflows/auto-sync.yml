@@ -111,13 +111,13 @@ jobs:
           sleep 2
         done
     
-    - name: Process vega folders
+    - name: Process vega folders (generate HTML in-place under vega and JSON to www/data)
       if: steps.check-changes.outputs.changes == 'true'
       run: |
         echo "🔄 Processing vega folders for HTML generation and DB upsert..."
         
-        # Create processing directory
-        mkdir -p html
+        # Ensure output data directory exists
+        mkdir -p www/data
         
         # Find all folders starting with 'www' in vega directory
         VEGA_FOLDERS=$(find vega -maxdepth 1 -type d -name "www*" | sort)
@@ -139,62 +139,36 @@ jobs:
             FOLDER_NAME=$(basename "$folder")
             echo "📁 Processing: $FOLDER_NAME"
             
-            # Generate HTML from PHP files to html/
-            echo "🌐 Generating HTML for $FOLDER_NAME to html/..."
-            vega-cli sync-html --server "http://localhost:8080" --folder "$FOLDER_NAME" --output "html" --verbose
+            # Generate HTML from PHP files in-place under vega/$FOLDER_NAME
+            echo "🌐 Generating HTML for $FOLDER_NAME in-place under vega/$FOLDER_NAME..."
+            vega-cli sync-html --server "http://localhost:8080" --folder "$FOLDER_NAME" --output "vega" --verbose
             
-            # Generate JSON from HTML files in html/
-            if [ -d "html/$FOLDER_NAME" ]; then
+            # Generate JSON from HTML files in vega/$FOLDER_NAME
+            if [ -d "vega/$FOLDER_NAME" ]; then
               echo "📄 Generating JSON for $FOLDER_NAME..."
-              vega-cli html-to-json --input "html/$FOLDER_NAME" --verbose
+              vega-cli html-to-json --input "vega/$FOLDER_NAME" --verbose
               
               # Upsert to database
-              JSON_FILE="html/$FOLDER_NAME/data_clean.json"
+              JSON_FILE="vega/$FOLDER_NAME/data_clean.json"
               if [ -f "$JSON_FILE" ]; then
                 echo "💾 Upserting to database: $JSON_FILE"
                 vega-cli upsert-db --file "$JSON_FILE" --verbose
-                echo "✅ Completed processing: $FOLDER_NAME"
+                
+                # Copy JSON artifact to www/data/<folder>.json
+                DEST_JSON="www/data/${FOLDER_NAME}.json"
+                echo "📦 Writing JSON artifact to $DEST_JSON"
+                cp "$JSON_FILE" "$DEST_JSON"
+                echo "✅ Completed processing: $FOLDER_NAME (JSON at $DEST_JSON)"
               else
                 echo "⚠️ JSON file not found: $JSON_FILE"
               fi
             else
-              echo "⚠️ HTML folder not found: html/$FOLDER_NAME"
+              echo "⚠️ Source folder not found: vega/$FOLDER_NAME"
             fi
           fi
         done
         
         echo "✅ All vega folders processed"
-    
-    - name: Move processed files to www
-      if: steps.check-changes.outputs.changes == 'true'
-      run: |
-        echo "📦 Moving processed files from html/ to www/..."
-        
-        if [ -d "html" ] && [ "$(ls -A html 2>/dev/null)" ]; then
-          # Move all processed folders from html/ to www/
-          for folder in html/*; do
-            if [ -d "$folder" ]; then
-              FOLDER_NAME=$(basename "$folder")
-              echo "📁 Moving $FOLDER_NAME to www/"
-              
-              # Remove existing folder in www/ if it exists
-              if [ -d "www/$FOLDER_NAME" ]; then
-                echo "🗑️ Removing existing www/$FOLDER_NAME"
-                rm -rf "www/$FOLDER_NAME"
-              fi
-              
-              # Move the processed folder
-              mv "$folder" "www/"
-              echo "✅ Moved $FOLDER_NAME to www/"
-            fi
-          done
-          
-          # Clean up empty html directory
-          rmdir html 2>/dev/null || true
-          echo "✅ All processed files moved to www/"
-        else
-          echo "ℹ️ No processed files to move"
-        fi
     
     
     - name: Commit and push changes
