@@ -1,0 +1,160 @@
+name: Reprocess All Tournament Data
+
+on:
+  workflow_dispatch: # Manual trigger only
+    inputs:
+      confirm_reprocess:
+        description: 'Type "REPROCESS" to confirm reprocessing all tournament data'
+        required: true
+        type: string
+
+jobs:
+  reprocess-all:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: 'pnpm'
+    
+    - name: Install dependencies and link CLI
+      run: |
+        pnpm install
+        pnpm run link-all
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name "VegaShare Bot"
+        git config --global user.email "vegashare-bot@noreply.github.com"
+    
+    - name: Validate confirmation
+      run: |
+        if [ "${{ github.event.inputs.confirm_reprocess }}" != "REPROCESS" ]; then
+          echo "❌ Invalid confirmation. Please type 'REPROCESS' to confirm."
+          exit 1
+        fi
+        echo "✅ Confirmation validated. Starting reprocess of all tournament data..."
+    
+    - name: Check for www directory
+      run: |
+        echo "🔍 Checking for www directory..."
+        if [ -d "www" ]; then
+          echo "✅ www directory found"
+          echo "📁 Contents: $(ls -la www/ | head -10)"
+        else
+          echo "❌ www directory not found - nothing to reprocess"
+          exit 1
+        fi
+    
+    - name: Reprocess all tournaments
+      env:
+        TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+        TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+      run: |
+        echo "🔄 Starting reprocess of all tournament data..."
+        
+        # Find all tournament folders in www directory
+        TOURNAMENT_FOLDERS=$(find www -maxdepth 1 -type d -name "www*" | sort)
+        
+        if [ -z "$TOURNAMENT_FOLDERS" ]; then
+          echo "ℹ️ No tournament folders found in www directory"
+          exit 0
+        fi
+        
+        echo "📂 Found tournament folders to reprocess:"
+        echo "$TOURNAMENT_FOLDERS"
+        
+        # Count total folders
+        TOTAL_FOLDERS=$(echo "$TOURNAMENT_FOLDERS" | wc -l)
+        echo "📊 Total tournaments to reprocess: $TOTAL_FOLDERS"
+        
+        # Process each tournament folder
+        CURRENT=0
+        echo "$TOURNAMENT_FOLDERS" | while read -r folder; do
+          if [ -n "$folder" ]; then
+            CURRENT=$((CURRENT + 1))
+            echo "🔄 Processing tournament $CURRENT/$TOTAL_FOLDERS: $folder"
+            
+            # Extract folder name without path
+            FOLDER_NAME=$(basename "$folder")
+            echo "📁 Processing: $FOLDER_NAME"
+            
+            # Generate JSON from HTML files
+            echo "📄 Generating JSON for $FOLDER_NAME..."
+            vega-cli html-to-json --input "$folder" --verbose
+            
+            # Upsert to database
+            JSON_FILE="$folder/data_clean.json"
+            if [ -f "$JSON_FILE" ]; then
+              echo "💾 Upserting to database: $JSON_FILE"
+              vega-cli upsert-db --file "$JSON_FILE" --verbose
+              echo "✅ Completed reprocessing: $FOLDER_NAME"
+            else
+              echo "⚠️ JSON file not found: $JSON_FILE"
+            fi
+            
+            echo "---"
+          fi
+        done
+        
+        echo "✅ All tournaments reprocessed successfully"
+    
+    - name: Check for changes
+      id: check-changes
+      run: |
+        echo "🔍 Checking for git changes..."
+        
+        # Show detailed git status
+        echo "📊 Full git status:"
+        git status --porcelain || echo "❌ Git status failed"
+        
+        # Check if there are any changes
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "✅ Changes detected"
+          echo "changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "ℹ️ No changes detected"
+          echo "changes=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push changes
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        git add www/
+        git commit -m "Reprocess All: Regenerate JSON and upsert all tournament data
+        
+        - Reprocessed all tournament folders in www/
+        - Regenerated JSON data from HTML files
+        - Upserted all tournament data to database
+        - Manual reprocess triggered by user
+        - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        - Workflow: ${{ github.workflow }}
+        - Run ID: ${{ github.run_id }}"
+        git push origin main
+    
+    - name: Log completion
+      run: |
+        if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+          echo "✅ Reprocess completed successfully:"
+          echo "  - All tournament folders in www/ reprocessed"
+          echo "  - JSON data regenerated from HTML files"
+          echo "  - All tournament data upserted to database"
+          echo "  - Changes committed and pushed"
+        else
+          echo "ℹ️ No changes detected during reprocess"
+        fi
