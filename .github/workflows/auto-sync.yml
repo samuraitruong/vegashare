@@ -51,16 +51,21 @@ jobs:
         echo "📂 Repository root contents:"
         ls -la || echo "❌ Cannot list directory"
         
-        vega-cli check-update --extract --output ./vega --url "https://vegaftp.free.nf/?i=1&seconds=${SYNC_TIMEOUT_SECONDS}"
+        # Ensure we're in the repository root and use absolute path
+        REPO_ROOT=$(pwd)
+        VEGA_OUTPUT_PATH="${REPO_ROOT}/vega"
+        echo "🎯 Using absolute path for vega output: ${VEGA_OUTPUT_PATH}"
+        
+        vega-cli check-update --extract --output "${VEGA_OUTPUT_PATH}" --url "https://vegaftp.free.nf/?i=1&seconds=${SYNC_TIMEOUT_SECONDS}"
         
         # Debug: Check where vega folder was created
         echo "📍 After extraction - Current working directory: $(pwd)"
         echo "📁 Contents of current directory:"
         ls -la || echo "❌ Cannot list directory"
         
-        # Debug: List extracted files
-        echo "📁 Contents of ./vega directory:"
-        ls -la ./vega/ || echo "❌ ./vega directory not found"
+        # Debug: List extracted files using absolute path
+        echo "📁 Contents of vega directory (${VEGA_OUTPUT_PATH}):"
+        ls -la "${VEGA_OUTPUT_PATH}/" || echo "❌ vega directory not found at ${VEGA_OUTPUT_PATH}"
         
         # Debug: Check if vega folder exists in different locations
         echo "🔍 Searching for vega folder in repository:"
@@ -73,11 +78,12 @@ jobs:
         
         # Debug: Show absolute path of vega folder
         echo "📍 Absolute path of vega folder:"
-        realpath ./vega 2>/dev/null || echo "❌ Cannot resolve vega path"
+        echo "${VEGA_OUTPUT_PATH}"
+        realpath "${VEGA_OUTPUT_PATH}" 2>/dev/null || echo "❌ Cannot resolve vega path"
         
         # Debug: Check if files exist in expected locations
-        echo "🔍 Checking for specific files:"
-        find ./vega -name "*.veg" -o -name "*.ini" -o -name "*.pgn" | head -10 || echo "❌ No .veg/.ini/.pgn files found"
+        echo "🔍 Checking for specific files in vega directory:"
+        find "${VEGA_OUTPUT_PATH}" -name "*.veg" -o -name "*.ini" -o -name "*.pgn" | head -10 || echo "❌ No .veg/.ini/.pgn files found"
         
         # Debug: Show git status before any operations
         echo "📊 Git status before processing:"
