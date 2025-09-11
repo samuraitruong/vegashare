@@ -78,6 +78,41 @@ async function findPhpFiles(dir, basePath = '') {
 }
 
 /**
+ * Recursively finds all HTML files in a directory
+ * @param {string} dir - Directory to search
+ * @param {string} basePath - Base path for relative paths
+ * @returns {Promise<Array>} Array of HTML file paths
+ */
+async function findHtmlFiles(dir, basePath = '') {
+  const files = [];
+  
+  try {
+    const entries = await readdir(dir, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      const fullPath = join(dir, entry.name);
+      const relativePath = join(basePath, entry.name);
+      
+      if (entry.isDirectory()) {
+        // Recursively search subdirectories
+        const subFiles = await findHtmlFiles(fullPath, relativePath);
+        files.push(...subFiles);
+      } else if (entry.isFile() && extname(entry.name).toLowerCase() === '.html') {
+        files.push({
+          fullPath,
+          relativePath: relativePath.replace(/\\/g, '/'), // Normalize path separators
+          fileName: entry.name
+        });
+      }
+    }
+  } catch (error) {
+    console.warn(`Warning: Could not read directory ${dir}:`, error.message);
+  }
+  
+  return files;
+}
+
+/**
  * Makes an HTTP request to convert PHP to HTML
  * @param {string} url - The URL to request
  * @param {number} timeout - Request timeout in milliseconds
@@ -170,44 +205,85 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
       throw new Error(`Vega directory not found: ${vegaPath}. Please ensure the auto-sync workflow has run first to create the vega directory.`);
     }
     
-    // Find all PHP files
-    console.log('🔍 Scanning for PHP files...');
+    // Step 1: Find all PHP files and generate HTML files in the same source folder
+    console.log('🔍 Step 1: Scanning for PHP files...');
     const phpFiles = await findPhpFiles(vegaPath);
     
-    if (phpFiles.length === 0) {
+    let phpSuccessCount = 0;
+    let phpErrorCount = 0;
+    const phpErrors = [];
+    
+    if (phpFiles.length > 0) {
+      console.log(`📄 Found ${phpFiles.length} PHP files to convert to HTML`);
+      
+      // Process each PHP file and generate HTML in the same source folder
+      for (const file of phpFiles) {
+        try {
+          if (verbose) {
+            console.log(`🔄 Converting PHP to HTML: ${file.relativePath}`);
+          }
+          
+          // Construct the URL for this PHP file
+          const url = `${serverUrl}/${file.relativePath}`;
+          
+          // Request the HTML from the PHP server
+          const html = await requestHtml(url);
+          
+          // Write HTML file in the same source folder (overwrites existing HTML if any)
+          const htmlFileName = file.fileName.replace(/\.php$/i, '.html');
+          const htmlOutputPath = join(dirname(file.fullPath), htmlFileName);
+          await writeFile(htmlOutputPath, html, 'utf8');
+          
+          if (verbose) {
+            console.log(`✅ Generated HTML in source: ${htmlOutputPath}`);
+          }
+          
+          phpSuccessCount++;
+        } catch (error) {
+          phpErrorCount++;
+          const errorMsg = `Failed to convert PHP ${file.relativePath}: ${error.message}`;
+          phpErrors.push(errorMsg);
+          console.error(`❌ ${errorMsg}`);
+        }
+      }
+    } else {
       console.log('ℹ️  No PHP files found in vega directory');
+    }
+    
+    // Step 2: Find all HTML files (including newly generated ones) and copy to destination
+    console.log('🔍 Step 2: Scanning for HTML files...');
+    const htmlFiles = await findHtmlFiles(vegaPath);
+    
+    if (htmlFiles.length === 0) {
+      console.log('ℹ️  No HTML files found in vega directory');
       return [];
     }
     
-    console.log(`📄 Found ${phpFiles.length} PHP files to process`);
+    console.log(`📄 Found ${htmlFiles.length} HTML files to copy`);
     
-    let successCount = 0;
-    let errorCount = 0;
-    const errors = [];
+    let htmlSuccessCount = 0;
+    let htmlErrorCount = 0;
+    const htmlErrors = [];
     const processedFolders = new Set(); // Track which folders were processed
     
-    // Process each PHP file
-    for (const file of phpFiles) {
+    // Copy each HTML file to the destination
+    for (const file of htmlFiles) {
       try {
         if (verbose) {
-          console.log(`🔄 Processing: ${file.relativePath}`);
+          console.log(`🔄 Copying HTML: ${file.relativePath}`);
         }
         
-        // Construct the URL for this PHP file
-        const url = `${serverUrl}/${file.relativePath}`;
+        // Read the HTML file from source
+        const html = await readFile(file.fullPath, 'utf8');
         
-        // Request the HTML from the PHP server
-        const html = await requestHtml(url);
-        
-        // Determine output path (replace .php with .html)
-        const htmlFileName = file.fileName.replace(/\.php$/i, '.html');
+        // Determine output path
         const outputDir = join(wwwPath, dirname(file.relativePath));
-        const outputPath = join(outputDir, htmlFileName);
+        const outputPath = join(outputDir, file.fileName);
         
         // Ensure output directory exists
         await ensureDirectoryExists(outputDir);
         
-        // Write HTML file
+        // Write HTML file to destination
         await writeFile(outputPath, html, 'utf8');
         
         // Track the folder that was processed
@@ -216,33 +292,41 @@ export async function syncHtml(serverUrl = 'http://localhost:8080', verbose = fa
           processedFolders.add(folderName);
         } else {
           // If file is in root, use the filename without extension as folder name
-          const rootFolderName = basename(file.fileName, '.php');
+          const rootFolderName = basename(file.fileName, '.html');
           processedFolders.add(rootFolderName);
         }
         
         if (verbose) {
-          console.log(`✅ Generated: ${outputPath}`);
+          console.log(`✅ Copied: ${outputPath}`);
         }
         
-        successCount++;
-        
+        htmlSuccessCount++;
       } catch (error) {
-        errorCount++;
-        const errorMsg = `Failed to process ${file.relativePath}: ${error.message}`;
-        errors.push(errorMsg);
-        
-        if (verbose) {
-          console.error(`❌ ${errorMsg}`);
-        }
+        htmlErrorCount++;
+        const errorMsg = `Failed to copy HTML ${file.relativePath}: ${error.message}`;
+        htmlErrors.push(errorMsg);
+        console.error(`❌ ${errorMsg}`);
       }
     }
     
+    // Combine counts and errors
+    const successCount = phpSuccessCount + htmlSuccessCount;
+    const errorCount = phpErrorCount + htmlErrorCount;
+    const errors = [...phpErrors, ...htmlErrors];
+    
     // Summary
     console.log(`\n📊 HTML Sync Summary:`);
-    console.log(`✅ Successfully processed: ${successCount} files`);
+    console.log(`🔄 Step 1 - PHP to HTML conversion: ${phpSuccessCount} files converted`);
+    if (phpErrorCount > 0) {
+      console.log(`❌ Step 1 - PHP conversion errors: ${phpErrorCount} files failed`);
+    }
+    console.log(`📋 Step 2 - HTML file copying: ${htmlSuccessCount} files copied`);
+    if (htmlErrorCount > 0) {
+      console.log(`❌ Step 2 - HTML copying errors: ${htmlErrorCount} files failed`);
+    }
     
     if (errorCount > 0) {
-      console.log(`❌ Failed to process: ${errorCount} files`);
+      console.log(`\n❌ Total errors: ${errorCount} files`);
       if (verbose) {
         console.log('\nError details:');
         errors.forEach(error => console.log(`  - ${error}`));
